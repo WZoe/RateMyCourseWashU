@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,122 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="log in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nb-o8-itZ">
+                                <rect key="frame" x="182" y="347" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="96"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="BDr-uT-dbx">
+            <objects>
+                <viewController id="OyD-4w-4vE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fqQ-Hh-GZN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3RD-6b-Jf9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" selectedImage="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VB1-wl-5Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="793.52678571428567"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cmz-MC-IVO">
+            <objects>
+                <viewController id="sj7-ls-HoR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l8o-tZ-xm0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkm-6w-pTF">
+                                <rect key="frame" x="163" y="351" width="56" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cSW-Kb-dtU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0am-Zj-jL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="96"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Nh2-9s-d5k">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Unv-tF-f6u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FOx-oW-gje">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OyD-4w-4vE" kind="relationship" relationship="viewControllers" id="z5B-yp-BjM"/>
+                        <segue destination="fSA-yc-bPj" kind="relationship" relationship="viewControllers" id="UeB-5M-vCr"/>
+                        <segue destination="0fn-5n-M4G" kind="relationship" relationship="viewControllers" id="3Hs-sR-hur"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5c-qn-J9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="793.52678571428567"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="dvd-I3-JR6">
+            <objects>
+                <viewController id="0fn-5n-M4G" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jow-ug-qUq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Nn8-dC-Iv2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" selectedImage="user" id="VFe-00-4cJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVs-7M-a4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="2146"/>
+        </scene>
+        <!--Course-->
+        <scene sceneID="8SC-hQ-SxO">
+            <objects>
+                <viewController id="fSA-yc-bPj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QvY-5J-4Ba">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zE9-we-u11"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Course" selectedImage="magnifying-glass" id="EY4-Md-U0y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9x-4Z-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="1461"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="comment-black-oval-bubble-shape" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="magnifying-glass" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="user" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>
