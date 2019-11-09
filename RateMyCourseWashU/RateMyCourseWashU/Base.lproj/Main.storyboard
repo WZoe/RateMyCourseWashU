@@ -25,6 +25,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-fA-tZo">
+                                <rect key="frame" x="159" y="85" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="goto tabs"/>
+                                <connections>
+                                    <segue destination="Unv-tF-f6u" kind="show" id="01t-bf-VFg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -44,7 +52,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3RD-6b-Jf9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" selectedImage="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VB1-wl-5Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +112,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Nn8-dC-Iv2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" selectedImage="user" id="VFe-00-4cJ"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="user" id="VFe-00-4cJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVs-7M-a4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,11 +128,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zE9-we-u11"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Course" selectedImage="magnifying-glass" id="EY4-Md-U0y"/>
+                    <tabBarItem key="tabBarItem" title="Course" image="magnifying-glass" id="EY4-Md-U0y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9x-4Z-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="1620"/>
+            <point key="canvasLocation" x="1048" y="1477"/>
         </scene>
     </scenes>
     <resources>
