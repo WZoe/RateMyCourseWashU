@@ -12,6 +12,13 @@ func login(userName: String!, password: String!) ->Bool{
     return true
 }
 
+func signup(userName: String!, password: String!)->String{
+    
+    //return "Sign up successfully" if given valid userName and password
+    //return "Please try another userName" if the userName has been registered
+    //return "Please enter a valid password" if the password is too simple (please set some rules for password)
+}
+
 func fetchCourseList(order: Int) -> [Course] {
     //sortBy: 0 - any order, 1: by rating high to low, 2: by department
     // by department可以先不实现，没想好怎么弄

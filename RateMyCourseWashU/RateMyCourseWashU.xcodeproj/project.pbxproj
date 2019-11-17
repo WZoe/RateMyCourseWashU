@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2FEF623773A9F00EA60BE /* Interface.swift */; };
+		ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD861112381AED1002089CD /* SignUpViewController.swift */; };
 		E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */; };
 		E61D53F423812C9400E24A6C /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F323812C9400E24A6C /* Structs.swift */; };
 		E61D53F823812F4900E24A6C /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F723812F4900E24A6C /* CourseCell.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		ACB2FEF623773A9F00EA60BE /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		ACD861112381AED1002089CD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionsTab.swift; sourceTree = "<group>"; };
 		E61D53F323812C9400E24A6C /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		E61D53F723812F4900E24A6C /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		E694E2F123772DE00019E55A /* RateMyCourseWashU */ = {
 			isa = PBXGroup;
 			children = (
+				ACD861112381AED1002089CD /* SignUpViewController.swift */,
 				E694E2F223772DE00019E55A /* AppDelegate.swift */,
 				E694E2F423772DE00019E55A /* ViewController.swift */,
 				E694E2F623772DE00019E55A /* Main.storyboard */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D53F823812F4900E24A6C /* CourseCell.swift in Sources */,
+				ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */,
 				E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */,
 				E694E2F523772DE00019E55A /* ViewController.swift in Sources */,
 				E61D53F423812C9400E24A6C /* Structs.swift in Sources */,
