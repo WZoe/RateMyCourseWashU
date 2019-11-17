@@ -91,10 +91,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="OyD-4w-4vE" kind="relationship" relationship="viewControllers" id="z5B-yp-BjM"/>
-                        <segue destination="fSA-yc-bPj" kind="relationship" relationship="viewControllers" id="UeB-5M-vCr"/>
+                        <segue destination="3up-lE-Y6i" kind="relationship" relationship="viewControllers" id="UeB-5M-vCr"/>
                         <segue destination="0fn-5n-M4G" kind="relationship" relationship="viewControllers" id="3Hs-sR-hur"/>
                     </connections>
                 </tabBarController>
@@ -118,21 +119,97 @@
             </objects>
             <point key="canvasLocation" x="1048" y="2146"/>
         </scene>
-        <!--Course-->
+        <!--course collection view-->
         <scene sceneID="8SC-hQ-SxO">
             <objects>
-                <viewController id="fSA-yc-bPj" sceneMemberID="viewController">
+                <viewController id="fSA-yc-bPj" userLabel="course collection view" customClass="CourseCollectionsTab" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvY-5J-4Ba">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" ambiguous="YES" placeholder="Number, Title, Professor..." translatesAutoresizingMaskIntoConstraints="NO" id="u10-8L-lhi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <color key="barTintColor" red="0.88627450980392153" green="0.96078431372549022" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-T9-amP">
+                                <rect key="frame" x="0.0" y="175" width="414" height="638"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJe-AG-zjq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-eD-jLr">
+                                <rect key="frame" x="20" y="139" width="374" height="29"/>
+                                <segments>
+                                    <segment title="Courses"/>
+                                    <segment title="Professors"/>
+                                    <segment title="By Ratings"/>
+                                    <segment title="By Departments"/>
+                                </segments>
+                                <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="trailing" secondItem="zE9-we-u11" secondAttribute="trailing" constant="-20" id="5E3-e1-Iyj"/>
+                            <constraint firstItem="zE9-we-u11" firstAttribute="trailing" secondItem="u10-8L-lhi" secondAttribute="trailing" id="Ab9-RG-Hn4"/>
+                            <constraint firstItem="ewS-T9-amP" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" id="BFn-cX-e4N"/>
+                            <constraint firstItem="u10-8L-lhi" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" id="GdL-bq-Gya"/>
+                            <constraint firstItem="zE9-we-u11" firstAttribute="trailing" secondItem="ewS-T9-amP" secondAttribute="trailing" id="Mj9-EE-DaG"/>
+                            <constraint firstItem="zE9-we-u11" firstAttribute="bottom" secondItem="ewS-T9-amP" secondAttribute="bottom" id="RNH-Bl-3EH"/>
+                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" constant="20" id="Xf9-C7-HuX"/>
+                            <constraint firstItem="ewS-T9-amP" firstAttribute="top" secondItem="4NZ-eD-jLr" secondAttribute="bottom" constant="5" id="jh1-yf-aZR"/>
+                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="top" secondItem="u10-8L-lhi" secondAttribute="bottom" constant="5" id="v7t-hJ-WfH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zE9-we-u11"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Course" image="magnifying-glass" id="EY4-Md-U0y"/>
+                    <navigationItem key="navigationItem" title="Courses" id="AZG-2C-PBB"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ewS-T9-amP" id="dSo-3g-ZpL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9x-4Z-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="1477"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="1476.5625"/>
+        </scene>
+        <!--detail view-->
+        <scene sceneID="w0z-zb-p0p">
+            <objects>
+                <viewController id="4of-x6-aVT" userLabel="detail view" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lda-MS-fxQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="r6q-ZP-zcl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4z5-lL-9a2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2739" y="1477"/>
+        </scene>
+        <!--Course-->
+        <scene sceneID="RuJ-CS-ZKz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3up-lE-Y6i" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Course" image="magnifying-glass" id="EY4-Md-U0y"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bBA-ZI-6SI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fSA-yc-bPj" kind="relationship" relationship="rootViewController" id="zO5-TE-Ega"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3q-Ja-Pdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="1476.5625"/>
         </scene>
     </scenes>
     <resources>
