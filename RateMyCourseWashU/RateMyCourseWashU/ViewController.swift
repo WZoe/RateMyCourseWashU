@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func logIn(_ sender: Any) {
-        
+        if login(userName: userName.text, password: password.text){
+//            let tabBarVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController")as?SignUpViewController
+            self.navigationController?.pushViewController(tabBarController!, animated: true)
+        }
+
     }
     
     @IBAction func signUp(_ sender: Any) {

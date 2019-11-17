@@ -10,6 +10,19 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var password: UITextField!
+
+    @IBAction func signUp(_ sender: Any) {
+        let message=signup(userName: userName.text, password: password.text)
+        print(message)
+        if message=="Sign up successfully"{
+            let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+            self.navigationController?.pushViewController(mainVC!, animated: true)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +165,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUp:" destination="sj7-ls-HoR" eventType="touchUpInside" id="Pow-O3-Grm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,6 +187,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cSW-Kb-dtU"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="uAn-EQ-Cig" id="CEa-FQ-llB"/>
+                        <outlet property="userName" destination="p4T-8S-Vat" id="jgV-9u-hoe"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="4pR-XB-WFD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0am-Zj-jL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +200,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Nh2-9s-d5k">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Unv-tF-f6u" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Unv-tF-f6u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FOx-oW-gje">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -200,6 +208,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="OyD-4w-4vE" kind="relationship" relationship="viewControllers" id="z5B-yp-BjM"/>
                         <segue destination="3up-lE-Y6i" kind="relationship" relationship="viewControllers" id="UeB-5M-vCr"/>
