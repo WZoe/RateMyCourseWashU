@@ -8,27 +8,62 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
-
-    @IBOutlet weak var userName: UITextField!
-    @IBOutlet weak var password: UITextField!
-
-    @IBAction func signUp(_ sender: Any) {
-        let message=signup(userName: userName.text, password: password.text)
-        print(message)
-        if message=="Sign up successfully"{
-            let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
-            self.navigationController?.pushViewController(mainVC!, animated: true)
+class SignUpViewController: UIViewController,UINavigationBarDelegate {
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var userName: UITextField!{
+        didSet {
+            userName.tintColor = UIColor.darkGray
+            userName.setIcon(UIImage(imageLiteralResourceName:"user"))
         }
+    }
+    @IBOutlet weak var password: UITextField!{
+        didSet {
+            password.tintColor = UIColor.darkGray
+            password.setIcon(UIImage(imageLiteralResourceName:"password"))
+        }
+    }
+    
+    @IBOutlet weak var confirmPassword: UITextField!{
+        didSet {
+            confirmPassword.tintColor = UIColor.darkGray
+            confirmPassword.setIcon(UIImage(imageLiteralResourceName:"password"))
+        }
+    }
+    @IBOutlet weak var navBar: UINavigationBar!
+    
+    @IBAction func signUp(_ sender: Any) {
+        if password.text==confirmPassword.text{
+            let message=signup(userName: userName.text, password: password.text)
+            if message=="Sign up successfully"{
+                messageLabel.text=message
+                messageLabel.textColor=UIColor.darkGray
+                // need to add a delay to show message
+                let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+                self.show(mainVC!, sender: self)
+            }
+            else{
+                messageLabel.text=message
+                messageLabel.textColor=UIColor.red
+            }
+        }
+        else{
+            messageLabel.text="Two input passwords are inconsistent"
+            messageLabel.textColor=UIColor.red
+        }
+
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navBar.delegate=self
         // Do any additional setup after loading the view.
     }
     
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.topAttached
+    }
 
     /*
     // MARK: - Navigation
@@ -41,3 +76,4 @@ class SignUpViewController: UIViewController {
     */
 
 }
+
