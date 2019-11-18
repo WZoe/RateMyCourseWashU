@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import Foundation
 
 class SignUpViewController: UIViewController,UINavigationBarDelegate {
     @IBOutlet weak var messageLabel: UILabel!
@@ -34,17 +36,26 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
     
     @IBAction func signUp(_ sender: Any) {
         if password.text==confirmPassword.text{
-            let message=signup(userName: userName.text, password: password.text)
-            if message=="Sign up successfully"{
-                messageLabel.text=message
-                messageLabel.textColor=UIColor.darkGray
-                // need to add a delay to show message
-                let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
-                self.show(mainVC!, sender: self)
-            }
-            else{
-                messageLabel.text=message
-                messageLabel.textColor=UIColor.red
+            let parameters: [String: String] = [
+                "user": userName.text!,
+                "password": password.text!
+            ]
+            AF.request("http://52.170.3.234:3456/signup",
+                       method: .post,
+                       parameters: parameters,
+                       encoder: JSONParameterEncoder.default).validate().responseJSON { response in
+                        debugPrint(response)
+                        var json = JSON(response.data!)
+                        if json["Success"].boolValue == true {
+                            self.messageLabel.text = "Sign up successfully"
+                            self.messageLabel.textColor=UIColor.darkGray
+                            // need to add a delay to show message
+                            let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+                            self.show(mainVC!, sender: self)
+                        }else if json["Message"].intValue == 1 {
+                            self.messageLabel.text = "Please enter a valid password"
+                            self.messageLabel.textColor=UIColor.red
+                        }
             }
         }
         else{

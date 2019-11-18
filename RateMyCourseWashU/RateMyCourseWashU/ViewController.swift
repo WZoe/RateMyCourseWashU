@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Foundation
+import Alamofire
 // set UITextField with icon with reference to: https://medium.com/nyc-design/swift-4-add-icon-to-uitextfield-48f5ebf60aa1
 extension UITextField {
     func setIcon(_ image: UIImage) {
@@ -39,11 +40,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func logIn(_ sender: Any) {
-        if login(userName: userName.text, password: password.text){
-//            performSegue(withIdentifier: "TabBarController", sender: nil)
-            let tabBarVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController")as?UITabBarController
-            self.show(tabBarVC!, sender: self)
+        let parameters: [String: String] = [
+            "username": userName.text!,
+            "password": password.text!
+        ]
+        AF.request("http://52.170.3.234:3456/login",
+                   method: .post,
+                   parameters: parameters,
+                   encoder: JSONParameterEncoder.default).validate().responseJSON { response in
+                    debugPrint(response)
+                    var json = JSON(response.data!)
+                    if json["Success"].boolValue == true {
+                        let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")as?UITabBarController
+                        self.show(tabBarVC!, sender: self)
+                    }
         }
+//        if login(userName: userName.text, password: password.text){
+////            performSegue(withIdentifier: "TabBarController", sender: nil)
+//
+//        }
 
     }
     
