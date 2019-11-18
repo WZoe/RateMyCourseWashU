@@ -10,14 +10,14 @@ import Foundation
 
 // Do any modifications you feel like to these structs below if needed:
 
-struct Course {
+struct Course :Decodable{
     let id:String
     let title: String
     let courseNumber: String
     let professor: String
     let department: String
     let rating: Double
-    let comments: [String]
+    //let comments: [String]
 }
 
 struct Professor {
