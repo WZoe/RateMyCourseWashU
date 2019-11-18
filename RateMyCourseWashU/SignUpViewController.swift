@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
                             let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
                             self.show(mainVC!, sender: self)
                         }else if json["Message"].intValue == 1 {
-                            self.messageLabel.text = "Please enter a valid password"
+                            self.messageLabel.text = "Please try another userName"
                             self.messageLabel.textColor=UIColor.red
                         }
             }
