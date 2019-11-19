@@ -36,8 +36,11 @@ class ViewController: UIViewController {
         didSet {
             password.tintColor = UIColor.darkGray
             password.setIcon(UIImage(imageLiteralResourceName:"password"))
+            password.isSecureTextEntry=true
         }
     }
+    
+    @IBOutlet weak var loginMessage: UILabel!
     
     @IBAction func logIn(_ sender: Any) {
         let parameters: [String: String] = [
@@ -51,8 +54,18 @@ class ViewController: UIViewController {
                     debugPrint(response)
                     var json = JSON(response.data!)
                     if json["Success"].boolValue == true {
-                        let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")as?UITabBarController
-                        self.show(tabBarVC!, sender: self)
+                        self.loginMessage.text = "Log in successfully."
+                        self.loginMessage.textColor=UIColor.darkGray
+                        let seconds = 1.0
+                        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                            let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")as?UITabBarController
+                            self.show(tabBarVC!, sender: self)// Put your code which should be executed with a delay here
+                        }
+                        
+                    }
+                    else{
+                        self.loginMessage.text = "Log in failed."
+                        self.loginMessage.textColor=UIColor.red
                     }
         }
 //        if login(userName: userName.text, password: password.text){

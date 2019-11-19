@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
         didSet {
             password.tintColor = UIColor.darkGray
             password.setIcon(UIImage(imageLiteralResourceName:"password"))
+            password.isSecureTextEntry=true
         }
     }
     
@@ -30,6 +31,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
         didSet {
             confirmPassword.tintColor = UIColor.darkGray
             confirmPassword.setIcon(UIImage(imageLiteralResourceName:"password"))
+            confirmPassword.isSecureTextEntry=true
         }
     }
     @IBOutlet weak var navBar: UINavigationBar!
@@ -49,9 +51,12 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
                         if json["Success"].boolValue == true {
                             self.messageLabel.text = "Sign up successfully"
                             self.messageLabel.textColor=UIColor.darkGray
-                            // need to add a delay to show message
-                            let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
-                            self.show(mainVC!, sender: self)
+                            let seconds = 1.0
+                            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                                let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+                                self.show(mainVC!, sender: self)// Put your code which should be executed with a delay here
+                            }
+                            
                         }else if json["Message"].intValue == 1 {
                             self.messageLabel.text = "Please try another userName"
                             self.messageLabel.textColor=UIColor.red
