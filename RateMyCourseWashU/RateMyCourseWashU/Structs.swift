@@ -16,7 +16,7 @@ struct Course :Decodable{
     let courseNumber: String
     let professor: String
     let department: String
-    let rating: Double
+    let overallRating: Double
     //let comments: [String]
 }
 
@@ -25,11 +25,22 @@ struct Professor {
     let name: String
     let rating: Double
     let comments: [String]
-    let department: Int
+    let department: String
 }
 
 struct User {
-    let userID: Int
+    let userID: String
     let username: String
     let password: String
+    let favList: [Course]
+    let takenList: [Course]
+    let following: [Professor]
+}
+
+struct Rating {
+    let user: User
+    let rating: Double
+    let comment: String
+    let course: Course // course和professor只有一个field是有效的
+    let professor: Professor
 }

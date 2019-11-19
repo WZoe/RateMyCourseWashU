@@ -12,10 +12,10 @@ class CourseCell: UICollectionViewCell {
     
     //todo: alter rect position and size
     
-    let number = UILabel(frame: CGRect(x: 0, y: 140, width: 120, height: 40))
-    let title = UILabel(frame: CGRect(x: 0, y: 140, width: 120, height: 40))
-    let professor = UILabel(frame: CGRect(x: 0, y: 140, width: 120, height: 40))
-    let rating = UILabel(frame: CGRect(x: 0, y: 140, width: 120, height: 40))
+    let number:UILabel
+    let title :UILabel
+    let professor:UILabel
+    let rating:UIProgressView
     
     override func prepareForReuse() {
         super.prepareForReuse()
