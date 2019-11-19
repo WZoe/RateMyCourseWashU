@@ -32,6 +32,7 @@ class CourseDetailVC: UIViewController {
     }
     
     func updateValue() {
+        self.title = currentCourse!.title
         rating.text = String(currentCourse!.overallRating)
         ratingbar.progress = Float(currentCourse!.overallRating)
         profname.text = currentCourse?.professor.name
