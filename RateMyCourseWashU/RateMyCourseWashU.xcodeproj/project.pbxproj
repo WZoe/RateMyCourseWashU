@@ -14,6 +14,8 @@
 		E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */; };
 		E61D53F823812F4900E24A6C /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F723812F4900E24A6C /* CourseCell.swift */; };
 		E61D53FB238389B900E24A6C /* CourseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53FA238389B900E24A6C /* CourseDetailVC.swift */; };
+		E61D547A2384555000E24A6C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
+		E61D547B2384555000E24A6C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F223772DE00019E55A /* AppDelegate.swift */; };
 		E694E2F523772DE00019E55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F423772DE00019E55A /* ViewController.swift */; };
 		E694E2F823772DE00019E55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E694E2F623772DE00019E55A /* Main.storyboard */; };
@@ -71,15 +73,23 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
+		E61D547C2384555000E24A6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6312981E238328B800A993F2 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		63F4626B23824352007FFBC2 /* Embed Frameworks */ = {
+		E61D547E2384555000E24A6C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E61D547B2384555000E24A6C /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61D547A2384555000E24A6C /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,11 +189,12 @@
 				E694E2EB23772DE00019E55A /* Sources */,
 				E694E2EC23772DE00019E55A /* Frameworks */,
 				E694E2ED23772DE00019E55A /* Resources */,
-				63F4626B23824352007FFBC2 /* Embed Frameworks */,
+				E61D547E2384555000E24A6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E61D547D2384555000E24A6C /* PBXTargetDependency */,
 			);
 			name = RateMyCourseWashU;
 			productName = RateMyCourseWashU;
@@ -311,6 +323,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E61D547D2384555000E24A6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = E61D547C2384555000E24A6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E694E2F623772DE00019E55A /* Main.storyboard */ = {
