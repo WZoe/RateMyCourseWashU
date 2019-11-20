@@ -15,23 +15,47 @@ struct Course :Decodable{
     let rating: Double
     //let comments: [String]
 }
-AF.request("http://52.170.3.234:3456/searchCourse",
+//AF.request("http://52.170.3.234:3456/professorList",
+//           method: .post,
+//           parameters: ["keyword":"yeoh"],
+//           encoder: JSONParameterEncoder.default).responseJSON { response in
+//            debugPrint(response)
+//            //            let json = JSON(response.data!)
+//            //            var courses: [Course] = []
+//            //            for (_, j):(String, JSON) in json{
+//            //                let course = Course(id: j["id"].stringValue,
+//            //                                    title: j["title"].stringValue,
+//            //                                    courseNumber: j["courseNumber"].stringValue,
+//            //                                    professor: j["professor"].stringValue,
+//            //                                    department: j["department"].stringValue,
+//            //                                    rating: j["rating"].doubleValue)
+//            //                courses.append(course)
+//            //            }
+//}
+
+AF.request("http://52.170.3.234:3456/submitProfessorComment",
            method: .post,
-           parameters: ["keyword":"artificial"],
+           parameters: ["userID":"1", "proID":"1", "comment":"great work", "rating":"10"],
            encoder: JSONParameterEncoder.default).responseJSON { response in
-            // debugPrint(response)
-            let json = JSON(response.data!)
-            var courses: [Course] = []
-            for (_, j):(String, JSON) in json{
-                let course = Course(id: j["id"].stringValue,
-                                    title: j["title"].stringValue,
-                                    courseNumber: j["courseNumber"].stringValue,
-                                    professor: j["professor"].stringValue,
-                                    department: j["department"].stringValue,
-                                    rating: j["rating"].doubleValue)
-                courses.append(course)
-            }
+            debugPrint(response)
+            //            let json = JSON(response.data!)
+            //            var courses: [Course] = []
+            //            for (_, j):(String, JSON) in json{
+            //                let course = Course(id: j["id"].stringValue,
+            //                                    title: j["title"].stringValue,
+            //                                    courseNumber: j["courseNumber"].stringValue,
+            //                                    professor: j["professor"].stringValue,
+            //                                    department: j["department"].stringValue,
+            //                                    rating: j["rating"].doubleValue)
+            //                courses.append(course)
+            //            }
 }
+//AF.request("http://52.170.3.234:3456/searchProfessor",
+//           method: .post,
+//           parameters: ["keyword":"yeoh"],
+//           encoder: JSONParameterEncoder.default).responseJSON { response in
+//            debugPrint(response)
+//}
 //AF.request("http://52.170.3.234:3456/courseList",
 //           method: .post,
 //           parameters: parameters,
