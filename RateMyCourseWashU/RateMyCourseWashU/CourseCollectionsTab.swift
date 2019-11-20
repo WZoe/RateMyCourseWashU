@@ -10,6 +10,7 @@ import UIKit
 
 class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var nav: UINavigationItem!
     var courseSearchResults:[Course] = []
     var professorSearchResults:[Professor] = []
     var courseList:[Course] = []
@@ -19,7 +20,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        nav.setHidesBackButton(true, animated: false)
         initCourseList()
         setCollectionView()
         
@@ -47,8 +48,8 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.allowsSelection = true
         if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flow.itemSize = CGSize(width: view.frame.width, height: 100)
-            flow.minimumInteritemSpacing = 5
-            flow.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+            flow.minimumInteritemSpacing = 1
+            flow.sectionInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
         }
         collectionView.register(CourseCell.self, forCellWithReuseIdentifier: "courseCell")
     }
@@ -73,7 +74,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
         
         cell.professor = UILabel(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.6, width: view.frame.width*0.9, height: hoc*0.2))
         cell.professor!.font = cell.professor!.font.withSize(hoc*0.17)
-        cell.professor!.text = courseList[indexPath.row].department
+        cell.professor!.text = courseList[indexPath.row].professor.name
         
         cell.rating = UIProgressView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.9, width: view.frame.width*0.9, height: hoc*0.1))
         cell.rating!.progress = Float(courseList[indexPath.row].overallRating*0.1)
@@ -91,7 +92,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取courseList
     func initCourseList() {
-        let prof = Professor(id: "1", name: "Todd Sproll", rating: 9.0, department: "Computer Science and Engineering")
+        let prof = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
         let course1 = Course(id: "1", title: "Mobile Application Development", courseNumber: "A22.22.2222.AA.01", professor: prof, department: "Computer Science and Engineering", overallRating: 9.5)
         let course2 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 9.4)
         let course3 = Course(id: "3", title: "AAA", courseNumber: "A.A.A", professor: prof, department: "BB", overallRating: 5.4)
@@ -104,6 +105,13 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     // todo: 当segment change时更改标题和currentSeg
+    
+    @IBAction func seg(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 1 {
+            let profcollection = self.storyboard?.instantiateViewController(withIdentifier: "profcollection") as! ProfessorCollections
+            navigationController?.pushViewController(profcollection, animated: false)
+        }
+    }
     
     // search for a course:
     @IBAction func search(_ sender: UITextField) {
