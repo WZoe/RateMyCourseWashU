@@ -50,4 +50,9 @@ class CourseDetailVC: UIViewController {
     }
     */
 
+    @IBAction func jumpProfDetail(_ sender: UIButton) {
+        let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "profdetail") as! ProfDetailVC
+        //        detailvc.currentCourse = courseList[indexPath.row]
+        navigationController?.pushViewController(detailvc, animated: true)
+    }
 }
