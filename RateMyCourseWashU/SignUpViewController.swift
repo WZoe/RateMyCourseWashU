@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
             password.tintColor = UIColor.darkGray
             password.setIcon(UIImage(imageLiteralResourceName:"password"))
             password.isSecureTextEntry=true
+            password.textContentType=UITextContentType.oneTimeCode
         }
     }
     
@@ -32,6 +33,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
             confirmPassword.tintColor = UIColor.darkGray
             confirmPassword.setIcon(UIImage(imageLiteralResourceName:"password"))
             confirmPassword.isSecureTextEntry=true
+            confirmPassword.textContentType=UITextContentType.oneTimeCode
         }
     }
     
@@ -71,7 +73,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                                 }
                                 
                             }else if json["Message"].intValue == 1 {
-                                self.messageLabel.text = "Please try another userName"
+                                self.messageLabel.text = "Please try another username"
                                 self.messageLabel.textColor=UIColor.red
                             }
                 }
@@ -119,7 +121,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                             }
                             
                         }else if json["Message"].intValue == 1 {
-                            self.messageLabel.text = "Please try another userName"
+                            self.messageLabel.text = "Please try another username"
                             self.messageLabel.textColor=UIColor.red
                         }
             }

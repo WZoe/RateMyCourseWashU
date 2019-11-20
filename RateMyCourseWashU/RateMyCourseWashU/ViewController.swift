@@ -37,6 +37,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             password.tintColor = UIColor.darkGray
             password.setIcon(UIImage(imageLiteralResourceName:"password"))
             password.isSecureTextEntry=true
+            password.textContentType=UITextContentType.oneTimeCode
         }
     }
     
