@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Foundation
 
-class SignUpViewController: UIViewController,UINavigationBarDelegate {
+class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextFieldDelegate {
     @IBOutlet weak var messageLabel: UILabel!
     
     @IBOutlet weak var userName: UITextField!{
@@ -34,10 +34,71 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
             confirmPassword.isSecureTextEntry=true
         }
     }
-    @IBOutlet weak var navBar: UINavigationBar!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == password{
+            textField.resignFirstResponder()
+            if userName.text!.isEmpty{
+                self.messageLabel.text="Please enter username"
+                self.messageLabel.textColor=UIColor.red
+            }
+            else if password.text!.isEmpty{
+                self.messageLabel.text="Please enter password"
+                self.messageLabel.textColor=UIColor.red
+            }
+            else if confirmPassword.text!.isEmpty{
+                self.messageLabel.text="Please confirm password"
+                self.messageLabel.textColor=UIColor.red
+            }
+            else if password.text==confirmPassword.text{
+                let parameters: [String: String] = [
+                    "user": userName.text!,
+                    "password": password.text!
+                ]
+                AF.request("http://52.170.3.234:3456/signup",
+                           method: .post,
+                           parameters: parameters,
+                           encoder: JSONParameterEncoder.default).validate().responseJSON { response in
+                            debugPrint(response)
+                            var json = JSON(response.data!)
+                            if json["Success"].boolValue == true {
+                                self.messageLabel.text = "Sign up successfully"
+                                self.messageLabel.textColor=UIColor.darkGray
+                                let seconds = 1.0
+                                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                                    let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+                                    self.show(mainVC!, sender: self)// Put your code which should be executed with a delay here
+                                }
+                                
+                            }else if json["Message"].intValue == 1 {
+                                self.messageLabel.text = "Please try another userName"
+                                self.messageLabel.textColor=UIColor.red
+                            }
+                }
+            }
+            else{
+                messageLabel.text="Two input passwords are inconsistent"
+                messageLabel.textColor=UIColor.red
+            }
+            return false
+        }
+        return true
+    }
     
     @IBAction func signUp(_ sender: Any) {
-        if password.text==confirmPassword.text{
+        if userName.text!.isEmpty{
+            self.messageLabel.text="Please enter username"
+            self.messageLabel.textColor=UIColor.red
+        }
+        else if password.text!.isEmpty{
+            self.messageLabel.text="Please enter password"
+            self.messageLabel.textColor=UIColor.red
+        }
+        else if confirmPassword.text!.isEmpty{
+            self.messageLabel.text="Please confirm password"
+            self.messageLabel.textColor=UIColor.red
+        }
+        else if password.text==confirmPassword.text{
             let parameters: [String: String] = [
                 "user": userName.text!,
                 "password": password.text!
@@ -73,7 +134,8 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBar.delegate=self
+        self.confirmPassword.delegate=self
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         // Do any additional setup after loading the view.
     }
     
