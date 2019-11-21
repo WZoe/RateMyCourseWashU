@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class ProfessorCollections: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var professorSearchResults:[Professor] = []
@@ -72,13 +72,29 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取professorList
     func initProfList() {
-        let prof1 = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
-        let prof2 = Professor(id: "2", name: "Todd Spring", rating: 4.5, department: "Computer Science and Engineering")
-        let prof3 = Professor(id: "3", name: "Todd Sproll", rating: 6.5, department: "Computer Science and Engineering")
-        let prof4 = Professor(id: "4", name: "Todd Sprill", rating: 7.3, department: "Computer Science and Engineering")
-        let prof5 = Professor(id: "5", name: "Todd Spill", rating: 8.8, department: "Computer Science and Engineering")
-
-        professorList = [prof1, prof2, prof3, prof4, prof5]
+//        let prof1 = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
+//        let prof2 = Professor(id: "2", name: "Todd Spring", rating: 4.5, department: "Computer Science and Engineering")
+//        let prof3 = Professor(id: "3", name: "Todd Sproll", rating: 6.5, department: "Computer Science and Engineering")
+//        let prof4 = Professor(id: "4", name: "Todd Sprill", rating: 7.3, department: "Computer Science and Engineering")
+//        let prof5 = Professor(id: "5", name: "Todd Spill", rating: 8.8, department: "Computer Science and Engineering")
+//
+//        professorList = [prof1, prof2, prof3, prof4, prof5]
+        AF.request("http://52.170.3.234:3456/professorList",
+                   method: .post,
+                   parameters: ["":""],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                    let json = JSON(response.data!)
+                    for (_, j):(String, JSON) in json{
+                        let p = Professor(id: j["id"].stringValue,
+                                          name: j["name"].stringValue,
+                                          rating: j["rating"].doubleValue / 10,
+                                          department:j["department"].stringValue)
+                        
+                        self.professorList.append(p)
+                    }
+                    self.collectionView.reloadData()
+        }
     }
     
     /*

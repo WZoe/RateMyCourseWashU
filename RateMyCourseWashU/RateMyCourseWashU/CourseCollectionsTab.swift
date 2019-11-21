@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import Foundation
 class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var nav: UINavigationItem!
@@ -92,18 +93,38 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取courseList
     func initCourseList() {
-        let prof = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
-        let course1 = Course(id: "1", title: "Mobile Application Development", courseNumber: "A22.22.2222.AA.01", professor: prof, department: "Computer Science and Engineering", overallRating: 9.5)
-        let course2 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 9.4)
-        let course3 = Course(id: "3", title: "AAA", courseNumber: "A.A.A", professor: prof, department: "BB", overallRating: 5.4)
-        let course4 = Course(id: "4", title: "BSAA", courseNumber: "SADAF.SA", professor: prof, department: "BBAAA", overallRating: 7.0)
-        let course5 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 2.4)
-        let course6 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 5.3)
-        let course8 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 6.3)
-        let course9 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 8.2)
-        courseList = [course1, course2,course3,course4,course5, course6,  course8, course9]
+//        let prof = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
+//        let course1 = Course(id: "1", title: "Mobile Application Development", courseNumber: "A22.22.2222.AA.01", professor: prof, department: "Computer Science and Engineering", overallRating: 9.5)
+//        let course2 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 9.4)
+//        let course3 = Course(id: "3", title: "AAA", courseNumber: "A.A.A", professor: prof, department: "BB", overallRating: 5.4)
+//        let course4 = Course(id: "4", title: "BSAA", courseNumber: "SADAF.SA", professor: prof, department: "BBAAA", overallRating: 7.0)
+//        let course5 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 2.4)
+//        let course6 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 5.3)
+//        let course8 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 6.3)
+//        let course9 = Course(id: "2", title: "Some course from CSE", courseNumber: "B22.23.2.42.3423.52.B.02", professor: prof, department: "Computer Science and Engineering", overallRating: 8.2)
+//        courseList = [course1, course2,course3,course4,course5, course6,  course8, course9]
+        AF.request("http://52.170.3.234:3456/courseList",
+                   method: .post,
+                   parameters: ["":""],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                    let json = JSON(response.data!)
+                    for (_, j):(String, JSON) in json{
+                        let p = Professor(id: j["proID"].stringValue,
+                                          name: j["proName"].stringValue,
+                                          rating: j["rating"].doubleValue / 10,
+                                          department:j["department"].stringValue)
+                        let course = Course(id: j["courseID"].stringValue,
+                                            title: j["title"].stringValue,
+                                            courseNumber: j["courseNumber"].stringValue,
+                                            professor:p,
+                                            department: j["department"].stringValue,
+                                            overallRating: j["rating"].doubleValue / 10)
+                        self.courseList.append(course)
+                    }
+                    self.collectionView.reloadData()
+        }
     }
-    
     // todo: 当segment change时更改标题和currentSeg
     
     @IBAction func seg(_ sender: UISegmentedControl) {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		639637E1238343CA00646E46 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639637E0238343CA00646E46 /* Structs.swift */; };
-		639637E323834A7800646E46 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639637E223834A7800646E46 /* SwiftyJSON.swift */; };
+		639F90AE2386331900899267 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F90AD2386331900899267 /* SwiftyJSON.swift */; };
 		AC06B11B23847E240034C920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
 		AC06B11C23847E240034C920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2FEF623773A9F00EA60BE /* Interface.swift */; };
@@ -102,7 +102,7 @@
 /* Begin PBXFileReference section */
 		6312981E238328B800A993F2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		639637E0238343CA00646E46 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		639637E223834A7800646E46 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		639F90AD2386331900899267 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		63F462702382E9E5007FFBC2 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		ACB2FEF623773A9F00EA60BE /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		ACD861112381AED1002089CD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 				E694E2F923772DE30019E55A /* Assets.xcassets */,
 				E694E2FB23772DE30019E55A /* LaunchScreen.storyboard */,
 				639637E0238343CA00646E46 /* Structs.swift */,
+				639F90AD2386331900899267 /* SwiftyJSON.swift */,
 				E694E2FE23772DE30019E55A /* Info.plist */,
-				639637E223834A7800646E46 /* SwiftyJSON.swift */,
 				ACB2FEF623773A9F00EA60BE /* Interface.swift */,
 			);
 			path = RateMyCourseWashU;
@@ -322,8 +322,8 @@
 				E61D53FB238389B900E24A6C /* CourseDetailVC.swift in Sources */,
 				E61D53F823812F4900E24A6C /* CourseCell.swift in Sources */,
 				ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */,
+				639F90AE2386331900899267 /* SwiftyJSON.swift in Sources */,
 				E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */,
-				639637E323834A7800646E46 /* SwiftyJSON.swift in Sources */,
 				E61D5481238502EC00E24A6C /* ProfessorCollections.swift in Sources */,
 				639637E1238343CA00646E46 /* Structs.swift in Sources */,
 				E694E2F523772DE00019E55A /* ViewController.swift in Sources */,
