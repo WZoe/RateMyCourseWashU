@@ -14,14 +14,14 @@ class CourseDetailVC: UIViewController {
 
     @IBOutlet weak var rating: UILabel!
     
-    @IBOutlet weak var ratingbar: UIProgressView!
     
-
+    @IBOutlet weak var starCourse: CosmosView!
+    
+    @IBOutlet weak var starProf: CosmosView!
     @IBOutlet weak var myrating: UILabel!
     @IBAction func slider(_ sender: UISlider) {
         myrating.text =  String(format: "%.1f", sender.value * 10) //123.32
     }
-    @IBOutlet weak var profratingbar: UIProgressView!
     @IBOutlet weak var profdepartment: UILabel!
     @IBOutlet weak var profname: UILabel!
     override func viewDidLoad() {
@@ -34,9 +34,11 @@ class CourseDetailVC: UIViewController {
     func updateValue() {
         self.title = currentCourse!.title
         rating.text = String(currentCourse!.overallRating)
-        ratingbar.progress = Float(currentCourse!.overallRating)
+        starCourse.settings.fillMode = .precise
+        starProf.settings.fillMode = .precise
+        starCourse.rating = currentCourse!.overallRating
+        starProf.rating = currentCourse!.professor.rating
         profname.text = currentCourse?.professor.name
-        profratingbar.progress = Float(currentCourse!.professor.rating)
         profdepartment.text = currentCourse?.professor.department
     }
 
