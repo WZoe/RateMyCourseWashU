@@ -28,7 +28,7 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var collectionView: UICollectionView!
     func setCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.5180335641, green: 0.7032366395, blue: 0.6400405765, alpha: 1)
+//        collectionView.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true

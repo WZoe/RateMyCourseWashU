@@ -43,7 +43,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     
     
     func setCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.5180335641, green: 0.7032366395, blue: 0.6400405765, alpha: 1)
+//        collectionView.backgroundColor = 
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true
