@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
         didSet {
             password.tintColor = UIColor.darkGray
             password.setIcon(UIImage(imageLiteralResourceName:"password"))
-            password.isSecureTextEntry=true
+            password.isSecureTextEntry=false
             password.textContentType=UITextContentType.oneTimeCode
         }
     }
@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
         didSet {
             confirmPassword.tintColor = UIColor.darkGray
             confirmPassword.setIcon(UIImage(imageLiteralResourceName:"password"))
-            confirmPassword.isSecureTextEntry=true
+            confirmPassword.isSecureTextEntry=false
             confirmPassword.textContentType=UITextContentType.oneTimeCode
         }
     }
