@@ -10,7 +10,6 @@ import UIKit
 
 class CourseCell: UICollectionViewCell {
     
-    //todo: alter rect position and size
     
     var number:UILabel? = nil
     var title :UILabel? = nil

@@ -121,4 +121,10 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     //TODO: search prof
+    func search() {
+        
+    }
+    
+    
+    
 }

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CourseDetailVC: UIViewController {
+class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var currentCourse: Course? = nil
+    var commentList:[Rating] = []
 
     @IBOutlet weak var rating: UILabel!
     
@@ -31,6 +32,8 @@ class CourseDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         updateValue()
+        setCollectionView()
+        initCommentList()
     }
     
     func updateValue() {
@@ -82,4 +85,58 @@ class CourseDetailVC: UIViewController {
     // @currentUser, rating, comments, which course
     @IBAction func submitRating(_ sender: UIButton) {
     }
+    
+    // comments collection view
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // TODO: fetch ratings for this course
+    func initCommentList() {
+        let user = User(userID: "1111", username: "Adam A", password: "11111")
+        let comment = Rating(user: user, rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
+        let comment2 = Rating(user: user, rating: 7, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! ")
+        commentList = [comment,comment2]
+    }
+    
+    func setCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.allowsSelection = true
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flow.itemSize = CGSize(width: view.frame.width, height: 75)
+        }
+        collectionView.register(RatingCell.self, forCellWithReuseIdentifier: "ratingCell")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return commentList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let hoc = CGFloat(75)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ratingCell", for: indexPath) as! RatingCell
+        
+        cell.username = UILabel(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.05, width: view.frame.width*0.5, height: hoc*0.4))
+        cell.username?.text = commentList[indexPath.row].user.username + ":"
+        
+        cell.comment = UITextView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.45, width: view.frame.width*0.9, height: hoc*0.45))
+        cell.comment?.text = commentList[indexPath.row].comment
+        cell.comment?.font = cell.comment?.font?.withSize(14)
+        cell.comment?.isEditable = false
+        
+        cell.rating = CosmosView(frame: CGRect(x: view.frame.width * 0.7, y: hoc*0.1, width: view.frame.width*0.35, height: hoc*0.4))
+        cell.rating?.settings.fillMode = .precise
+        cell.rating?.settings.updateOnTouch = false
+        cell.rating?.rating = commentList[indexPath.row].rating / 2
+        cell.rating?.settings.starSize = 18
+        
+        
+        cell.addSubview(cell.username!)
+        cell.addSubview(cell.comment!)
+        cell.addSubview(cell.rating!)
+        
+        cell.layer.backgroundColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
+        return cell as UICollectionViewCell
+    }
+    
 }
