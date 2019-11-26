@@ -64,6 +64,9 @@ class CourseDetailVC: UIViewController {
     
     // TODO: jump to students list
     @IBAction func jumpStudents(_ sender: UIButton) {
+        let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "students") as! StudentsList
+//        detailvc.currentProf = currentCourse?.professor
+        navigationController?.pushViewController(detailvc, animated: true)
     }
     
     // TODO: Add to fav

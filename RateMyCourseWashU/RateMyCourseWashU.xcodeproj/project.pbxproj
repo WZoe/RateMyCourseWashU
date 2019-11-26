@@ -20,6 +20,7 @@
 		E61D5489238505F900E24A6C /* ProfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D5488238505F900E24A6C /* ProfCell.swift */; };
 		E61D548B238509AE00E24A6C /* ProfDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D548A238509AE00E24A6C /* ProfDetailVC.swift */; };
 		E61D548E238C677300E24A6C /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D548D238C677300E24A6C /* CosmosDistrib.swift */; };
+		E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E91238CC7CB003CE19C /* StudentsList.swift */; };
 		E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F223772DE00019E55A /* AppDelegate.swift */; };
 		E694E2F523772DE00019E55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F423772DE00019E55A /* ViewController.swift */; };
 		E694E2F823772DE00019E55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E694E2F623772DE00019E55A /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		E61D5488238505F900E24A6C /* ProfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfCell.swift; sourceTree = "<group>"; };
 		E61D548A238509AE00E24A6C /* ProfDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfDetailVC.swift; sourceTree = "<group>"; };
 		E61D548D238C677300E24A6C /* CosmosDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		E6207E91238CC7CB003CE19C /* StudentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsList.swift; sourceTree = "<group>"; };
 		E694E2EF23772DE00019E55A /* RateMyCourseWashU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMyCourseWashU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E694E2F223772DE00019E55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E694E2F423772DE00019E55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				E61D5480238502EC00E24A6C /* ProfessorCollections.swift */,
 				E61D5488238505F900E24A6C /* ProfCell.swift */,
 				E61D53FA238389B900E24A6C /* CourseDetailVC.swift */,
+				E6207E91238CC7CB003CE19C /* StudentsList.swift */,
 				E61D548A238509AE00E24A6C /* ProfDetailVC.swift */,
 				E61D53F723812F4900E24A6C /* CourseCell.swift */,
 				E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */,
@@ -329,6 +332,7 @@
 				E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */,
 				E61D5481238502EC00E24A6C /* ProfessorCollections.swift in Sources */,
 				639637E1238343CA00646E46 /* Structs.swift in Sources */,
+				E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */,
 				E694E2F523772DE00019E55A /* ViewController.swift in Sources */,
 				E61D548B238509AE00E24A6C /* ProfDetailVC.swift in Sources */,
 				E61D548E238C677300E24A6C /* CosmosDistrib.swift in Sources */,
