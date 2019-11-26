@@ -68,7 +68,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     // TODO: jump to students list
     @IBAction func jumpStudents(_ sender: UIButton) {
         let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "students") as! StudentsList
-//        detailvc.currentProf = currentCourse?.professor
+        detailvc.currentCourse = currentCourse
         navigationController?.pushViewController(detailvc, animated: true)
     }
     
