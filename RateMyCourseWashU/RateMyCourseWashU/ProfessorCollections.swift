@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class ProfessorCollections: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var professorSearchResults:[Professor] = []
@@ -28,7 +28,7 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var collectionView: UICollectionView!
     func setCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.5180335641, green: 0.7032366395, blue: 0.6400405765, alpha: 1)
+//        collectionView.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true
@@ -58,8 +58,11 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
         cell.department!.font = cell.department!.font.withSize(hoc*0.17)
         cell.department!.text = professorList[indexPath.row].department
         
-        cell.rating = UIProgressView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.9, width: view.frame.width*0.9, height: hoc*0.1))
-        cell.rating!.progress = Float(professorList[indexPath.row].rating*0.1)
+        cell.rating = CosmosView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.8, width: view.frame.width*0.9, height: hoc*0.2))
+        cell.rating?.settings.fillMode = .precise
+        cell.rating?.settings.updateOnTouch = false
+        cell.rating?.rating = professorList[indexPath.row].rating / 2
+        cell.rating?.settings.starSize = 25
         
         
         cell.addSubview(cell.name!)
@@ -72,13 +75,22 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取professorList
     func initProfList() {
-        let prof1 = Professor(id: "1", name: "Todd Sproull", rating: 9.0, department: "Computer Science and Engineering")
-        let prof2 = Professor(id: "2", name: "Todd Spring", rating: 4.5, department: "Computer Science and Engineering")
-        let prof3 = Professor(id: "3", name: "Todd Sproll", rating: 6.5, department: "Computer Science and Engineering")
-        let prof4 = Professor(id: "4", name: "Todd Sprill", rating: 7.3, department: "Computer Science and Engineering")
-        let prof5 = Professor(id: "5", name: "Todd Spill", rating: 8.8, department: "Computer Science and Engineering")
-
-        professorList = [prof1, prof2, prof3, prof4, prof5]
+        AF.request("http://52.170.3.234:3456/professorList",
+                   method: .post,
+                   parameters: ["":""],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                    let json = JSON(response.data!)
+                    for (_, j):(String, JSON) in json{
+                        let p = Professor(id: j["id"].stringValue,
+                                          name: j["name"].stringValue,
+                                          rating: j["rating"].doubleValue / 10,
+                                          department:j["department"].stringValue)
+                        
+                        self.professorList.append(p)
+                    }
+                    self.collectionView.reloadData()
+        }
     }
     
     /*
@@ -100,14 +112,13 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
-    //todo: search prof
-    
-    //todo: push prof detail
+    //push prof detail
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "profdetail") as! ProfDetailVC
-//        detailvc.currentCourse = courseList[indexPath.row]
+        detailvc.currentProf = professorList[indexPath.row]
         navigationController?.pushViewController(detailvc, animated: true)
     }
     
+    //TODO: search prof
 }

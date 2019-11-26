@@ -14,7 +14,7 @@ class ProfCell: UICollectionViewCell {
     
     var name:UILabel? = nil
     var department :UILabel? = nil
-    var rating:UIProgressView? = nil
+    var rating:CosmosView? = nil
     
     override func prepareForReuse() {
         super.prepareForReuse()

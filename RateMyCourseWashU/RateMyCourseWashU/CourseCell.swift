@@ -15,7 +15,8 @@ class CourseCell: UICollectionViewCell {
     var number:UILabel? = nil
     var title :UILabel? = nil
     var professor:UILabel? = nil
-    var rating:UIProgressView? = nil
+//    var rating:UIProgressView? = nil
+    var rating:CosmosView? = nil
     
     override func prepareForReuse() {
         super.prepareForReuse()
