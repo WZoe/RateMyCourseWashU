@@ -64,7 +64,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     // TODO: fetch ratings for this course
     func initCommentList() {
-        let user = User(userID: "1111", username: "Adam A", password: "11111")
+        let user = User(userID: "1111", username: "Adam A", password: "11111", userPic: 1)
         let comment = Rating(user: user, rating: 8.4, comment: "This is a great prof balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
         let comment2 = Rating(user: user, rating: 7, comment: "This is a great prof balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! ")
         commentList = [comment,comment2]

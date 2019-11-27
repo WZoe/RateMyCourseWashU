@@ -32,7 +32,7 @@ struct User {
     let userID: String
     let username: String
     let password: String
-    let userPic:Int
+    let userPic: Int
 //    let favList: [Course]
 //    let takenList: [Course]
 //    let following: [Professor]

@@ -60,10 +60,10 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
     func initStudentList() {
-        let user1 = User(userID: "1", username: "asaf", password: "11")
-        let user2 = User(userID: "1", username: "zxbz", password: "11")
-        let user3 = User(userID: "1", username: "eyxbn", password: "11")
-        let user4 = User(userID: "1", username: "bzliw", password: "11")
+        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
+        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
+        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
+        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
         
         studentList = [user1, user2, user3, user4]
     }
