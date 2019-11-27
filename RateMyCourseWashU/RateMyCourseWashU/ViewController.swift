@@ -9,6 +9,9 @@
 import UIKit
 import Foundation
 import Alamofire
+
+
+
 // set UITextField with icon with reference to: https://medium.com/nyc-design/swift-4-add-icon-to-uitextfield-48f5ebf60aa1
 extension UITextField {
     func setIcon(_ image: UIImage) {
@@ -22,6 +25,8 @@ extension UITextField {
         leftViewMode = .always
     }
 }
+
+var cache=NSCache<NSString, NSString>()
 
 class ViewController: UIViewController,UITextFieldDelegate {
 
@@ -88,7 +93,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
                    encoder: JSONParameterEncoder.default).validate().responseJSON { response in
                     debugPrint(response)
                     var json = JSON(response.data!)
+                    // Please fetch user Id from API and store it in cache.
                     if json["Success"].boolValue == true {
+                        //cache.setObject(userId, forKey: "userid")
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0
