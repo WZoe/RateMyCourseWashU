@@ -298,7 +298,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.26539158821105957" green="0.51825124025344849" blue="0.4627411961555481" alpha="0.14760809075342465" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.5568627451" green="0.69803921570000005" blue="0.64313725489999995" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="nRz-ha-XqR" firstAttribute="leading" secondItem="kDk-Vf-w69" secondAttribute="leading" constant="87" id="IXh-3e-dnw"/>
                                     <constraint firstAttribute="trailing" secondItem="nRz-ha-XqR" secondAttribute="trailing" constant="87" id="IZh-cc-eLM"/>
@@ -406,7 +406,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.26539158821105957" green="0.51825124025344849" blue="0.4627411961555481" alpha="0.44648972602739728" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="9hz-hd-ZVC"/>
                                     <constraint firstItem="mdc-9V-SXH" firstAttribute="centerY" secondItem="nOd-Tb-Her" secondAttribute="centerY" id="M6d-Ez-DyN"/>
@@ -1539,7 +1539,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qxa-ux-0x9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.26539158821105957" green="0.51825124025344849" blue="0.4627411961555481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
