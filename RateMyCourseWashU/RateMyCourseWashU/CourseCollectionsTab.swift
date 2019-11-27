@@ -16,7 +16,6 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     var professorSearchResults:[Professor] = []
     var courseList:[Course] = []
     var professorList:[Professor] = []
-    var currentSeg:Int = 0 //0:course, 1:professor, 2:by rating, 3:by department
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,6 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
         nav.setHidesBackButton(true, animated: false)
         initCourseList()
         setCollectionView()
-        
     }
     
 
@@ -117,13 +115,91 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
-    // todo: 当segment change时更改标题和currentSeg
-    @IBAction func seg(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 1 {
+    // change seg
+    @IBAction func toProf(_ sender: UIButton) {
             let profcollection = self.storyboard?.instantiateViewController(withIdentifier: "profcollection") as! ProfessorCollections
             navigationController?.pushViewController(profcollection, animated: false)
-        }
     }
+    
+    
+    @IBOutlet weak var depButton: UIButton!
+    @IBOutlet weak var ratingButton: UIButton!
+    @IBOutlet weak var profButton: UIButton!
+    @IBOutlet weak var coursesButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    // by rating:
+    func byRating() {
+        coursesButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        coursesButton.setTitleColor(UIColor.white, for: .normal)
+        coursesButton.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
+        
+        ratingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        ratingButton.setTitleColor(UIColor.black, for: .normal)
+        ratingButton.backgroundColor = UIColor.white
+        
+        depButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        depButton.setTitleColor(UIColor.white, for: .normal)
+        depButton.backgroundColor = #colorLiteral(red: 0.5198733211, green: 0.6998378634, blue: 0.6403132677, alpha: 1)
+        
+        stackView.distribution = .fillProportionally
+    }
+    
+    @IBAction func toRating(_ sender: UIButton) {
+        byRating()
+        // sort course by rating and reload
+        courseList.sort(by: { $0.overallRating > $1.overallRating })
+        collectionView.reloadData()
+    }
+    
+    // by dep:
+    func byDep() {
+        coursesButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        coursesButton.setTitleColor(UIColor.white, for: .normal)
+        coursesButton.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
+        
+        ratingButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        ratingButton.setTitleColor(UIColor.white, for: .normal)
+        ratingButton.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
+        
+        depButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        depButton.setTitleColor(UIColor.black, for: .normal)
+        depButton.backgroundColor = UIColor.white
+        
+        stackView.distribution = .fillProportionally
+    }
+    
+    @IBAction func toDep(_ sender: UIButton) {
+        byDep()
+        //sort by dep and reload
+        courseList.sort(by: { $0.department > $1.department })
+        collectionView.reloadData()
+    }
+    
+    // course:
+    func course() {
+        coursesButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        coursesButton.setTitleColor(UIColor.black, for: .normal)
+        coursesButton.backgroundColor = UIColor.white
+        
+        ratingButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        ratingButton.setTitleColor(UIColor.white, for: .normal)
+        ratingButton.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
+        
+        depButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        depButton.setTitleColor(UIColor.white, for: .normal)
+        depButton.backgroundColor = #colorLiteral(red: 0.5198733211, green: 0.6998378634, blue: 0.6403132677, alpha: 1)
+        
+        stackView.distribution = .fillProportionally
+    }
+    
+    @IBAction func toCourse(_ sender: UIButton) {
+        course()
+        // original order
+        courseList = []
+        initCourseList()
+        collectionView.reloadData()
+    }
+    
     
     // TODO: search for a course:
     @IBAction func search(_ sender: UITextField) {
