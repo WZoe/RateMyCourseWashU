@@ -121,7 +121,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
         
         cell.comment = UITextView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.45, width: view.frame.width*0.9, height: hoc*0.45))
         cell.comment?.text = commentList[indexPath.row].comment
-        cell.comment?.font = cell.comment?.font?.withSize(14)
+        cell.comment?.font = UIFont.systemFont(ofSize: 16)
         cell.comment?.isEditable = false
         
         cell.rating = CosmosView(frame: CGRect(x: view.frame.width * 0.7, y: hoc*0.1, width: view.frame.width*0.35, height: hoc*0.4))

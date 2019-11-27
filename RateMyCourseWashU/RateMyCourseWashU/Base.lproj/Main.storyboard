@@ -343,33 +343,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-rW-uPT">
-                                <rect key="frame" x="20" y="101" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="search:" destination="fSA-yc-bPj" eventType="editingDidEnd" id="Mzf-Cp-Ja4"/>
-                                </connections>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="w7E-6Z-ayV">
-                                <rect key="frame" x="20" y="139" width="374" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Courses"/>
-                                    <segment title="Professors"/>
-                                    <segment title="By Ratings"/>
-                                    <segment title="By Departments"/>
-                                </segments>
-                                <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="seg:" destination="qzt-4L-2Dw" eventType="valueChanged" id="N2h-P5-U0s"/>
-                                </connections>
-                            </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0bm-hF-gSj">
-                                <rect key="frame" x="0.0" y="175" width="414" height="641"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0bm-hF-gSj">
+                                <rect key="frame" x="0.0" y="188" width="414" height="628"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cdb-Lg-Ff2">
                                     <size key="itemSize" width="50" height="50"/>
@@ -379,20 +354,99 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-Tx-bJD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEs-OX-vaN">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="50"/>
+                                        <color key="backgroundColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Courses">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toCourse:" destination="qzt-4L-2Dw" eventType="touchUpInside" id="INn-19-LSn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeA-CO-pAO">
+                                        <rect key="frame" x="73.5" y="0.0" width="103" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Professors">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toProf:" destination="qzt-4L-2Dw" eventType="touchUpInside" id="VM2-jd-LKn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAv-u4-R6o">
+                                        <rect key="frame" x="176.5" y="0.0" width="94.5" height="50"/>
+                                        <color key="backgroundColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="By Ratings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toRating:" destination="qzt-4L-2Dw" eventType="touchUpInside" id="65K-lI-ubM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn8-CL-y0m">
+                                        <rect key="frame" x="271" y="0.0" width="143" height="50"/>
+                                        <color key="backgroundColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="By Departments">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toDep:" destination="qzt-4L-2Dw" eventType="touchUpInside" id="2mM-wl-wqD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PYW-2t-Df7"/>
+                                </constraints>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-rW-uPT">
+                                <rect key="frame" x="20" y="148" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="search:" destination="fSA-yc-bPj" eventType="editingDidEnd" id="Mzf-Cp-Ja4"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EP7-rW-uPT" firstAttribute="top" secondItem="rn8-CL-y0m" secondAttribute="bottom" constant="10" id="3bX-Dh-B0x"/>
+                            <constraint firstItem="ixj-Tx-bJD" firstAttribute="leading" secondItem="eHC-EY-ZCa" secondAttribute="leading" id="9Zc-SU-sWc"/>
+                            <constraint firstItem="0bm-hF-gSj" firstAttribute="leading" secondItem="eHC-EY-ZCa" secondAttribute="leading" id="LDa-uf-Bh8"/>
+                            <constraint firstItem="eHC-EY-ZCa" firstAttribute="trailing" secondItem="EP7-rW-uPT" secondAttribute="trailing" constant="20" id="N1C-4j-t6W"/>
+                            <constraint firstItem="0bm-hF-gSj" firstAttribute="top" secondItem="EP7-rW-uPT" secondAttribute="bottom" constant="10" id="ObX-Gg-fdN"/>
+                            <constraint firstItem="ixj-Tx-bJD" firstAttribute="top" secondItem="eHC-EY-ZCa" secondAttribute="top" id="WRY-Yv-PfY"/>
+                            <constraint firstItem="EP7-rW-uPT" firstAttribute="leading" secondItem="eHC-EY-ZCa" secondAttribute="leading" constant="20" id="Y4F-Yd-wCe"/>
+                            <constraint firstItem="eHC-EY-ZCa" firstAttribute="trailing" secondItem="0bm-hF-gSj" secondAttribute="trailing" id="a6t-5C-tPN"/>
+                            <constraint firstItem="0bm-hF-gSj" firstAttribute="bottom" secondItem="eHC-EY-ZCa" secondAttribute="bottom" constant="3" id="qVD-0l-SOu"/>
+                            <constraint firstItem="eHC-EY-ZCa" firstAttribute="trailing" secondItem="ixj-Tx-bJD" secondAttribute="trailing" id="wlL-Qh-BDg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eHC-EY-ZCa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profeesors" largeTitleDisplayMode="always" id="0ym-iF-zrx"/>
                     <connections>
                         <outlet property="collectionView" destination="0bm-hF-gSj" id="7PI-hA-x3T"/>
+                        <outlet property="depButton" destination="rn8-CL-y0m" id="K4K-f8-OFk"/>
                         <outlet property="nav" destination="0ym-iF-zrx" id="tSw-jk-Z6J"/>
+                        <outlet property="profButton" destination="OeA-CO-pAO" id="Xyr-f9-5ym"/>
+                        <outlet property="ratingButton" destination="AAv-u4-R6o" id="yEy-SF-i3t"/>
+                        <outlet property="stackView" destination="ixj-Tx-bJD" id="9Rw-4d-UnB"/>
                         <segue destination="IJt-LC-gUl" kind="show" id="YTW-Pn-J7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXB-OH-Qf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3519" y="1477"/>
+            <point key="canvasLocation" x="3518.840579710145" y="1476.5625"/>
         </scene>
         <!--Todd Sproull-->
         <scene sceneID="s49-m3-OMj">
@@ -538,7 +592,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-T9-amP">
-                                <rect key="frame" x="0.0" y="172" width="414" height="641"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="625"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJe-AG-zjq">
@@ -549,22 +603,60 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4NZ-eD-jLr">
-                                <rect key="frame" x="20" y="139" width="374" height="29"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <segments>
-                                    <segment title="Courses"/>
-                                    <segment title="Professors"/>
-                                    <segment title="By Ratings"/>
-                                    <segment title="By Departments"/>
-                                </segments>
-                                <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="seg:" destination="fSA-yc-bPj" eventType="valueChanged" id="ndI-77-dZO"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="4cU-aJ-NGS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKX-yN-vd0">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Courses">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toCourse:" destination="fSA-yc-bPj" eventType="touchUpInside" id="Bd9-HR-Tef"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hO-yT-Z8b">
+                                        <rect key="frame" x="79" y="0.0" width="96" height="50"/>
+                                        <color key="backgroundColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Professors">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toProf:" destination="fSA-yc-bPj" eventType="touchUpInside" id="fAA-5v-Rog"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-7a-tlM">
+                                        <rect key="frame" x="175" y="0.0" width="95" height="50"/>
+                                        <color key="backgroundColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="By Ratings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toRating:" destination="fSA-yc-bPj" eventType="touchUpInside" id="k8L-io-9qB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-gI-sga">
+                                        <rect key="frame" x="270" y="0.0" width="144" height="50"/>
+                                        <color key="backgroundColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="By Departments">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toDep:" destination="fSA-yc-bPj" eventType="touchUpInside" id="xfc-YD-eeA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0Kk-eN-gMi"/>
+                                </constraints>
+                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-YY-A4O">
-                                <rect key="frame" x="20" y="101" width="374" height="30"/>
+                                <rect key="frame" x="20" y="148" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -575,30 +667,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="trailing" secondItem="zE9-we-u11" secondAttribute="trailing" constant="-20" id="5E3-e1-Iyj"/>
+                            <constraint firstItem="NZI-YY-A4O" firstAttribute="top" secondItem="Pyg-7a-tlM" secondAttribute="bottom" constant="10" id="4v7-dx-u3h"/>
                             <constraint firstItem="ewS-T9-amP" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" id="BFn-cX-e4N"/>
+                            <constraint firstItem="zE9-we-u11" firstAttribute="trailing" secondItem="4cU-aJ-NGS" secondAttribute="trailing" id="CMo-oz-4G2"/>
                             <constraint firstItem="zE9-we-u11" firstAttribute="trailing" secondItem="ewS-T9-amP" secondAttribute="trailing" id="Mj9-EE-DaG"/>
                             <constraint firstItem="zE9-we-u11" firstAttribute="trailing" secondItem="NZI-YY-A4O" secondAttribute="trailing" constant="20" id="NEr-Gb-aLA"/>
                             <constraint firstItem="zE9-we-u11" firstAttribute="bottom" secondItem="ewS-T9-amP" secondAttribute="bottom" id="RNH-Bl-3EH"/>
-                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" constant="20" id="Xf9-C7-HuX"/>
+                            <constraint firstItem="4cU-aJ-NGS" firstAttribute="top" secondItem="zE9-we-u11" secondAttribute="top" id="Syw-t1-gPQ"/>
                             <constraint firstItem="NZI-YY-A4O" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" constant="20" id="fbO-Xc-1yE"/>
-                            <constraint firstItem="ewS-T9-amP" firstAttribute="top" secondItem="4NZ-eD-jLr" secondAttribute="bottom" constant="5" id="jh1-yf-aZR"/>
-                            <constraint firstItem="NZI-YY-A4O" firstAttribute="top" secondItem="zE9-we-u11" secondAttribute="top" constant="13" id="pVD-6N-gY6"/>
-                            <constraint firstItem="4NZ-eD-jLr" firstAttribute="top" secondItem="NZI-YY-A4O" secondAttribute="bottom" constant="8" id="q65-nW-ooI"/>
+                            <constraint firstItem="4cU-aJ-NGS" firstAttribute="leading" secondItem="zE9-we-u11" secondAttribute="leading" id="lN5-qs-udh"/>
+                            <constraint firstItem="ewS-T9-amP" firstAttribute="top" secondItem="NZI-YY-A4O" secondAttribute="bottom" constant="10" id="qds-1O-eh6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zE9-we-u11"/>
                     </view>
                     <navigationItem key="navigationItem" title="Courses" largeTitleDisplayMode="always" id="AZG-2C-PBB"/>
                     <connections>
                         <outlet property="collectionView" destination="ewS-T9-amP" id="dSo-3g-ZpL"/>
+                        <outlet property="coursesButton" destination="uKX-yN-vd0" id="6J7-bw-16X"/>
+                        <outlet property="depButton" destination="v6X-gI-sga" id="kGY-pp-5gN"/>
                         <outlet property="nav" destination="AZG-2C-PBB" id="5DN-ep-44e"/>
+                        <outlet property="profButton" destination="9hO-yT-Z8b" id="arJ-8o-jA3"/>
+                        <outlet property="ratingButton" destination="Pyg-7a-tlM" id="c85-xw-imh"/>
+                        <outlet property="stackView" destination="4cU-aJ-NGS" id="omr-OF-bLI"/>
                         <segue destination="4of-x6-aVT" kind="show" id="KWv-C3-9PO"/>
                         <segue destination="qzt-4L-2Dw" kind="show" id="4n1-x1-hEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9x-4Z-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="1477"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="1476.5625"/>
         </scene>
         <!--detail view-->
         <scene sceneID="w0z-zb-p0p">
