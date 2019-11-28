@@ -738,7 +738,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0bm-hF-gSj">
-                                <rect key="frame" x="0.0" y="188" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="240" width="414" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cdb-Lg-Ff2">
                                     <size key="itemSize" width="50" height="50"/>
@@ -749,7 +749,7 @@
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-Tx-bJD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEs-OX-vaN">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="50"/>
@@ -803,7 +803,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-rW-uPT">
-                                <rect key="frame" x="20" y="148" width="374" height="30"/>
+                                <rect key="frame" x="20" y="200" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1005,7 +1005,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6p6-kg-joj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Todd Sproull" id="2Wj-B5-org"/>
+                    <navigationItem key="navigationItem" title="Todd Sproull" largeTitleDisplayMode="never" id="2Wj-B5-org"/>
                     <connections>
                         <outlet property="collectionView" destination="FmW-o3-i59" id="wcH-xM-JxK"/>
                         <outlet property="dep" destination="oA1-4s-iru" id="COY-Su-QW5"/>
@@ -1029,7 +1029,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-T9-amP">
-                                <rect key="frame" x="0.0" y="188" width="414" height="625"/>
+                                <rect key="frame" x="0.0" y="240" width="414" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.55743318799999997" green="0.69476407770000004" blue="0.6431326866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJe-AG-zjq">
@@ -1041,7 +1041,7 @@
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="4cU-aJ-NGS">
-                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKX-yN-vd0">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="50"/>
@@ -1093,7 +1093,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-YY-A4O">
-                                <rect key="frame" x="20" y="148" width="374" height="30"/>
+                                <rect key="frame" x="20" y="200" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1395,7 +1395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r6q-ZP-zcl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Mobile Application Development" id="eBo-yP-gAv"/>
+                    <navigationItem key="navigationItem" title="Mobile Application Development" largeTitleDisplayMode="never" id="eBo-yP-gAv"/>
                     <connections>
                         <outlet property="collectionView" destination="Cxl-sp-RaU" id="aIf-fQ-3OW"/>
                         <outlet property="dep" destination="jMa-gG-HSf" id="5xY-dM-R9W"/>
@@ -1486,8 +1486,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3up-lE-Y6i" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Course" image="magnifying-glass" id="EY4-Md-U0y"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bBA-ZI-6SI">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bBA-ZI-6SI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
