@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -74,16 +75,65 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     
     // TODO: Add to fav
     @IBAction func add2Fav(_ sender: UIButton) {
+        AF.request("http://52.170.3.234:3456/followCourse",
+                   method: .post,
+                   //TODO by zoe, 获取当前useID， 和courseID
+            parameters: ["userID":"1", "courseID":"1"],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                var json = JSON(response.data!)
+                if json["Success"].boolValue == true {
+                    //TODO by zoe: 弹出成功信息提示
+                }
+                else{
+                    //failre case
+                }
+        }
     }
     
     // TODO: mark as taken
     
     @IBAction func add2Taken(_ sender: UIButton) {
+        AF.request("http://52.170.3.234:3456/takeCourse",
+                   method: .post,
+                   //TODO by zoe, 获取当前useID， 和courseID
+            parameters: ["userID":"1", "courseID":"1"],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                var json = JSON(response.data!)
+                if json["Success"].boolValue == true {
+                    //TODO by zoe: 弹出成功信息提示
+                }
+                else{
+                    //failre case
+                }
+        }
     }
     
-    // TODO: submit user's rating
     // @currentUser, rating, comments, which course
     @IBAction func submitRating(_ sender: UIButton) {
+        let parameters: [String: String] = [
+            //TODO by zoe, 下列信息需要获取
+            "userID":"1",
+            "courseID":"1",
+            "comment":"great work",
+            "rating":"10"
+        ]
+        
+        AF.request("http://52.170.3.234:3456/submitCourseComment",
+                   method: .post,
+                   parameters: parameters,
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                var json = JSON(response.data!)
+                if json["Success"].boolValue == true {
+                    //TODO by zoe: 弹出submit 成功信息提示
+                }
+                else{
+                    //failre case
+                }
+                    
+        }
     }
     
     // comments collection view
@@ -91,10 +141,25 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     
     // TODO: fetch ratings for this course
     func initCommentList() {
-        let user = User(userID: "1111", username: "Adam A", password: "11111", userPic: 1)
-        let comment = Rating(user: user, rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
-        let comment2 = Rating(user: user, rating: 7, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! ")
-        commentList = [comment,comment2]
+//        let user = User(userID: "1111", username: "Adam A", password: "11111", userPic: 1)
+//        let comment = Rating(user: user, rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
+//        let comment2 = Rating(user: user, rating: 7, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! ")
+//        commentList = [comment,comment2]
+        AF.request("http://52.170.3.234:3456/getCourseCommentList",
+                   method: .post,
+                   //TODO by zoe: update courseID here
+                   parameters: ["courseID":"1"],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                    let json = JSON(response.data!)
+                    for (_, j):(String, JSON) in json{
+                        let rating = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
+                                            rating: j["rating"].doubleValue / 10,
+                                            comment: j["comment"].stringValue)
+                        self.commentList.append(rating)
+                    }
+                    self.collectionView.reloadData()
+        }
     }
     
     func setCollectionView() {

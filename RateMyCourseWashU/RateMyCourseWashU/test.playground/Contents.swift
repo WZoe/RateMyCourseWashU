@@ -22,6 +22,22 @@ struct Professor {
     //    let comments: [String]
     let department: String
 }
+struct User {
+    let userID: String
+    let username: String
+    let password: String
+    let userPic: Int
+    //    let favList: [Course]
+    //    let takenList: [Course]
+    //    let following: [Professor]
+}
+struct Rating {
+    let user: User
+    let rating: Double
+    let comment: String
+    //    let course: Course // course和professor只有一个field是有效的
+    //    let professor: Professor
+}
 //AF.request("http://52.170.3.234:3456/professorList",
 //           method: .post,
 //           parameters: ["keyword":"yeoh"],
@@ -40,48 +56,25 @@ struct Professor {
 //            //            }
 //}
 //
-//AF.request("http://52.170.3.234:3456/submitProfessorComment",
-//           method: .post,
-//           parameters: ["userID":"1", "proID":"1", "comment":"great work", "rating":"10"],
-//           encoder: JSONParameterEncoder.default).responseJSON { response in
-//            debugPrint(response)
-//            //            let json = JSON(response.data!)
-//            //            var courses: [Course] = []
-//            //            for (_, j):(String, JSON) in json{
-//            //                let course = Course(id: j["id"].stringValue,
-//            //                                    title: j["title"].stringValue,
-//            //                                    courseNumber: j["courseNumber"].stringValue,
-//            //                                    professor: j["professor"].stringValue,
-//            //                                    department: j["department"].stringValue,
-//            //                                    rating: j["rating"].doubleValue)
-//            //                courses.append(course)
-//            //            }
-//}
+
 //AF.request("http://52.170.3.234:3456/searchProfessor",
 //           method: .post,
 //           parameters: ["keyword":"yeoh"],
 //           encoder: JSONParameterEncoder.default).responseJSON { response in
 //            debugPrint(response)
 //}
-AF.request("http://52.170.3.234:3456/courseList",
+AF.request("http://52.170.3.234:3456/getProfessorCommentList",
            method: .post,
-           parameters: parameters,
+           parameters: ["proID":"1"],
            encoder: JSONParameterEncoder.default).responseJSON { response in
             debugPrint(response)
             let json = JSON(response.data!)
-            var courses: [Course] = []
+            var ratings: [Rating] = []
             for (_, j):(String, JSON) in json{
-                let p = Professor(id: j["proID"].stringValue,
-                                        name: j["proName"].stringValue,
-                                        rating: j["rating"].doubleValue / 10,
-                                        department:j["department"].stringValue)
-                let course = Course(id: j["courseID"].stringValue,
-                                    title: j["title"].stringValue,
-                                    courseNumber: j["courseNumber"].stringValue,
-                                    professor:p,
-                                    department: j["department"].stringValue,
-                                    overallRating: j["rating"].doubleValue / 10)
-                courses.append(course)
+                let rating = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
+                                    rating: j["rating"].doubleValue / 10,
+                                    comment: j["comment"].stringValue)
+                ratings.append(rating)
             }
-    }
+}
 
