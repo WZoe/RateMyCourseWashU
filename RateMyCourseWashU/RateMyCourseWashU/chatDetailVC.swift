@@ -14,7 +14,7 @@ class chatDetailVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textEntry: UITextField!
     
-    var roomId: Int = 0
+    var currentContact: Contact?
     private var chatManager: ChatManager?
     private var currentUser: PCCurrentUser?
     private var messages = [PCMultipartMessage]()
@@ -45,10 +45,18 @@ class chatDetailVC: UIViewController {
             self.currentUser = currentUser
             
             // TODO: set current chatroom：
-            var currentChat = currentUser!.rooms.first!
+            let rooms = currentUser?.rooms
+            var currentChat:PCRoom?
+            for room in rooms!{
+                print("room.id\(room.id)")
+                if room.id == String(self.currentContact!.roomId) {
+                    currentChat = room
+                }
+            }
+            
             
             // subscribe to currentcChat
-            currentUser!.subscribeToRoomMultipart(room: currentChat, roomDelegate: self, completionHandler: { (error) in
+            currentUser!.subscribeToRoomMultipart(room: currentChat!, roomDelegate: self, completionHandler: { (error) in
                 guard error == nil else {
                     print("Error subscribing to room: \(error!.localizedDescription)")
                     return

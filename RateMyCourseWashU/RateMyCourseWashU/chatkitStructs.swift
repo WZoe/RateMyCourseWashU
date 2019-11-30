@@ -8,15 +8,9 @@
 
 import Foundation
 
-struct RoomResult:Decodable {
-    let rooms: [Room]
-}
-
-struct Room:Decodable {
-    let id: Int
-    let member_user_ids: [String]
-}
-
-struct tokenRequest:Decodable {
-    let access_token:String
+struct Contact {
+    var id: String
+    var name: String
+    var avatar_url: String
+    var roomId: String
 }

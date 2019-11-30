@@ -137,6 +137,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         cache.setObject("1" as AnyObject, forKey: "userid")
         cache.setObject("havefun" as AnyObject, forKey: "password")
         cache.setObject(0 as AnyObject, forKey: "userimage")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

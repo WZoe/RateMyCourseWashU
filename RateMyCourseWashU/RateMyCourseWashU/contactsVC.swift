@@ -8,6 +8,7 @@
 
 import UIKit
 import PusherChatkit
+import Alamofire
 
 class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,8 +16,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var chatManager: ChatManager?
     private var currentUser: PCCurrentUser?
-    var token = ""
-    var contacts:[(Int, String)] = []
+    var contacts:[Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,23 +25,19 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //tableview：
         tableView.delegate = self
         tableView.dataSource = self
-        
-        //gen token
-        
-        
+
         //init chatkit
         guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
 //        token = generateToken()
-        print("token:\(token)")
         
-        self.chatManager = ChatManager(
-            instanceLocator: chatkitInfo.instanceLocator,
-            tokenProvider: PCTokenProvider(url: chatkitInfo.tokenProviderEndpoint),
-            userID: chatkitInfo.userId
-        )
+//        self.chatManager = ChatManager(
+//            instanceLocator: chatkitInfo.instanceLocator,
+//            tokenProvider: PCTokenProvider(url: chatkitInfo.tokenProviderEndpoint),
+//            userID: chatkitInfo.userId
+//        )
         
         // get contacts
-//        contacts = getUserRooms(token: token)
+        getUserRooms()
     }
     
 
@@ -54,6 +50,50 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
+    func getUserRooms(){
+        let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
+        var results:[(String, String)] = []
+        var token = ""
+        
+        AF.request(chatkitInfo!.tokenProviderEndpoint,
+                   method: .post,
+                   parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    let json = JSON(response.data!)
+                    token = json["access_token"].stringValue
+                    
+                    //fetch rooms
+                    AF.request(url!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+                        debugPrint(response)
+                        let json = JSON(response.data!)
+                        for (_, j):(String, JSON) in json{
+                            
+                            let members = j["member_user_ids"]
+                            var friend = ""
+                            if members[0].stringValue == chatkitInfo?.userId {
+                                friend = members[1].stringValue
+                            }
+                            else {
+                                friend = members[0].stringValue
+                            }
+                            results.append((j["id"].stringValue, friend))
+                        }
+                        
+                        for item in results {
+                            let userurl = URL(string: "\(ep)/users/\(item.1)")
+                            AF.request(userurl!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+//                                debugPrint(response)
+                                let json = JSON(response.data!)
+                                
+                                let user = Contact(id: json["id"].stringValue, name: json["name"].stringValue, avatar_url: json["avatar_url"].stringValue, roomId: item.0)
+                                self.contacts.append(user)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+        }
+    }
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
@@ -63,17 +103,17 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
         
         let contact = contacts[indexPath.row]
-        cell.textLabel?.text = contact.1
+        cell.textLabel?.text = contact.name
         // get avatar
-//        if(sender.avatarURL != nil){
-//            cell.setImageFromUrl(ImageURL: sender.avatarURL!, tableview: tableView)
-//        }
+        if(contact.avatar_url != ""){
+            cell.setImageFromUrl(ImageURL: contact.avatar_url , tableview: tableView)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatDetail = self.storyboard?.instantiateViewController(withIdentifier: "chatDetail") as! chatDetailVC
-       chatDetail.roomId = contacts[indexPath.row].0
+        chatDetail.currentContact = contacts[indexPath.row]
         navigationController?.pushViewController(chatDetail, animated: true)
     }
     

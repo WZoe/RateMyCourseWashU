@@ -78,58 +78,42 @@ func generateToken() -> String {
                           parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
                encoder: JSONParameterEncoder.default).responseJSON { response in
                             let json = JSON(response.data!)
-                print("json:\(json)")
-                            for (_, j):(String, JSON) in json{
-                                result = j["access_token"].stringValue
-                            }
+                result = json["access_token"].stringValue
     }
-//    var result = ""
-//    let url = URL(string: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/42106c7e-a9e7-4375-b4cc-77e586b4bd58/token")
-//    let json: [String: Any] = [
-//        "grant_type": "client_credentials",
-//        "user_id": String(chatkitInfo!.userId)
-//        ]
-//
-//    let jsonData = try? JSONSerialization.data(withJSONObject: json)
-//
-//    var request = URLRequest(url: url!)
-//    request.method = .post
-//    request.httpBody = jsonData
-//    print("start")
-//    URLSession.shared.dataTask(with: request) {data, response, error in
-//        if let data = data {
-//            print("results are here")
-//            print(String(data: data, encoding: .utf8)!)
-//            let data = try! JSONDecoder().decode(tokenRequest.self, from: data)
-//            result = data.access_token
-//        }
-//    }
     return result
 }
 
-func getUserRooms(token: String) -> [(Int, String)] {
-    let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
-    
-    var results:[(Int, String)] = []
-    var request = URLRequest(url: url!)
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "authorization")
-    
-//    let data = try! Data(contentsOf: url!)
-    URLSession.shared.dataTask(with: request) { data, response, error in
-        if let data = data {
-            print(String(data: data, encoding: .utf8)!)
-        
-            let d = try! JSONDecoder().decode(RoomResult.self, from: data)
-            for room in d.rooms {
-                let members = room.member_user_ids
-                if members[0] == chatkitInfo?.userId {
-                    results.append((room.id, members[1]))
-                }
-                else {
-                    results.append((room.id, members[0]))
-                }
-            }
-        }
-    }.resume()
-    return results
-}
+//func getUserRooms(tableView: UITableView) -> [(Int, String)] {
+//    let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
+//    var results:[(Int, String)] = []
+//    var token = ""
+//
+//    AF.request(chatkitInfo!.tokenProviderEndpoint,
+//               method: .post,
+//               parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
+//               encoder: JSONParameterEncoder.default).responseJSON { response in
+//                let json = JSON(response.data!)
+//                token = json["access_token"].stringValue
+//
+//                //fetch rooms
+//                AF.request(url!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+//                    debugPrint(response)
+//                    let json = JSON(response.data!)
+//                    for (_, j):(String, JSON) in json{
+//
+//                        let members = j["member_user_ids"]
+//                        var friend = ""
+//                        if members[0].stringValue == chatkitInfo?.userId {
+//                            friend = members[1].stringValue
+//                        }
+//                        else {
+//                            friend = members[0].stringValue
+//                        }
+//                        results.append((j["id"].intValue, friend))
+//                    }
+//                    print("result:\(results)")
+//                    tableView.reloadData()
+//                }
+//    }
+//    return results
+//}
