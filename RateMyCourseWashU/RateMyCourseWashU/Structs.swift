@@ -45,3 +45,9 @@ struct Rating {
 //    let course: Course // course和professor只有一个field是有效的
 //    let professor: Professor
 }
+
+struct MyComment{
+    let course:String
+    let rating:Double
+    let comment:String
+}

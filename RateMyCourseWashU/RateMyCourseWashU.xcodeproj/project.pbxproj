@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		636535012391D4D8009B4EC1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636535002391D4D8009B4EC1 /* SwiftyJSON.swift */; };
 		639637E1238343CA00646E46 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639637E0238343CA00646E46 /* Structs.swift */; };
-		AC06B11B23847E240034C920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
-		AC06B11C23847E240034C920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC54EA682392049900475AF7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
+		AC54EA692392049900475AF7 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC54EA752392059F00475AF7 /* MyTakenCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */; };
+		AC54EA762392059F00475AF7 /* MeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA702392059E00475AF7 /* MeTag.swift */; };
+		AC54EA772392059F00475AF7 /* MyCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA712392059E00475AF7 /* MyCommentCell.swift */; };
+		AC54EA782392059F00475AF7 /* MyProfessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA722392059E00475AF7 /* MyProfessorViewController.swift */; };
+		AC54EA792392059F00475AF7 /* MyMarkedCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */; };
+		AC54EA7A2392059F00475AF7 /* MyRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA742392059F00475AF7 /* MyRatingViewController.swift */; };
+		AC7B5635239209CA00F3284F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B562E239209CA00F3284F /* InfoViewController.swift */; };
 		ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2FEF623773A9F00EA60BE /* Interface.swift */; };
 		ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD861112381AED1002089CD /* SignUpViewController.swift */; };
 		E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */; };
@@ -80,7 +87,7 @@
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
-		AC06B11D23847E240034C920 /* PBXContainerItemProxy */ = {
+		AC54EA6A2392049900475AF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6312981E238328B800A993F2 /* Alamofire.xcodeproj */;
 			proxyType = 1;
@@ -90,13 +97,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AC06B11F23847E240034C920 /* Embed Frameworks */ = {
+		AC54EA6C2392049900475AF7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AC06B11C23847E240034C920 /* Alamofire.framework in Embed Frameworks */,
+				AC54EA692392049900475AF7 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +115,13 @@
 		636535002391D4D8009B4EC1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		639637E0238343CA00646E46 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		63F462702382E9E5007FFBC2 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTakenCourseViewController.swift; sourceTree = "<group>"; };
+		AC54EA702392059E00475AF7 /* MeTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTag.swift; sourceTree = "<group>"; };
+		AC54EA712392059E00475AF7 /* MyCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommentCell.swift; sourceTree = "<group>"; };
+		AC54EA722392059E00475AF7 /* MyProfessorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfessorViewController.swift; sourceTree = "<group>"; };
+		AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMarkedCourseViewController.swift; sourceTree = "<group>"; };
+		AC54EA742392059F00475AF7 /* MyRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRatingViewController.swift; sourceTree = "<group>"; };
+		AC7B562E239209CA00F3284F /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		ACB2FEF623773A9F00EA60BE /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		ACD861112381AED1002089CD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionsTab.swift; sourceTree = "<group>"; };
@@ -134,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC06B11B23847E240034C920 /* Alamofire.framework in Frameworks */,
+				AC54EA682392049900475AF7 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +189,13 @@
 		E694E2F123772DE00019E55A /* RateMyCourseWashU */ = {
 			isa = PBXGroup;
 			children = (
+				AC7B562E239209CA00F3284F /* InfoViewController.swift */,
+				AC54EA702392059E00475AF7 /* MeTag.swift */,
+				AC54EA712392059E00475AF7 /* MyCommentCell.swift */,
+				AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */,
+				AC54EA722392059E00475AF7 /* MyProfessorViewController.swift */,
+				AC54EA742392059F00475AF7 /* MyRatingViewController.swift */,
+				AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */,
 				63F462702382E9E5007FFBC2 /* test.playground */,
 				ACD861112381AED1002089CD /* SignUpViewController.swift */,
 				E694E2F223772DE00019E55A /* AppDelegate.swift */,
@@ -210,12 +231,12 @@
 				E694E2EB23772DE00019E55A /* Sources */,
 				E694E2EC23772DE00019E55A /* Frameworks */,
 				E694E2ED23772DE00019E55A /* Resources */,
-				AC06B11F23847E240034C920 /* Embed Frameworks */,
+				AC54EA6C2392049900475AF7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AC06B11E23847E240034C920 /* PBXTargetDependency */,
+				AC54EA6B2392049900475AF7 /* PBXTargetDependency */,
 			);
 			name = RateMyCourseWashU;
 			productName = RateMyCourseWashU;
@@ -336,27 +357,34 @@
 				E6207E9E238DDF8E003CE19C /* RecCell.swift in Sources */,
 				ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */,
 				E61D53F223812C1D00E24A6C /* CourseCollectionsTab.swift in Sources */,
+				AC54EA772392059F00475AF7 /* MyCommentCell.swift in Sources */,
+				AC54EA782392059F00475AF7 /* MyProfessorViewController.swift in Sources */,
 				E61D5481238502EC00E24A6C /* ProfessorCollections.swift in Sources */,
 				639637E1238343CA00646E46 /* Structs.swift in Sources */,
 				E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */,
+				AC54EA792392059F00475AF7 /* MyMarkedCourseViewController.swift in Sources */,
+				AC54EA752392059F00475AF7 /* MyTakenCourseViewController.swift in Sources */,
 				E694E2F523772DE00019E55A /* ViewController.swift in Sources */,
+				AC54EA762392059F00475AF7 /* MeTag.swift in Sources */,
 				E6207E9A238DB646003CE19C /* RatingCell.swift in Sources */,
 				E61D548B238509AE00E24A6C /* ProfDetailVC.swift in Sources */,
 				636535012391D4D8009B4EC1 /* SwiftyJSON.swift in Sources */,
 				E61D548E238C677300E24A6C /* CosmosDistrib.swift in Sources */,
 				E61D5489238505F900E24A6C /* ProfCell.swift in Sources */,
+				AC54EA7A2392059F00475AF7 /* MyRatingViewController.swift in Sources */,
 				E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */,
 				ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */,
+				AC7B5635239209CA00F3284F /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AC06B11E23847E240034C920 /* PBXTargetDependency */ = {
+		AC54EA6B2392049900475AF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
-			targetProxy = AC06B11D23847E240034C920 /* PBXContainerItemProxy */;
+			targetProxy = AC54EA6A2392049900475AF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

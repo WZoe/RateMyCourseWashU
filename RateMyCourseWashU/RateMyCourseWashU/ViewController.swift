@@ -26,7 +26,7 @@ extension UITextField {
     }
 }
 
-var cache=NSCache<NSString, NSString>()
+var cache=NSCache<NSString, AnyObject>()
 
 class ViewController: UIViewController,UITextFieldDelegate {
 
@@ -82,6 +82,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
+    
+    // Todo: fetch user information from API and store them in cache.
+    // userimage default 0, update until user changes settings.
     @IBAction func logIn(_ sender: Any) {
         let parameters: [String: String] = [
             "username": userName.text!,
@@ -93,7 +96,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
                    encoder: JSONParameterEncoder.default).validate().responseJSON { response in
                     debugPrint(response)
                     var json = JSON(response.data!)
-                    // Please fetch user Id from API and store it in cache.
                     if json["Success"].boolValue == true {
                         //cache.setObject(userId, forKey: "userid")
                         self.loginMessage.text = "Log in successfully."
@@ -129,6 +131,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
         self.password.delegate=self
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.ddfdfddddhgfjhgf
+        // test info
+        cache.setObject("testUser" as AnyObject, forKey: "username")
+        cache.setObject("1" as AnyObject, forKey: "userid")
+        cache.setObject("havefun" as AnyObject, forKey: "password")
+        cache.setObject(0 as AnyObject, forKey: "userimage")
     }
     
     override func viewWillAppear(_ animated: Bool) {

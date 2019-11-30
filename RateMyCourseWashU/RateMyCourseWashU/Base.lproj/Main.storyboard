@@ -277,7 +277,7 @@
         <!--Me-->
         <scene sceneID="dvd-I3-JR6">
             <objects>
-                <viewController id="0fn-5n-M4G" sceneMemberID="viewController">
+                <viewController id="0fn-5n-M4G" customClass="MeTag" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jow-ug-qUq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userface" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-ha-XqR">
-                                        <rect key="frame" x="87" y="40" width="240.00000000000011" height="128"/>
+                                        <rect key="frame" x="87" y="40" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="sGi-aM-mnR"/>
                                         </constraints>
@@ -439,6 +439,9 @@
                                             <constraint firstAttribute="width" constant="15" id="hpt-c8-xrF"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="arrow-point-to-right"/>
+                                        <connections>
+                                            <action selector="myProfButton:" destination="0fn-5n-M4G" eventType="touchUpInside" id="V3t-Yq-28j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -480,6 +483,9 @@
                                             <constraint firstAttribute="height" constant="20" id="r7X-WO-F3A"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="arrow-point-to-right"/>
+                                        <connections>
+                                            <action selector="myMarkedCoursesButton:" destination="0fn-5n-M4G" eventType="touchUpInside" id="1cp-kx-evb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -520,6 +526,9 @@
                                             <constraint firstAttribute="width" constant="15" id="kUI-YV-Mnx"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="arrow-point-to-right"/>
+                                        <connections>
+                                            <action selector="myTakenCoursesButton:" destination="0fn-5n-M4G" eventType="touchUpInside" id="T08-Ld-X5a"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -560,6 +569,9 @@
                                             <constraint firstAttribute="width" constant="15" id="u4U-P0-c8p"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="arrow-point-to-right"/>
+                                        <connections>
+                                            <action selector="myRatingsButton:" destination="0fn-5n-M4G" eventType="touchUpInside" id="t8o-za-Npw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -600,6 +612,9 @@
                                             <constraint firstAttribute="width" constant="15" id="us3-HY-ttU"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="arrow-point-to-right"/>
+                                        <connections>
+                                            <action selector="infoButton:" destination="0fn-5n-M4G" eventType="touchUpInside" id="6uM-S8-ekR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -643,6 +658,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Me" id="pvk-A5-Lem"/>
                     <connections>
+                        <outlet property="myMarkedCoursesLabel" destination="46e-AV-gFt" id="g7m-2X-O58"/>
+                        <outlet property="myProfLabel" destination="1my-zP-U5D" id="mwN-Yl-Iej"/>
+                        <outlet property="myRatingsLabel" destination="Bcc-Oi-dxa" id="vQ8-G7-NmN"/>
+                        <outlet property="myTakenCoursesLabel" destination="khJ-XL-nmE" id="Zl6-ut-OPj"/>
+                        <outlet property="userImage" destination="nRz-ha-XqR" id="ESo-su-Ipk"/>
+                        <outlet property="userName" destination="gTs-y6-Pcl" id="MPW-Nf-Wyt"/>
                         <segue destination="Kmi-QQ-dco" kind="show" id="2uY-ri-tmZ"/>
                         <segue destination="Tx2-Gz-1NM" kind="show" id="lNi-dW-jnP"/>
                         <segue destination="JEa-mC-u7L" kind="show" id="VBR-IV-KPv"/>
@@ -657,13 +678,44 @@
         <!--My Professors-->
         <scene sceneID="95i-Bh-Vb2">
             <objects>
-                <viewController title="My Professors" id="Kmi-QQ-dco" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfessorViewController" title="My Professors" id="Kmi-QQ-dco" customClass="MyProfessorViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KZR-9v-iyP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-iq-XHb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dTL-Vj-rYN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yej-hG-8Y8">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4XR-Dt-jMm" firstAttribute="bottom" secondItem="fvg-iq-XHb" secondAttribute="bottom" id="Xhe-gj-XVO"/>
+                            <constraint firstItem="fvg-iq-XHb" firstAttribute="top" secondItem="4XR-Dt-jMm" secondAttribute="top" id="YSt-0Y-yrY"/>
+                            <constraint firstItem="fvg-iq-XHb" firstAttribute="leading" secondItem="4XR-Dt-jMm" secondAttribute="leading" id="jki-uc-NXq"/>
+                            <constraint firstItem="4XR-Dt-jMm" firstAttribute="trailing" secondItem="fvg-iq-XHb" secondAttribute="trailing" id="mkU-9l-CEJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4XR-Dt-jMm"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="fvg-iq-XHb" id="S3J-hE-JTo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciY-kA-ymL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,13 +724,44 @@
         <!--My Marked Courses-->
         <scene sceneID="lYS-Gz-iJQ">
             <objects>
-                <viewController title="My Marked Courses" id="Tx2-Gz-1NM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyMarkedCourseViewController" title="My Marked Courses" id="Tx2-Gz-1NM" customClass="MyMarkedCourseViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vww-Y7-3yT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JwY-ro-qMa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ny4-Br-DwN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JUC-S2-40Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ykw-AW-vXq" firstAttribute="bottom" secondItem="JwY-ro-qMa" secondAttribute="bottom" id="9yl-jF-Jnc"/>
+                            <constraint firstItem="JwY-ro-qMa" firstAttribute="top" secondItem="ykw-AW-vXq" secondAttribute="top" id="A8E-Nl-1Lv"/>
+                            <constraint firstItem="ykw-AW-vXq" firstAttribute="trailing" secondItem="JwY-ro-qMa" secondAttribute="trailing" id="h9k-gW-QXu"/>
+                            <constraint firstItem="JwY-ro-qMa" firstAttribute="leading" secondItem="ykw-AW-vXq" secondAttribute="leading" id="lcm-45-Qts"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ykw-AW-vXq"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="JwY-ro-qMa" id="ySB-2q-87G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lal-x9-DrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -687,13 +770,44 @@
         <!--My Taken Courses-->
         <scene sceneID="aU1-HC-xSt">
             <objects>
-                <viewController title="My Taken Courses" id="JEa-mC-u7L" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyTakenCourseViewController" title="My Taken Courses" id="JEa-mC-u7L" customClass="MyTakenCourseViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bZD-Nq-TTp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kxd-aj-YYi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5PW-Ps-O4B">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cfr-ra-ngz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="595-lv-aX2" firstAttribute="trailing" secondItem="kxd-aj-YYi" secondAttribute="trailing" id="M5W-vM-4tv"/>
+                            <constraint firstItem="595-lv-aX2" firstAttribute="bottom" secondItem="kxd-aj-YYi" secondAttribute="bottom" id="WWR-FS-HIb"/>
+                            <constraint firstItem="kxd-aj-YYi" firstAttribute="top" secondItem="595-lv-aX2" secondAttribute="top" id="cfq-ZP-RMh"/>
+                            <constraint firstItem="kxd-aj-YYi" firstAttribute="leading" secondItem="595-lv-aX2" secondAttribute="leading" id="cxM-Jg-vvA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="595-lv-aX2"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="kxd-aj-YYi" id="0A0-HU-9st"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wyy-1Y-zie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -702,13 +816,44 @@
         <!--My Ratings-->
         <scene sceneID="UYO-Pp-nnb">
             <objects>
-                <viewController title="My Ratings" id="7md-l9-fsD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyRatingViewController" title="My Ratings" id="7md-l9-fsD" customClass="MyRatingViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPU-LN-z5S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cc3-Bu-khE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GnJ-pU-I7f">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cSy-xj-JMy">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cc3-Bu-khE" firstAttribute="top" secondItem="Chx-kD-NGi" secondAttribute="top" id="4oe-Co-0uJ"/>
+                            <constraint firstItem="Chx-kD-NGi" firstAttribute="bottom" secondItem="cc3-Bu-khE" secondAttribute="bottom" id="gFZ-Ms-7Dm"/>
+                            <constraint firstItem="cc3-Bu-khE" firstAttribute="leading" secondItem="Chx-kD-NGi" secondAttribute="leading" id="jF4-3Y-sH3"/>
+                            <constraint firstItem="Chx-kD-NGi" firstAttribute="trailing" secondItem="cc3-Bu-khE" secondAttribute="trailing" id="sbR-EC-nyJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Chx-kD-NGi"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="cc3-Bu-khE" id="MhN-K0-dBK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBv-85-IeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -717,7 +862,7 @@
         <!--Information-->
         <scene sceneID="xHZ-9A-lEA">
             <objects>
-                <viewController title="Information" id="Q05-4A-MkB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" title="Information" id="Q05-4A-MkB" customClass="InfoViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6KP-13-nyC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
