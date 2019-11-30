@@ -1,0 +1,6 @@
+framework module Pods_RateMyCourseWashU {
+  umbrella header "Pods-RateMyCourseWashU-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,24 @@
+PODS:
+  - PusherChatkit (1.8.1):
+    - PusherPlatform (~> 0.7.2)
+    - PushNotifications (~> 2.1.2)
+  - PusherPlatform (0.7.2)
+  - PushNotifications (2.1.2)
+
+DEPENDENCIES:
+  - PusherChatkit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - PusherChatkit
+    - PusherPlatform
+    - PushNotifications
+
+SPEC CHECKSUMS:
+  PusherChatkit: 6db76843017e946186d3c8b377d4834d82120823
+  PusherPlatform: c1084d8abc6c1ddb5af2a07214f72be2991faa9b
+  PushNotifications: 3d1ac73f4e1e9dc3de8fa8319e3e53bd00be47dc
+
+PODFILE CHECKSUM: 054b4d1b387d576dbb2057ecf631591670ebdaa4
+
+COCOAPODS: 1.8.4

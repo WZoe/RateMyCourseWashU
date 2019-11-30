@@ -126,22 +126,48 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="95.758928571428569"/>
         </scene>
-        <!--Chat-->
+        <!--Messages-->
         <scene sceneID="BDr-uT-dbx">
             <objects>
                 <viewController id="OyD-4w-4vE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fqQ-Hh-GZN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XR-k0-IIS">
+                                <rect key="frame" x="151" y="227" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="WM1-JF-7jr" kind="show" id="YSt-hY-p8m"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="3RD-6b-Jf9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
+                    <navigationItem key="navigationItem" title="Messages" largeTitleDisplayMode="always" id="R7s-BH-C67"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VB1-wl-5Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="793.52678571428567"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="793.52678571428567"/>
+        </scene>
+        <!--chatDetail-->
+        <scene sceneID="tsm-7P-fWe">
+            <objects>
+                <viewController storyboardIdentifier="chatDetail" title="chatDetail" id="WM1-JF-7jr" customClass="chatDetailVC" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="usx-fh-r66">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="df8-l1-4k1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat with Adam" id="Qt1-Tl-gdN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6J-dY-Lg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2748" y="794"/>
         </scene>
         <!--Signup-->
         <scene sceneID="cmz-MC-IVO">
@@ -265,7 +291,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="OyD-4w-4vE" kind="relationship" relationship="viewControllers" id="z5B-yp-BjM"/>
+                        <segue destination="b1h-h0-XUH" kind="relationship" relationship="viewControllers" id="z5B-yp-BjM"/>
                         <segue destination="3up-lE-Y6i" kind="relationship" relationship="viewControllers" id="UeB-5M-vCr"/>
                         <segue destination="9j5-pt-BKi" kind="relationship" relationship="viewControllers" id="3Hs-sR-hur"/>
                     </connections>
@@ -1700,6 +1726,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLF-lu-wto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="2145.5357142857142"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="rOV-iJ-pLr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1h-h0-XUH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" image="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="S9j-15-0Ap">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OyD-4w-4vE" kind="relationship" relationship="rootViewController" id="rXg-3m-VUv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqn-Jq-xjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="793.52678571428567"/>
         </scene>
     </scenes>
     <resources>
