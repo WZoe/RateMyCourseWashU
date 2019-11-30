@@ -77,12 +77,13 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     // TODO: submit rating
     // @prof, currentUser, rating, comment
     @IBAction func submit(_ sender: UIButton) {
+        let rating  = Int((userR.text! as NSString).doubleValue * 10)
         let parameters: [String: String] = [
             //done by zoe, 下列信息需要获取
             "userID":cache.object(forKey: "userid") as! String,
             "proID":currentProf!.id,
             "comment":comment.text!,
-            "rating":userR.text! //一样的这里获取的是十进制
+            "rating":String(rating) //一样的这里获取的是十进制
         ]
         
         AF.request("http://52.170.3.234:3456/submitProfessorComment",
