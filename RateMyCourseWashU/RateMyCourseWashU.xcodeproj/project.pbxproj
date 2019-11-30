@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		639637E1238343CA00646E46 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639637E0238343CA00646E46 /* Structs.swift */; };
 		63EDBC6E23921D37001B5A45 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EDBC6D23921D37001B5A45 /* SwiftyJSON.swift */; };
+		8B1C95D46AD4A1205D447A16 /* Pods_RateMyCourseWashU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0C2423BA7D2FB8F246CEB8 /* Pods_RateMyCourseWashU.framework */; };
 		AC54EA682392049900475AF7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
 		AC54EA692392049900475AF7 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC54EA752392059F00475AF7 /* MyTakenCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */; };
@@ -31,6 +32,9 @@
 		E6207E9A238DB646003CE19C /* RatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E99238DB646003CE19C /* RatingCell.swift */; };
 		E6207E9E238DDF8E003CE19C /* RecCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E9D238DDF8E003CE19C /* RecCell.swift */; };
 		E6207EA923926305003CE19C /* banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207EA823926305003CE19C /* banner.swift */; };
+		E6207EAB2392E7C1003CE19C /* Chatkit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6207EAA2392E7C1003CE19C /* Chatkit.plist */; };
+		E6207EAD2392E8CE003CE19C /* chatkitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207EAC2392E8CE003CE19C /* chatkitUtils.swift */; };
+		E6207EB22392EED2003CE19C /* chatDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207EB12392EED2003CE19C /* chatDetailVC.swift */; };
 		E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F223772DE00019E55A /* AppDelegate.swift */; };
 		E694E2F523772DE00019E55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F423772DE00019E55A /* ViewController.swift */; };
 		E694E2F823772DE00019E55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E694E2F623772DE00019E55A /* Main.storyboard */; };
@@ -112,10 +116,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D0C2423BA7D2FB8F246CEB8 /* Pods_RateMyCourseWashU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateMyCourseWashU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6312981E238328B800A993F2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		639637E0238343CA00646E46 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		63EDBC6D23921D37001B5A45 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		63F462702382E9E5007FFBC2 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		662D8E1BB80048259FA1DAA7 /* Pods-RateMyCourseWashU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMyCourseWashU.debug.xcconfig"; path = "Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU.debug.xcconfig"; sourceTree = "<group>"; };
 		AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTakenCourseViewController.swift; sourceTree = "<group>"; };
 		AC54EA702392059E00475AF7 /* MeTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTag.swift; sourceTree = "<group>"; };
 		AC54EA712392059E00475AF7 /* MyCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommentCell.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		AC7B562E239209CA00F3284F /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		ACB2FEF623773A9F00EA60BE /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		ACD861112381AED1002089CD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
+		D870D745E3EA3199AF2D30E8 /* Pods-RateMyCourseWashU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMyCourseWashU.release.xcconfig"; path = "Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU.release.xcconfig"; sourceTree = "<group>"; };
 		E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionsTab.swift; sourceTree = "<group>"; };
 		E61D53F723812F4900E24A6C /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		E61D53FA238389B900E24A6C /* CourseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVC.swift; sourceTree = "<group>"; };
@@ -136,6 +143,9 @@
 		E6207E99238DB646003CE19C /* RatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCell.swift; sourceTree = "<group>"; };
 		E6207E9D238DDF8E003CE19C /* RecCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCell.swift; sourceTree = "<group>"; };
 		E6207EA823926305003CE19C /* banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = banner.swift; sourceTree = "<group>"; };
+		E6207EAA2392E7C1003CE19C /* Chatkit.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Chatkit.plist; sourceTree = "<group>"; };
+		E6207EAC2392E8CE003CE19C /* chatkitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatkitUtils.swift; sourceTree = "<group>"; };
+		E6207EB12392EED2003CE19C /* chatDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatDetailVC.swift; sourceTree = "<group>"; };
 		E694E2EF23772DE00019E55A /* RateMyCourseWashU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMyCourseWashU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E694E2F223772DE00019E55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E694E2F423772DE00019E55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,12 +161,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC54EA682392049900475AF7 /* Alamofire.framework in Frameworks */,
+				8B1C95D46AD4A1205D447A16 /* Pods_RateMyCourseWashU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3074918C5EACADFDA361AD8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D0C2423BA7D2FB8F246CEB8 /* Pods_RateMyCourseWashU.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6312981F238328B800A993F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +196,8 @@
 				6312981E238328B800A993F2 /* Alamofire.xcodeproj */,
 				E694E2F123772DE00019E55A /* RateMyCourseWashU */,
 				E694E2F023772DE00019E55A /* Products */,
+				EEC7150F5FB17B2F6046BA62 /* Pods */,
+				3074918C5EACADFDA361AD8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +216,7 @@
 				AC54EA702392059E00475AF7 /* MeTag.swift */,
 				AC54EA712392059E00475AF7 /* MyCommentCell.swift */,
 				AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */,
+				E6207EAC2392E8CE003CE19C /* chatkitUtils.swift */,
 				AC54EA722392059E00475AF7 /* MyProfessorViewController.swift */,
 				AC54EA742392059F00475AF7 /* MyRatingViewController.swift */,
 				AC54EA6F2392059E00475AF7 /* MyTakenCourseViewController.swift */,
@@ -203,6 +225,8 @@
 				E694E2F223772DE00019E55A /* AppDelegate.swift */,
 				E694E2F423772DE00019E55A /* ViewController.swift */,
 				E694E2F623772DE00019E55A /* Main.storyboard */,
+				E6207EB12392EED2003CE19C /* chatDetailVC.swift */,
+				E6207EAA2392E7C1003CE19C /* Chatkit.plist */,
 				E61D548D238C677300E24A6C /* CosmosDistrib.swift */,
 				E61D5480238502EC00E24A6C /* ProfessorCollections.swift */,
 				E61D5488238505F900E24A6C /* ProfCell.swift */,
@@ -224,6 +248,15 @@
 			path = RateMyCourseWashU;
 			sourceTree = "<group>";
 		};
+		EEC7150F5FB17B2F6046BA62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				662D8E1BB80048259FA1DAA7 /* Pods-RateMyCourseWashU.debug.xcconfig */,
+				D870D745E3EA3199AF2D30E8 /* Pods-RateMyCourseWashU.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,10 +264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E694E30123772DE30019E55A /* Build configuration list for PBXNativeTarget "RateMyCourseWashU" */;
 			buildPhases = (
+				82D7CA1BE086A08BDF12475F /* [CP] Check Pods Manifest.lock */,
 				E694E2EB23772DE00019E55A /* Sources */,
 				E694E2EC23772DE00019E55A /* Frameworks */,
 				E694E2ED23772DE00019E55A /* Resources */,
 				AC54EA6C2392049900475AF7 /* Embed Frameworks */,
+				E5A1B8878135152D8736557A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,10 +380,53 @@
 				E694E2FD23772DE30019E55A /* LaunchScreen.storyboard in Resources */,
 				E694E2FA23772DE30019E55A /* Assets.xcassets in Resources */,
 				E694E2F823772DE00019E55A /* Main.storyboard in Resources */,
+				E6207EAB2392E7C1003CE19C /* Chatkit.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		82D7CA1BE086A08BDF12475F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RateMyCourseWashU-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5A1B8878135152D8736557A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E694E2EB23772DE00019E55A /* Sources */ = {
@@ -356,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D53FB238389B900E24A6C /* CourseDetailVC.swift in Sources */,
+				E6207EB22392EED2003CE19C /* chatDetailVC.swift in Sources */,
 				E61D53F823812F4900E24A6C /* CourseCell.swift in Sources */,
 				E6207E9E238DDF8E003CE19C /* RecCell.swift in Sources */,
 				ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */,
@@ -363,6 +442,7 @@
 				AC54EA772392059F00475AF7 /* MyCommentCell.swift in Sources */,
 				AC54EA782392059F00475AF7 /* MyProfessorViewController.swift in Sources */,
 				E61D5481238502EC00E24A6C /* ProfessorCollections.swift in Sources */,
+				E6207EAD2392E8CE003CE19C /* chatkitUtils.swift in Sources */,
 				63EDBC6E23921D37001B5A45 /* SwiftyJSON.swift in Sources */,
 				639637E1238343CA00646E46 /* Structs.swift in Sources */,
 				E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */,
@@ -530,6 +610,7 @@
 		};
 		E694E30223772DE30019E55A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 662D8E1BB80048259FA1DAA7 /* Pods-RateMyCourseWashU.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -548,6 +629,7 @@
 		};
 		E694E30323772DE30019E55A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D870D745E3EA3199AF2D30E8 /* Pods-RateMyCourseWashU.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

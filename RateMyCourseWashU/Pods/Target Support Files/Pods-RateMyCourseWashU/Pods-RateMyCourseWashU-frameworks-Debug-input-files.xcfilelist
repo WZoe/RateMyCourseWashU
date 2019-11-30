@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU-frameworks.sh
+${BUILT_PRODUCTS_DIR}/PushNotifications/PushNotifications.framework
+${BUILT_PRODUCTS_DIR}/PusherChatkit/PusherChatkit.framework
+${BUILT_PRODUCTS_DIR}/PusherPlatform/PusherPlatform.framework

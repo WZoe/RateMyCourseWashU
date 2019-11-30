@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ChatkitInstanceLocator</key>
+	<string>v1:us1:42106c7e-a9e7-4375-b4cc-77e586b4bd58</string>
+	<key>ChatkitTokenProviderEndpoint</key>
+	<string>https://us1.pusherplatform.io/services/chatkit_token_provider/v1/42106c7e-a9e7-4375-b4cc-77e586b4bd58/token</string>
+</dict>
+</plist>
