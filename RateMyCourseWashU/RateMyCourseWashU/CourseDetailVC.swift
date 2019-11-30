@@ -25,6 +25,8 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     @IBAction func slider(_ sender: UISlider) {
         myrating.text =  String(format: "%.1f", sender.value * 10) //123.32
     }
+    
+    @IBOutlet weak var comment: UITextField!
     @IBOutlet weak var profdepartment: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var profname: UILabel!
@@ -35,11 +37,12 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
         updateValue()
         setCollectionView()
         initCommentList()
+        
     }
     
     func updateValue() {
         self.title = currentCourse!.title
-        rating.text = String(currentCourse!.overallRating)
+        rating.text = String(format: "%.1f", currentCourse!.overallRating)
         starCourse.settings.fillMode = .precise
         starProf.settings.fillMode = .precise
         starCourse.rating = currentCourse!.overallRating / 2
@@ -75,18 +78,21 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     
     // TODO: Add to fav
     @IBAction func add2Fav(_ sender: UIButton) {
+//        showBanner(superview: view, text: "Done!")
         AF.request("http://52.170.3.234:3456/followCourse",
                    method: .post,
-                   //TODO by zoe, 获取当前useID， 和courseID
-            parameters: ["userID":"1", "courseID":"1"],
+                   //done by zoe, 获取当前useID， 和courseID
+            parameters: ["userID":cache.object(forKey: "userid") as! String, "courseID":currentCourse?.id],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 var json = JSON(response.data!)
                 if json["Success"].boolValue == true {
-                    //TODO by zoe: 弹出成功信息提示
+                    //done by zoe: 弹出成功信息提示
+                    showBanner(superview: self.view, type: 1)
                 }
                 else{
                     //failre case
+                    showBanner(superview: self.view, type:2)
                 }
         }
     }
@@ -96,16 +102,18 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     @IBAction func add2Taken(_ sender: UIButton) {
         AF.request("http://52.170.3.234:3456/takeCourse",
                    method: .post,
-                   //TODO by zoe, 获取当前useID， 和courseID
-            parameters: ["userID":"1", "courseID":"1"],
+                   //done by zoe, 获取当前useID， 和courseID
+            parameters: ["userID":cache.object(forKey: "userid") as! String, "courseID":currentCourse?.id],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 var json = JSON(response.data!)
                 if json["Success"].boolValue == true {
-                    //TODO by zoe: 弹出成功信息提示
+                    //done by zoe: 弹出成功信息提示
+                    showBanner(superview: self.view, type: 1)
                 }
                 else{
                     //failre case
+                    showBanner(superview: self.view, type: 2)
                 }
         }
     }
@@ -113,11 +121,11 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     // @currentUser, rating, comments, which course
     @IBAction func submitRating(_ sender: UIButton) {
         let parameters: [String: String] = [
-            //TODO by zoe, 下列信息需要获取
-            "userID":"1",
-            "courseID":"1",
-            "comment":"great work",
-            "rating":"10"
+            //done by zoe, 下列信息需要获取
+            "userID":cache.object(forKey: "userid") as! String,
+            "courseID":currentCourse!.id,
+            "comment": comment.text!,
+            "rating":myrating.text! // 这里获取的是十进制一位小数的string，例如5.6，10.0
         ]
         
         AF.request("http://52.170.3.234:3456/submitCourseComment",
@@ -127,10 +135,12 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
                     debugPrint(response)
                 var json = JSON(response.data!)
                 if json["Success"].boolValue == true {
-                    //TODO by zoe: 弹出submit 成功信息提示
+                    //done by zoe: 弹出submit 成功信息提示
+                    showBanner(superview: self.view, type: 1)
                 }
                 else{
                     //failre case
+                    showBanner(superview: self.view, type: 2)
                 }
                     
         }
@@ -147,8 +157,8 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
 //        commentList = [comment,comment2]
         AF.request("http://52.170.3.234:3456/getCourseCommentList",
                    method: .post,
-                   //TODO by zoe: update courseID here
-                   parameters: ["courseID":"1"],
+                   //done by zoe: update courseID here
+                   parameters: ["courseID":currentCourse?.id],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)

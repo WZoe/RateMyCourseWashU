@@ -21,6 +21,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var dep: UILabel!
     @IBOutlet weak var profTitle: UILabel!
     
+    @IBOutlet weak var comment: UITextField!
     @IBOutlet weak var userR: UILabel!
     @IBAction func slider(_ sender: UISlider) {
         userR.text =  String(format: "%.1f", sender.value * 10) //123.32
@@ -37,7 +38,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
         navtitle.title = currentProf?.name
         profTitle.text = currentProf?.name
         dep.text = currentProf?.department
-        rating.text = String(currentProf!.rating)
+        rating.text = String(format: "%.1f", currentProf!.rating)
         star.rating = currentProf!.rating / 2
     }
     
@@ -57,16 +58,18 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         AF.request("http://52.170.3.234:3456/followProfessor",
                    method: .post,
-                   //TODO by zoes, update  following parameter
-                   parameters: ["userID":"1", "proID":"1"],
+                   //done by zoes, update  following parameter
+                   parameters: ["userID":cache.object(forKey: "userid") as! String, "proID":currentProf?.id],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     var json = JSON(response.data!)
                     if json["Success"].boolValue == true {
-                        //TODO by zoe: 弹出submit 成功信息提示
+                        //done by zoe: 弹出submit 成功信息提示
+                        showBanner(superview: self.view, type: 1)
                     }
                     else{
                         //failre case
+                        showBanner(superview: self.view, type: 2)
                     }
         }
     }
@@ -75,11 +78,11 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     // @prof, currentUser, rating, comment
     @IBAction func submit(_ sender: UIButton) {
         let parameters: [String: String] = [
-            //TODO by zoe, 下列信息需要获取
-            "userID":"1",
-            "proID":"1",
-            "comment":"great work",
-            "rating":"10"
+            //done by zoe, 下列信息需要获取
+            "userID":cache.object(forKey: "userid") as! String,
+            "proID":currentProf!.id,
+            "comment":comment.text!,
+            "rating":userR.text! //一样的这里获取的是十进制
         ]
         
         AF.request("http://52.170.3.234:3456/submitProfessorComment",
@@ -89,10 +92,12 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     debugPrint(response)
                     var json = JSON(response.data!)
                     if json["Success"].boolValue == true {
-                        //TODO by zoe: 弹出submit 成功信息提示
+                        //done by zoe: 弹出submit 成功信息提示
+                        showBanner(superview: self.view, type: 1)
                     }
                     else{
                         //failre case
+                        showBanner(superview: self.view, type: 2)
                     }
         }
     }
@@ -107,8 +112,8 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
 //        commentList = [comment,comment2]
         AF.request("http://52.170.3.234:3456/getProfessorCommentList",
                    method: .post,
-                   //TODO by zoe: update proID here
-                   parameters: ["proID":"1"],
+                   //done by zoe: update proID here
+                   parameters: ["proID":currentProf?.id],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)

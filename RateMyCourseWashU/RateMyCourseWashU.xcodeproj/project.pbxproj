@@ -30,6 +30,7 @@
 		E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E91238CC7CB003CE19C /* StudentsList.swift */; };
 		E6207E9A238DB646003CE19C /* RatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E99238DB646003CE19C /* RatingCell.swift */; };
 		E6207E9E238DDF8E003CE19C /* RecCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207E9D238DDF8E003CE19C /* RecCell.swift */; };
+		E6207EA923926305003CE19C /* banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6207EA823926305003CE19C /* banner.swift */; };
 		E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F223772DE00019E55A /* AppDelegate.swift */; };
 		E694E2F523772DE00019E55A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E2F423772DE00019E55A /* ViewController.swift */; };
 		E694E2F823772DE00019E55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E694E2F623772DE00019E55A /* Main.storyboard */; };
@@ -134,6 +135,7 @@
 		E6207E91238CC7CB003CE19C /* StudentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsList.swift; sourceTree = "<group>"; };
 		E6207E99238DB646003CE19C /* RatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCell.swift; sourceTree = "<group>"; };
 		E6207E9D238DDF8E003CE19C /* RecCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCell.swift; sourceTree = "<group>"; };
+		E6207EA823926305003CE19C /* banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = banner.swift; sourceTree = "<group>"; };
 		E694E2EF23772DE00019E55A /* RateMyCourseWashU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMyCourseWashU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E694E2F223772DE00019E55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E694E2F423772DE00019E55A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				E6207E99238DB646003CE19C /* RatingCell.swift */,
 				E6207E91238CC7CB003CE19C /* StudentsList.swift */,
 				E61D548A238509AE00E24A6C /* ProfDetailVC.swift */,
+				E6207EA823926305003CE19C /* banner.swift */,
 				E61D53F723812F4900E24A6C /* CourseCell.swift */,
 				E61D53F123812C1D00E24A6C /* CourseCollectionsTab.swift */,
 				E694E2F923772DE30019E55A /* Assets.xcassets */,
@@ -374,6 +377,7 @@
 				AC54EA7A2392059F00475AF7 /* MyRatingViewController.swift in Sources */,
 				E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */,
 				ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */,
+				E6207EA923926305003CE19C /* banner.swift in Sources */,
 				AC7B5635239209CA00F3284F /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

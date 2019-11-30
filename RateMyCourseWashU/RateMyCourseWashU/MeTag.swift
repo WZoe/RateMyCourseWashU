@@ -96,8 +96,8 @@ class MeTag: UIViewController {
         //TODO by shen,
         AF.request("http://52.170.3.234:3456/count",
                    method: .post,
-                   //TODO by zoe: update courseID here
-            parameters: ["userID":"1"],
+                   //done by zoe: update courseID here
+            parameters: ["userID":cache.object(forKey: "userid") as! String],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 let json = JSON(response.data!)

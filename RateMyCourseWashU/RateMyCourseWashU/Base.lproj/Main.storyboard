@@ -1153,6 +1153,7 @@
                     <navigationItem key="navigationItem" title="Todd Sproull" largeTitleDisplayMode="never" id="2Wj-B5-org"/>
                     <connections>
                         <outlet property="collectionView" destination="FmW-o3-i59" id="wcH-xM-JxK"/>
+                        <outlet property="comment" destination="ce4-YE-aed" id="v8R-60-VUh"/>
                         <outlet property="dep" destination="oA1-4s-iru" id="COY-Su-QW5"/>
                         <outlet property="navtitle" destination="2Wj-B5-org" id="xrK-9C-1Yf"/>
                         <outlet property="profTitle" destination="I6i-W7-pXp" id="5E5-am-LXx"/>
@@ -1543,6 +1544,7 @@
                     <navigationItem key="navigationItem" title="Mobile Application Development" largeTitleDisplayMode="never" id="eBo-yP-gAv"/>
                     <connections>
                         <outlet property="collectionView" destination="Cxl-sp-RaU" id="aIf-fQ-3OW"/>
+                        <outlet property="comment" destination="2Sy-A7-kfq" id="Q1Z-Sm-Gsh"/>
                         <outlet property="dep" destination="jMa-gG-HSf" id="5xY-dM-R9W"/>
                         <outlet property="labelTitle" destination="LIg-Gi-oMj" id="p5r-Lk-vgh"/>
                         <outlet property="myrating" destination="RQf-Ys-MGv" id="zPa-Dz-IVZ"/>

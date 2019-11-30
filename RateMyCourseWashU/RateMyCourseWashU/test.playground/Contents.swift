@@ -85,7 +85,7 @@ struct Rating {
 
 AF.request("http://52.170.3.234:3456/count",
            method: .post,
-           //TODO by zoe: update courseID here
+           //done by zoe: update courseID here
     parameters: ["userID":"1"],
     encoder: JSONParameterEncoder.default).responseJSON { response in
         debugPrint(response)
