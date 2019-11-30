@@ -97,7 +97,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     debugPrint(response)
                     var json = JSON(response.data!)
                     if json["Success"].boolValue == true {
-                        //cache.setObject(userId, forKey: "userid")
+                        let userId = json["userID"].stringValue
+                        cache.setObject(userId as AnyObject, forKey: "userid")
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0

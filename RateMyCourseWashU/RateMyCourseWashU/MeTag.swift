@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MeTag: UIViewController {
     
@@ -92,7 +93,19 @@ class MeTag: UIViewController {
     override func viewDidLoad() {
         //userImageIndex=
         super.viewDidLoad()
-
+        //TODO by shen,
+        AF.request("http://52.170.3.234:3456/count",
+                   method: .post,
+                   //TODO by zoe: update courseID here
+            parameters: ["userID":"1"],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                let followCourseCount = json["followCourse"]
+                let followProCount = json["followPro"]
+                let ratingCourseCount = json["ratingCourse"]
+                let takeCourseCount = json["takeCourseCount"]
+        }
         // Do any additional setup after loading the view.
     }
     

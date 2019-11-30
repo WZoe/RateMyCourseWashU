@@ -64,9 +64,10 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
     
     // Todo: fetch professorList the user has liked
     func initProfList() {
-        AF.request("http://52.170.3.234:3456/professorList",
+        AF.request("http://52.170.3.234:3456/getFollowProfessor",
                    method: .post,
-                   parameters: ["":""],
+                   //Todo by shen, get userID here
+                   parameters: ["userID":"1"],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)

@@ -31,6 +31,11 @@ struct User {
     //    let takenList: [Course]
     //    let following: [Professor]
 }
+struct MyComment{
+    let course:String
+    let rating:Double
+    let comment:String
+}
 struct Rating {
     let user: User
     let rating: Double
@@ -63,18 +68,30 @@ struct Rating {
 //           encoder: JSONParameterEncoder.default).responseJSON { response in
 //            debugPrint(response)
 //}
-AF.request("http://52.170.3.234:3456/getProfessorCommentList",
-           method: .post,
-           parameters: ["proID":"1"],
-           encoder: JSONParameterEncoder.default).responseJSON { response in
-            debugPrint(response)
-            let json = JSON(response.data!)
-            var ratings: [Rating] = []
-            for (_, j):(String, JSON) in json{
-                let rating = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
-                                    rating: j["rating"].doubleValue / 10,
-                                    comment: j["comment"].stringValue)
-                ratings.append(rating)
-            }
-}
+//AF.request("http://52.170.3.234:3456/getProfessorCommentList",
+//           method: .post,
+//           parameters: ["proID":"1"],
+//           encoder: JSONParameterEncoder.default).responseJSON { response in
+//            debugPrint(response)
+//            let json = JSON(response.data!)
+//            var ratings: [Rating] = []
+//            for (_, j):(String, JSON) in json{
+//                let rating = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
+//                                    rating: j["rating"].doubleValue / 10,
+//                                    comment: j["comment"].stringValue)
+//                ratings.append(rating)
+//            }
+//}
 
+AF.request("http://52.170.3.234:3456/count",
+           method: .post,
+           //TODO by zoe: update courseID here
+    parameters: ["userID":"1"],
+    encoder: JSONParameterEncoder.default).responseJSON { response in
+        debugPrint(response)
+        let json = JSON(response.data!)
+        let followCourseCount = json["followCourse"]
+        let followProCount = json["followPro"]
+        let ratingCourseCount = json["ratingCourse"]
+        let takeCourseCount = json["takeCourseCount"]
+}

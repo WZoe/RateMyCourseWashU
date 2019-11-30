@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class MyRatingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var commentList:[MyComment] = []
@@ -18,9 +18,22 @@ class MyRatingViewController: UIViewController, UICollectionViewDataSource, UICo
     //Todo: fetch the ratings and comments the user has made
     //store results in commentList
     func initCommentList() {
-        let comment = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
-        let comment2 = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
-        commentList = [comment,comment2]
+//        let comment = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
+//        let comment2 = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
+//        commentList = [comment,comment2]
+        AF.request("http://52.170.3.234:3456/getCourseCommentListByUser",
+                   method: .post,
+                   //TODO by zoe: update courseID here
+            parameters: ["userID":"1"],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                for (_, j):(String, JSON) in json{
+                    let comment = MyComment(course: j["courseDept"].stringValue + " " + j["courseCode"].stringValue + " " + j["courseName"].stringValue, rating: j["rating"].doubleValue / 10, comment: j["comment"].stringValue)
+                    self.commentList.append(comment)
+                }
+                self.collectionView.reloadData()
+        }
     }
     
     func setCollectionView() {
