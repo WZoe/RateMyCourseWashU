@@ -120,12 +120,13 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     
     // @currentUser, rating, comments, which course
     @IBAction func submitRating(_ sender: UIButton) {
+        let rating  = Int((myrating.text! as NSString).doubleValue * 10)
         let parameters: [String: String] = [
             //done by zoe, 下列信息需要获取
             "userID":cache.object(forKey: "userid") as! String,
             "courseID":currentCourse!.id,
             "comment": comment.text!,
-            "rating":myrating.text! // 这里获取的是十进制一位小数的string，例如5.6，10.0
+            "rating": String(rating)// 这里获取的是十进制一位小数的string，例如5.6，10.0
         ]
         
         AF.request("http://52.170.3.234:3456/submitCourseComment",
