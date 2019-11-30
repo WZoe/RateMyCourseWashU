@@ -14,7 +14,7 @@ class chatDetailVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textEntry: UITextField!
     
-    
+    var roomId: Int = 0
     private var chatManager: ChatManager?
     private var currentUser: PCCurrentUser?
     private var messages = [PCMultipartMessage]()
@@ -23,6 +23,11 @@ class chatDetailVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //tableview：
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         //init chatkit
         guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
         self.chatManager = ChatManager(
@@ -121,6 +126,7 @@ extension chatDetailVC: UITableViewDataSource {
 }
 
 // handle incoming msgs
+extension chatDetailVC: UITableViewDelegate {}
 extension chatDetailVC: PCRoomDelegate {
     func onMultipartMessage(_ message: PCMultipartMessage) {
         print("Message received!")
