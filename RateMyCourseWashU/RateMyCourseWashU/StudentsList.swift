@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     var currentCourse: Course? = nil
@@ -60,12 +60,25 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
     func initStudentList() {
-        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
-        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
-        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
-        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
-        
-        studentList = [user1, user2, user3, user4]
+//        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
+//        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
+//        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
+//        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
+        AF.request("http://52.170.3.234:3456/getStudentsGivenCourseID",
+                   method: .post,
+                   //done by zoe: update courseID here
+            parameters: ["courseID": currentCourse?.id],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                for (_, j):(String, JSON) in json{
+                    let stu = User(userID: j["userID"].stringValue, username: j["username"].stringValue, password: "don't need", userPic: j["userPic"].intValue)
+                    self.studentList.append(stu)
+                }
+                self.tableView.reloadData()
+                
+        }
+//        studentList = [user1, user2, user3, user4]
     }
     
     // TODO: when click on a student, start a conversation with him
@@ -120,12 +133,24 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch recommendations based on the students' course lists
     func initRecommendation() {
-        let p = Professor(id: "1", name: "Todd Sproull", rating: 7.7, department: "CSE")
-        let c1 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-        let c2 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-        let c3 = Course(id: "1", title: "mobile aplication development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-        let c4 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-        
-        recommendationList = [c1, c2, c3, c4]
+//        let p = Professor(id: "1", name: "Todd Sproull", rating: 7.7, department: "CSE")
+//        let c1 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
+//        let c2 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
+//        let c3 = Course(id: "1", title: "mobile aplication development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
+//        let c4 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
+//
+//        recommendationList = [c1, c2, c3, c4]
+        AF.request("http://52.170.3.234:3456/getRecommandation",
+                   method: .post,
+            parameters: ["":""],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                for (_, j):(String, JSON) in json{
+                    let c = Course(id: j["courseID"].stringValue, title: j["courseName"].stringValue, courseNumber: j["courseCode"].stringValue, professor: Professor(id: "1", name: " ", rating: 10.0, department: j["courseDept"].stringValue), department: j["courseDept"].stringValue, overallRating: j["rating"].doubleValue / 10)
+                    self.recommendationList.append(c)
+                }
+                self.collectionView.reloadData()
+        }
     }
 }
