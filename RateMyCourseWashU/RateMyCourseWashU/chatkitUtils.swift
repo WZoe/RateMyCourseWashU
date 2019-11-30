@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PusherChatkit
 
 func getChatkit(bundle: Bundle) -> (
     instanceLocator: String,
@@ -32,3 +33,34 @@ func getChatkit(bundle: Bundle) -> (
         return (instanceLocator: instanceLocator, tokenProviderEndpoint: tokenProviderEndpoint, userId: userId)
 }
 
+class MyChatManagerDelegate: PCChatManagerDelegate {
+    func onError(error: Error) {
+        print("Error in Chat manager delegate! \(error.localizedDescription)")
+    }
+}
+
+//Cited: Extension for loading an image into an UIImageView from a URL string
+//Inspired by tutorialspoint https://www.tutorialspoint.com/lazy-loading-of-images-in-table-view-using-swift
+extension UITableViewCell {
+    func setImageFromUrl(ImageURL: String, tableview: UITableView) {
+        self.forceSize()
+        
+        URLSession.shared.dataTask( with: NSURL(string:ImageURL)! as URL, completionHandler: {
+            (data, response, error) -> Void in
+            DispatchQueue.main.async {
+                if let data = data {
+                    self.imageView?.image = UIImage(data: data)
+                }
+            }
+        }).resume()
+    }
+    
+    private func forceSize(){
+        let itemSize = CGSize.init(width: 50, height: 50)
+        UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale);
+        let imageRect = CGRect.init(origin: CGPoint.zero, size: itemSize)
+        self.imageView?.image!.draw(in: imageRect)
+        self.imageView?.image! = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIGraphicsEndImageContext();
+    }
+}
