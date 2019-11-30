@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     var currentCourse: Course? = nil
@@ -60,12 +60,25 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
     func initStudentList() {
-        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
-        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
-        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
-        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
-        
-        studentList = [user1, user2, user3, user4]
+//        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
+//        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
+//        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
+//        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
+        AF.request("http://52.170.3.234:3456/getStudentsGivenCourseID",
+                   method: .post,
+                   //done by zoe: update courseID here
+            parameters: ["courseID": currentCourse?.id],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                for (_, j):(String, JSON) in json{
+                    let stu = User(userID: j["userID"].stringValue, username: j["username"].stringValue, password: "don't need", userPic: j["userPic"].intValue)
+                    self.studentList.append(stu)
+                }
+                self.tableView.reloadData()
+                
+        }
+//        studentList = [user1, user2, user3, user4]
     }
     
     // TODO: when click on a student, start a conversation with him
