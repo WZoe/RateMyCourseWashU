@@ -18,6 +18,10 @@ class chatDetailVC: UIViewController {
     private var chatManager: ChatManager?
     private var currentUser: PCCurrentUser?
     private var messages = [PCMultipartMessage]()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +56,6 @@ class chatDetailVC: UIViewController {
             let rooms = currentUser?.rooms
             var currentChat:PCRoom?
             for room in rooms!{
-                print("room.id\(room.id)")
                 if room.id == String(self.currentContact!.roomId) {
                     currentChat = room
                 }
@@ -106,6 +109,17 @@ class chatDetailVC: UIViewController {
             sendMessage(msg)
         }
     }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == textEntry {
+//            textField.resignFirstResponder()
+//            if let msg = textEntry.text {
+//                sendMessage(msg)
+//            }
+//            return false
+//        }
+//        return true
+//    }
 }
 
 // render msgs

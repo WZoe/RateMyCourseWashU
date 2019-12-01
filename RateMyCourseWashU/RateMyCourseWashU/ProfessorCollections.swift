@@ -196,10 +196,10 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     //TODO: search prof
-    func search() {
+    func searchProf(text: String) {
         AF.request("http://52.170.3.234:3456/searchProfessor",
                    method: .post,
-                   parameters: ["keyword":"yeoh"],
+                   parameters: ["keyword":text],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     
@@ -219,9 +219,15 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
                             }
                         }
                         self.collectionView.reloadData()
-                    case let .failure(error):
+                    case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
+        }
+    }
+    
+    @IBAction func search(_ sender: UITextField) {
+        if let text = sender.text {
+            searchProf(text: text)
         }
     }
     

@@ -101,6 +101,8 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
                         showBanner(superview: self.view, type: 2)
                     }
         }
+        
+        collectionView.reloadData()
     }
     
     

@@ -8,11 +8,16 @@
 
 import UIKit
 import Alamofire
+import PusherChatkit
+
 class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     var currentCourse: Course? = nil
     var studentList: [User] = []
     var recommendationList: [Course] = []
+    
+    private var chatManager: ChatManager?
+    private var currentUser: PCCurrentUser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,15 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
         initStudentList()
         setCollectionView()
         initRecommendation()
+        
+        //init chatkit
+        guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
+        self.chatManager = ChatManager(
+            instanceLocator: chatkitInfo.instanceLocator,
+            tokenProvider: PCTokenProvider(url: chatkitInfo.tokenProviderEndpoint),
+            userID: chatkitInfo.userId
+        )
+        
     }
     
 
@@ -62,10 +76,6 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
     func initStudentList() {
-//        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
-//        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
-//        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
-//        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
         AF.request("http://52.170.3.234:3456/getStudentsGivenCourseID",
                    method: .post,
                    //done by zoe: update courseID here
@@ -80,11 +90,55 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                 self.tableView.reloadData()
                 
         }
-//        studentList = [user1, user2, user3, user4]
     }
     
     // TODO: when click on a student, start a conversation with him
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //connect to chatkit
+        chatManager!.connect(delegate: MyChatManagerDelegate()) { (currentUser, error) in
+            guard(error == nil) else {
+                print("Error connecting: \(error!.localizedDescription)")
+                return
+            }
+            self.currentUser = currentUser
+            
+            let userId = currentUser?.id
+            let objId = self.studentList[indexPath.row].userID
+            var roomName = ""
+            
+            if Int(userId!)! < Int(objId)! {
+                roomName = "\(String(describing: userId))_\(objId)"
+            }
+            else {
+                roomName = "\(objId)_\(userId!)"
+            }
+            
+            // 是否存在？
+            let rooms = currentUser?.rooms
+            var objRoom:PCRoom?
+            for room in rooms! {
+                if room.name == roomName {
+                    objRoom = room
+//                    self.performSegue(withIdentifier: "messages", sender: self)
+                }
+            }
+            if objRoom == nil {
+                // create new one
+                currentUser!.createRoom(name: roomName, addUserIDs: [objId]) { room, error in
+                    guard error == nil else {
+                        print("Failed.")
+                        return
+                    }
+                    print("Created public room called \(room!.name)")
+                    objRoom = room
+                    
+                    // 跳转
+                    // TODO： 映射avatar_url和userPic数字的关系
+//                    self.tabBarController?.performSegue(withIdentifier: "messages", sender: self)
+                }
+            }
+        }
+        
         
     }
     
@@ -119,8 +173,7 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.title!.text = recommendationList[indexPath.row].title
         cell.title?.textColor = UIColor.white
         cell.title?.textAlignment = .center
-//        cell.title?.isEditable = false
-//        cell.title?.backgroundColor = UIColor.clear
+
         
         cell.addSubview(cell.title!)
         

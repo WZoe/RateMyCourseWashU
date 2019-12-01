@@ -145,6 +145,8 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
                 }
                     
         }
+        
+        collectionView.reloadData()
     }
     
     // comments collection view

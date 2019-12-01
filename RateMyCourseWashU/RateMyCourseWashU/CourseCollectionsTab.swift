@@ -114,7 +114,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                             self.courseList.append(course)
                         }
                         self.collectionView.reloadData()
-                    case let .failure(error):
+                    case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
                     
@@ -210,33 +210,36 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     // TODO: search for a course:
     @IBAction func search(_ sender: UITextField) {
         //todo: search func
-        AF.request("http://52.170.3.234:3456/searchCourse",
-                   method: .post,
-                   parameters: ["keyword":sender.text],
-                   encoder: JSONParameterEncoder.default).responseJSON { response in
-                    debugPrint(response)
-                    switch response.result {
-                    case .success:
-                        self.courseList.removeAll()
-                        let json = JSON(response.data!)
-                        for (_, j):(String, JSON) in json{
-                            let p = Professor(id: j["proID"].stringValue,
-                                              name: j["proName"].stringValue,
-                                              rating: j["rating"].doubleValue / 10,
-                                              department:j["department"].stringValue)
-                            let course = Course(id: j["courseID"].stringValue,
-                                                title: j["title"].stringValue,
-                                                courseNumber: j["courseNumber"].stringValue,
-                                                professor:p,
-                                                department: j["department"].stringValue,
-                                                overallRating: j["rating"].doubleValue / 10)
-                            self.courseList.append(course)
+        if let text = sender.text {
+            AF.request("http://52.170.3.234:3456/searchCourse",
+                       method: .post,
+                       parameters: ["keyword":text],
+                       encoder: JSONParameterEncoder.default).responseJSON { response in
+                        debugPrint(response)
+                        switch response.result {
+                        case .success:
+                            self.courseList.removeAll()
+                            let json = JSON(response.data!)
+                            for (_, j):(String, JSON) in json{
+                                let p = Professor(id: j["proID"].stringValue,
+                                                  name: j["proName"].stringValue,
+                                                  rating: j["rating"].doubleValue / 10,
+                                                  department:j["department"].stringValue)
+                                let course = Course(id: j["courseID"].stringValue,
+                                                    title: j["title"].stringValue,
+                                                    courseNumber: j["courseNumber"].stringValue,
+                                                    professor:p,
+                                                    department: j["department"].stringValue,
+                                                    overallRating: j["rating"].doubleValue / 10)
+                                self.courseList.append(course)
+                            }
+                            self.collectionView.reloadData()
+                        case .failure(_):
+                            showBanner(superview: self.view, type: 2)
                         }
-                        self.collectionView.reloadData()
-                    case let .failure(error):
-                        showBanner(superview: self.view, type: 2)
-                    }
+            }
         }
+        
     }
     
     // push to course detail
