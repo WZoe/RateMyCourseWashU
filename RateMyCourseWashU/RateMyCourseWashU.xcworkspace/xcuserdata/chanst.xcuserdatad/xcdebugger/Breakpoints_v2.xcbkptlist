@@ -9,14 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RateMyCourseWashU/MeTag.swift"
-            timestampString = "596854055.9564"
+            filePath = "RateMyCourseWashU/ChangeUserPicVC.swift"
+            timestampString = "596925548.220361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "setPic(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyCourseWashU.ChangeUserPicVC.setPic(Any) -&gt; ()"
+                  moduleName = "RateMyCourseWashU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chanst/Desktop/RateMyCourseWashU/RateMyCourseWashU/RateMyCourseWashU/ChangeUserPicVC.swift"
+                  timestampString = "596925548.610409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1807">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in RateMyCourseWashU.ChangeUserPicVC.setPic(Any) -&gt; ()"
+                  moduleName = "RateMyCourseWashU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chanst/Desktop/RateMyCourseWashU/RateMyCourseWashU/RateMyCourseWashU/ChangeUserPicVC.swift"
+                  timestampString = "596925548.612842"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,29 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RateMyCourseWashU/MeTag.swift"
-            timestampString = "596854129.823967"
+            filePath = "RateMyCourseWashU/ChangeUserPicVC.swift"
+            timestampString = "596925548.220422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RateMyCourseWashU/MeTag.swift"
-            timestampString = "596854130.512692"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "setPic(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

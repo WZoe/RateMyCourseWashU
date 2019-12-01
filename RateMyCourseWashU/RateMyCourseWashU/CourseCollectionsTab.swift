@@ -103,7 +103,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                         for (_, j):(String, JSON) in json{
                             let p = Professor(id: j["proID"].stringValue,
                                               name: j["proName"].stringValue,
-                                              rating: j["rating"].doubleValue / 10,
+                                              rating: j["proRating"].doubleValue / 10,
                                               department:j["department"].stringValue)
                             let course = Course(id: j["courseID"].stringValue,
                                                 title: j["title"].stringValue,
