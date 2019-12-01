@@ -202,8 +202,17 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                 debugPrint(response)
                 let json = JSON(response.data!)
                 for (_, j):(String, JSON) in json{
-                    let c = Course(id: j["courseID"].stringValue, title: j["courseName"].stringValue, courseNumber: j["courseCode"].stringValue, professor: Professor(id: "1", name: " ", rating: 10.0, department: j["courseDept"].stringValue), department: j["courseDept"].stringValue, overallRating: j["rating"].doubleValue / 10)
-                    self.recommendationList.append(c)
+                    let p = Professor(id: j["proID"].stringValue,
+                                      name: j["proName"].stringValue,
+                                      rating: j["rating"].doubleValue / 10,
+                                      department:j["department"].stringValue)
+                    let course = Course(id: j["courseID"].stringValue,
+                                        title: j["title"].stringValue,
+                                        courseNumber: j["courseNumber"].stringValue,
+                                        professor:p,
+                                        department: j["department"].stringValue,
+                                        overallRating: j["rating"].doubleValue / 10)
+                    self.recommendationList.append(course)
                 }
                 self.collectionView.reloadData()
         }
