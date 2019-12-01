@@ -19,56 +19,64 @@ class MeTag: UIViewController {
     var takenCourseNo:Int = 0
     var ratingNo:Int = 0
     
-    let images:[UIImage]=[UIImage(named:"star")!,UIImage(named:"teacher")!]
+    let images:[UIImage]=[UIImage(named:"face0")!,UIImage(named:"face1")!,UIImage(named:"face2")!,UIImage(named:"face3")!,UIImage(named:"face4")!,UIImage(named:"face5")!,UIImage(named:"face6")!,UIImage(named:"face7")!,UIImage(named:"face8")!]
     
     @IBAction func setting(_ sender: Any) {
         let settingVC = storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as?SettingViewController
         self.navigationController?.pushViewController(settingVC!, animated: true)
     }
     
-    @IBOutlet weak var userImage: UIImageView!{
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var userName: UILabel!
+    
+    //reference:https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
+    func addBottomBorder(with color: UIColor?, andWidth borderWidth: CGFloat, view:UIView) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        border.frame = CGRect(x: 0, y: view.frame.size.height - borderWidth, width: view.frame.size.width, height: borderWidth)
+        view.addSubview(border)
+    }
+    
+    @IBOutlet weak var myProfView: UIView!{
         didSet{
-            //userImage.image=images[userimage]
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: myProfView)
         }
     }
     
-    @IBOutlet weak var userName: UILabel!{
+    @IBOutlet weak var myMarkedCourseView: UIView!{
         didSet{
-            //userName.text=username
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: myMarkedCourseView)
         }
     }
     
-    @IBOutlet weak var myProfLabel: UILabel!{
+    @IBOutlet weak var myTakenCourseView: UIView!{
         didSet{
-            var profNo:Int?
-            //fetch how many professors the user likes and assigned to "profNo"
-            //myProfLabel.text="Professors:\(profNo ?? 0)"
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: myTakenCourseView)
         }
     }
     
-    @IBOutlet weak var myMarkedCoursesLabel: UILabel!{
+    @IBOutlet weak var myRatingsView: UIView!{
         didSet{
-            var markedCourseNo:Int?
-            //fetch how many courses the user likes and assigned to "markedCourseNo"
-            //myMarkedCoursesLabel.text="Marked:\(markedCourseNo ?? 0)"
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: myRatingsView)
+        }
+    
+    }
+    
+    @IBOutlet weak var aboutView: UIView!{
+        didSet{
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: aboutView)
         }
     }
     
-    @IBOutlet weak var myTakenCoursesLabel: UILabel!{
-        didSet{
-            var takenCourseNo:Int?
-            //fetch how many courses the user has taken and assigned to "takenCourseNo"
-            //myTakenCoursesLabel.text="Taken:\(takenCourseNo ?? 0)"
-        }
-    }
+    @IBOutlet weak var myProfLabel: UILabel!
     
-    @IBOutlet weak var myRatingsLabel: UILabel!{
-        didSet{
-            var ratingNo:Int?
-            //fetch how many ratings the user has made and assigned to "ratingNo"
-            //myRatingsLabel.text="Ratings:\(ratingNo ?? 0)"
-        }
-    }
+    @IBOutlet weak var myMarkedCoursesLabel: UILabel!
+    
+    @IBOutlet weak var myTakenCoursesLabel: UILabel!
+    
+    @IBOutlet weak var myRatingsLabel: UILabel!
     
     @IBAction func myProfButton(_ sender: Any) {
         let detailedVC = storyboard?.instantiateViewController(withIdentifier: "MyProfessorViewController")as?MyProfessorViewController
@@ -113,10 +121,10 @@ class MeTag: UIViewController {
                 let followProCount = json["followPro"]
                 let ratingCourseCount = json["ratingCourse"]
                 let takeCourseCount = json["takeCourseCount"]
-                self.profNo=json["followPro"].intValue
-                self.markedCourseNo=json["followCourse"].intValue
-                self.takenCourseNo=json["takeCourseCount"].intValue
-                self.ratingNo=json["ratingCourse"].intValue
+                self.profNo=followProCount.intValue
+                self.markedCourseNo=followCourseCount.intValue
+                self.takenCourseNo=takeCourseCount.intValue
+                self.ratingNo=ratingCourseCount.intValue
                 self.myProfLabel.text="Professors:\(String(self.profNo))"
                 print("Professors:\(String(self.profNo))")
                 self.myMarkedCoursesLabel.text="Marked:\(String(self.markedCourseNo))"
@@ -149,10 +157,10 @@ class MeTag: UIViewController {
                 let followProCount = json["followPro"]
                 let ratingCourseCount = json["ratingCourse"]
                 let takeCourseCount = json["takeCourseCount"]
-                self.profNo=json["followPro"].intValue
-                self.markedCourseNo=json["followCourse"].intValue
-                self.takenCourseNo=json["takeCourseCount"].intValue
-                self.ratingNo=json["ratingCourse"].intValue
+                self.profNo=followProCount.intValue
+                self.markedCourseNo=followCourseCount.intValue
+                self.takenCourseNo=takeCourseCount.intValue
+                self.ratingNo=ratingCourseCount.intValue
                 self.myProfLabel.text="Professors:\(String(self.profNo))"
                 print("Professors:\(String(self.profNo))")
                 self.myMarkedCoursesLabel.text="Marked:\(String(self.markedCourseNo))"
