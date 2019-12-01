@@ -114,7 +114,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                             self.courseList.append(course)
                         }
                         self.collectionView.reloadData()
-                    case let .failure(error):
+                    case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
                     
@@ -233,7 +233,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                             self.courseList.append(course)
                         }
                         self.collectionView.reloadData()
-                    case let .failure(error):
+                    case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
         }
