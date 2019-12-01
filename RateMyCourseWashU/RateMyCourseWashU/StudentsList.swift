@@ -62,10 +62,6 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
     func initStudentList() {
-//        let user1 = User(userID: "1", username: "asaf", password: "11", userPic: 1)
-//        let user2 = User(userID: "1", username: "zxbz", password: "11", userPic: 1)
-//        let user3 = User(userID: "1", username: "eyxbn", password: "11", userPic: 1)
-//        let user4 = User(userID: "1", username: "bzliw", password: "11", userPic: 1)
         AF.request("http://52.170.3.234:3456/getStudentsGivenCourseID",
                    method: .post,
                    //done by zoe: update courseID here
