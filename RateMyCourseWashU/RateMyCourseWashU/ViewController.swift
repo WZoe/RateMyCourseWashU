@@ -64,10 +64,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         var json = JSON(response.data!)
                         if json["Success"].boolValue == true {
                             let userId = json["userID"].stringValue
+                            let userImage = json["userPic"].stringValue
                             cache.setObject(userId as NSString, forKey: "userid")
+                            cache.setObject(userImage as NSString, forKey: "userimage")
                             cache.setObject(self.userName.text! as NSString, forKey: "username")
                             //cache.setObject(0 as NSString, forKey: "userimage")
-                            let us=(cache.object(forKey: "username")as! NSString) as String
+                            let us=(cache.object(forKey: "userimage")as! NSString) as String
+                            print(us)
                             self.loginMessage.text = "Log in successfully."
                             self.loginMessage.textColor=UIColor.darkGray
                             let seconds = 1.0
@@ -103,11 +106,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     var json = JSON(response.data!)
                     if json["Success"].boolValue == true {
                         let userId = json["userID"].stringValue
+                        let userImage = json["userPic"].stringValue
                         cache.setObject(userId as NSString, forKey: "userid")
+                        cache.setObject(userImage as NSString, forKey: "userimage")
                         cache.setObject(self.userName.text! as NSString, forKey: "username")
                         //cache.setObject(0 as NSString, forKey: "userimage")
-                        let us=(cache.object(forKey: "username")as! NSString) as String
-                        
+                        let us=(cache.object(forKey: "userimage")as! NSString) as String
+                        print(us)
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0
