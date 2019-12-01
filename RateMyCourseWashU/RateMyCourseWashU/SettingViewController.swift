@@ -61,6 +61,14 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if ((cache.object(forKey: "userimage")) != nil){
+            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+        }
+        
+        myPic.image=UIImage(named: "face\(userimage)")
+    }
+    
 
     /*
     // MARK: - Navigation

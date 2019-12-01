@@ -109,7 +109,10 @@ class MeTag: UIViewController {
         self.username=(cache.object(forKey: "username")as! NSString) as String
         self.userid=(cache.object(forKey: "userid")as! NSString) as String
         self.userName.text=self.username
-        self.userImage.image=self.images[self.userimage]
+        if ((cache.object(forKey: "userimage")) != nil){
+            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+        }
+        self.userImage.image=images[userimage]
         AF.request("http://52.170.3.234:3456/count",
                    method: .post,
                    //done by zoe: update courseID here
@@ -145,7 +148,10 @@ class MeTag: UIViewController {
         self.username=(cache.object(forKey: "username")as! NSString) as String
         self.userid=(cache.object(forKey: "userid")as! NSString) as String
         self.userName.text=self.username
-        self.userImage.image=self.images[self.userimage]
+        if ((cache.object(forKey: "userimage")) != nil){
+            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+            }
+        self.userImage.image=images[userimage]
         AF.request("http://52.170.3.234:3456/count",
                    method: .post,
                    //done by zoe: update courseID here
