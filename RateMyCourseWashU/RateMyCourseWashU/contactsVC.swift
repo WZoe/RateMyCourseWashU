@@ -25,7 +25,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         // get contacts
-//        getUserRooms()
+        getUserRooms()
         
         tableView.rowHeight = 70
         tableView.separatorStyle = .none
@@ -72,6 +72,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             results.append((j["id"].stringValue, friend))
                         }
                         
+                        var flag = false
                         for item in results {
                             let userurl = URL(string: "\(ep)/users/\(item.1)")
                             AF.request(userurl!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
@@ -79,8 +80,17 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 let json = JSON(response.data!)
                                 
                                 let user = Contact(id: json["id"].stringValue, name: json["name"].stringValue, avatar_url: json["avatar_url"].stringValue, roomId: item.0)
-                                self.contacts.append(user)
-                                self.tableView.reloadData()
+                                for contact in self.contacts {
+                                    if contact.id == user.id {
+                                        flag = true
+                                        break
+                                    }
+                                }
+                                if flag == false {
+                                    self.contacts.append(user)
+                                    self.tableView.reloadData()
+                                }
+                                
                             }
                         }
                     }

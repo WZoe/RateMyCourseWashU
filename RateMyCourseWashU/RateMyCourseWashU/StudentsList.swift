@@ -119,6 +119,7 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
             for room in rooms! {
                 if room.name == roomName {
                     objRoom = room
+                    showBanner(superview: self.view, type: 1)
 //                    self.performSegue(withIdentifier: "messages", sender: self)
                 }
             }
@@ -130,7 +131,6 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                         return
                     }
                     print("Created public room called \(room!.name)")
-                    objRoom = room
                     showBanner(superview: self.view, type: 1)
                     // 跳转
                     // TODO： 映射avatar_url和userPic数字的关系
