@@ -69,8 +69,10 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 friend = members[0].stringValue
                             }
                             results.append((j["id"].stringValue, friend))
+                            
                         }
                         
+                        print(results)
                         var flag = false
                         for item in results {
                             let userurl = URL(string: "\(ep)/users/\(item.1)")
@@ -87,6 +89,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 }
                                 if flag == false {
                                     self.contacts.append(user)
+                                    print("appending\(user.roomId)")
                                     self.tableView.reloadData()
                                 }
                                 
