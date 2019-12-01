@@ -87,7 +87,7 @@ class MyMarkedCourseViewController: UIViewController,UICollectionViewDataSource,
                                             courseNumber: j["courseNumber"].stringValue,
                                             professor:p,
                                             department: j["department"].stringValue,
-                                            overallRating: j["rating"].doubleValue / 10)
+                                            overallRating: j["overallRating"].doubleValue / 10)
                         self.courseList.append(course)
                     }
                     self.collectionView.reloadData()

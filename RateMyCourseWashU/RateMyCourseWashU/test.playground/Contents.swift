@@ -62,9 +62,9 @@ struct Rating {
 //}
 //
 
-AF.request("http://52.170.3.234:3456/searchProfessor",
+AF.request("http://52.170.3.234:3456/setUserPic",
            method: .post,
-           parameters: ["keyword":"yeoh"],
+           parameters: ["userID":"1", "photoID":"2"],
            encoder: JSONParameterEncoder.default).responseJSON { response in
             debugPrint(response)
 }

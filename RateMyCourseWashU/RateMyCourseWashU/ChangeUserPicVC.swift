@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
 
@@ -19,6 +19,13 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     @IBAction func setPic(_ sender: Any) {
         self.currentPic.image=UIImage(named: "face\(selectedRow)")
         cache.setObject(selectedRow as NSString, forKey: "userimage")
+        AF.request("http://52.170.3.234:3456/setUserPic",
+                   method: .post,
+                   parameters: ["userID":(cache.object(forKey: "userid")as! NSString) as String,
+                                "photoID":selectedRow],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+        }
     }
     
     let images:[UIImage]=[UIImage(named:"face0")!,UIImage(named:"face1")!,UIImage(named:"face2")!,UIImage(named:"face3")!,UIImage(named:"face4")!,UIImage(named:"face5")!,UIImage(named:"face6")!,UIImage(named:"face7")!,UIImage(named:"face8")!]
