@@ -24,9 +24,13 @@ class chatDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        navigationItem.title = "Chat with \(currentContact!.name)"
+        
         //tableview：
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 60
+        tableView.separatorStyle = .none
         
         //init chatkit
         guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
@@ -44,7 +48,7 @@ class chatDetailVC: UIViewController {
             }
             self.currentUser = currentUser
             
-            // TODO: set current chatroom：
+            //  set current chatroom：
             let rooms = currentUser?.rooms
             var currentChat:PCRoom?
             for room in rooms!{

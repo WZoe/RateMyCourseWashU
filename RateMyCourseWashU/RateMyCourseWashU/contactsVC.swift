@@ -25,19 +25,11 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //tableview：
         tableView.delegate = self
         tableView.dataSource = self
-
-        //init chatkit
-        guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
-//        token = generateToken()
-        
-//        self.chatManager = ChatManager(
-//            instanceLocator: chatkitInfo.instanceLocator,
-//            tokenProvider: PCTokenProvider(url: chatkitInfo.tokenProviderEndpoint),
-//            userID: chatkitInfo.userId
-//        )
-        
         // get contacts
         getUserRooms()
+        
+        tableView.rowHeight = 70
+        tableView.separatorStyle = .none
     }
     
 
