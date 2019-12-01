@@ -138,6 +138,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
                 if json["Success"].boolValue == true {
                     //done by zoe: 弹出submit 成功信息提示
                     showBanner(superview: self.view, type: 1)
+                    self.initCommentList()
                 }
                 else{
                     //failre case
@@ -146,7 +147,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
                     
         }
         
-        collectionView.reloadData()
+        
     }
     
     // comments collection view

@@ -25,7 +25,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         // get contacts
-        getUserRooms()
+//        getUserRooms()
         
         tableView.rowHeight = 70
         tableView.separatorStyle = .none
@@ -42,6 +42,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     */
     func getUserRooms(){
+        contacts = []
         let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
         var results:[(String, String)] = []
         var token = ""
@@ -50,6 +51,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                    method: .post,
                    parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
                     let json = JSON(response.data!)
                     token = json["access_token"].stringValue
                     
@@ -108,6 +110,6 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        getUserRooms()
     }
 }

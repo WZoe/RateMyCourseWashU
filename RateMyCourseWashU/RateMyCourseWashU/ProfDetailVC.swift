@@ -95,6 +95,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     if json["Success"].boolValue == true {
                         //done by zoe: 弹出submit 成功信息提示
                         showBanner(superview: self.view, type: 1)
+                        self.initCommentList()
                     }
                     else{
                         //failre case
@@ -102,7 +103,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     }
         }
         
-        collectionView.reloadData()
+        
     }
     
     

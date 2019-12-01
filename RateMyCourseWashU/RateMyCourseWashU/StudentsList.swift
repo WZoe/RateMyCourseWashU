@@ -131,7 +131,7 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                     }
                     print("Created public room called \(room!.name)")
                     objRoom = room
-                    
+                    showBanner(superview: self.view, type: 1)
                     // 跳转
                     // TODO： 映射avatar_url和userPic数字的关系
 //                    self.tabBarController?.performSegue(withIdentifier: "messages", sender: self)
@@ -188,13 +188,6 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // TODO: fetch recommendations based on the students' course lists
     func initRecommendation() {
-//        let p = Professor(id: "1", name: "Todd Sproull", rating: 7.7, department: "CSE")
-//        let c1 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-//        let c2 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-//        let c3 = Course(id: "1", title: "mobile aplication development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-//        let c4 = Course(id: "1", title: "mobile application development", courseNumber: "438S", professor: p, department: "CSE", overallRating: 9.5)
-//
-//        recommendationList = [c1, c2, c3, c4]
         AF.request("http://52.170.3.234:3456/getRecommandation",
                    method: .post,
             parameters: ["":""],
