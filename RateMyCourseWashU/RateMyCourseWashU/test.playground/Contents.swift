@@ -62,12 +62,12 @@ struct Rating {
 //}
 //
 
-//AF.request("http://52.170.3.234:3456/searchProfessor",
-//           method: .post,
-//           parameters: ["keyword":"yeoh"],
-//           encoder: JSONParameterEncoder.default).responseJSON { response in
-//            debugPrint(response)
-//}
+AF.request("http://52.170.3.234:3456/searchProfessor",
+           method: .post,
+           parameters: ["keyword":"yeoh"],
+           encoder: JSONParameterEncoder.default).responseJSON { response in
+            debugPrint(response)
+}
 //AF.request("http://52.170.3.234:3456/getProfessorCommentList",
 //           method: .post,
 //           parameters: ["proID":"1"],
@@ -83,17 +83,17 @@ struct Rating {
 //            }
 //}
 
-AF.request("http://52.170.3.234:3456/getRecommandation",
-           method: .post,
-           //done by zoe: update courseID here
-    parameters: ["":""],
-    encoder: JSONParameterEncoder.default).responseJSON { response in
-        debugPrint(response)
-        let json = JSON(response.data!)
-        var ratings: [Course] = []
-        for (_, j):(String, JSON) in json{
-            let c = Course(id: j["courseID"].stringValue, title: j["courseName"].stringValue, courseNumber: j["courseCode"].stringValue, professor: Professor(id: "1", name: " ", rating: 10.0, department: j["courseDept"].stringValue), department: j["courseDept"].stringValue, overallRating: j["rating"].doubleValue / 10)
-            ratings.append(c)
-        }
-       
-}
+//AF.request("http://52.170.3.234:3456/getRecommandation",
+//           method: .post,
+//           //done by zoe: update courseID here
+//    parameters: ["":""],
+//    encoder: JSONParameterEncoder.default).responseJSON { response in
+//        debugPrint(response)
+//        let json = JSON(response.data!)
+//        var ratings: [Course] = []
+//        for (_, j):(String, JSON) in json{
+//            let c = Course(id: j["courseID"].stringValue, title: j["courseName"].stringValue, courseNumber: j["courseCode"].stringValue, professor: Professor(id: "1", name: " ", rating: 10.0, department: j["courseDept"].stringValue), department: j["courseDept"].stringValue, overallRating: j["rating"].doubleValue / 10)
+//            ratings.append(c)
+//        }
+//
+//}

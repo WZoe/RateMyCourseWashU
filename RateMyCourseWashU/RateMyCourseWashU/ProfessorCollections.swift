@@ -197,7 +197,32 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     //TODO: search prof
     func search() {
-        
+        AF.request("http://52.170.3.234:3456/searchProfessor",
+                   method: .post,
+                   parameters: ["keyword":"yeoh"],
+                   encoder: JSONParameterEncoder.default).responseJSON { response in
+                    debugPrint(response)
+                    
+                    switch response.result {
+                    case .success:
+                        self.professorList.removeAll()
+                        let json = JSON(response.data!)
+                        for (_, j):(String, JSON) in json{
+                            let json = JSON(response.data!)
+                            for (_, j):(String, JSON) in json{
+                                let p = Professor(id: j["id"].stringValue,
+                                                  name: j["name"].stringValue,
+                                                  rating: j["rating"].doubleValue / 10,
+                                                  department:j["department"].stringValue)
+                                
+                                self.professorList.append(p)
+                            }
+                        }
+                        self.collectionView.reloadData()
+                    case let .failure(error):
+                        showBanner(superview: self.view, type: 2)
+                    }
+        }
     }
     
     
