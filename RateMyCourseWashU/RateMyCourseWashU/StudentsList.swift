@@ -56,6 +56,8 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "student")
+        tableView.rowHeight = 40
+        tableView.separatorStyle = .none
     }
     
     // TODO: fetch random maximum 15(or any number) of students who have marked this course as taken
