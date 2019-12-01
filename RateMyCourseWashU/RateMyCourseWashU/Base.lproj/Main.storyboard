@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RateMyCourse WashU Logo-trans" translatesAutoresizingMaskIntoConstraints="NO" id="y4O-qx-7s3">
-                                <rect key="frame" x="50" y="290" width="314" height="123"/>
+                                <rect key="frame" x="50" y="194" width="314" height="123"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="123" id="lXc-GJ-1yF"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QaD-gR-6eT">
-                                <rect key="frame" x="40" y="458" width="334" height="35"/>
+                                <rect key="frame" x="40" y="362" width="334" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="LiZ-gz-ffu"/>
                                 </constraints>
@@ -34,7 +34,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BWg-qH-1FT">
-                                <rect key="frame" x="40" y="523" width="334" height="35"/>
+                                <rect key="frame" x="40" y="427" width="334" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Mpt-K7-CfN"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Yos-fH-lcp"/>
@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkc-Rt-5NY">
-                                <rect key="frame" x="100" y="618" width="214" height="35"/>
+                                <rect key="frame" x="100" y="522" width="214" height="35"/>
                                 <color key="backgroundColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="yUj-eq-yfd"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLc-8M-5Xx">
-                                <rect key="frame" x="100" y="683" width="214" height="35"/>
+                                <rect key="frame" x="100" y="587" width="214" height="35"/>
                                 <color key="backgroundColor" red="0.1900666654" green="0.4438890815" blue="0.38038647170000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="V1C-F3-8v6"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnd-wm-7lb">
-                                <rect key="frame" x="40" y="768" width="334" height="35"/>
+                                <rect key="frame" x="40" y="672" width="334" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="dsX-hA-ael"/>
                                 </constraints>
@@ -239,7 +239,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hr4-V0-ENk">
                                         <rect key="frame" x="374" y="20" width="25" height="26"/>
@@ -410,7 +410,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userface" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-ha-XqR">
-                                        <rect key="frame" x="87" y="40" width="240" height="128"/>
+                                        <rect key="frame" x="87" y="40" width="240.00000000000011" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="sGi-aM-mnR"/>
                                         </constraints>
@@ -1114,13 +1114,13 @@
                                     <constraint firstAttribute="height" constant="50" id="PYW-2t-Df7"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-rW-uPT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-rW-uPT">
                                 <rect key="frame" x="20" y="200" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
                                 <connections>
-                                    <action selector="search:" destination="fSA-yc-bPj" eventType="editingDidEnd" id="Mzf-Cp-Ja4"/>
+                                    <action selector="search:" destination="qzt-4L-2Dw" eventType="primaryActionTriggered" id="Mvj-0B-9Km"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -1405,13 +1405,13 @@
                                     <constraint firstAttribute="height" constant="50" id="0Kk-eN-gMi"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-YY-A4O">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-YY-A4O">
                                 <rect key="frame" x="20" y="200" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
                                 <connections>
-                                    <action selector="search:" destination="fSA-yc-bPj" eventType="editingDidEnd" id="gf1-Cq-A4O"/>
+                                    <action selector="search:" destination="fSA-yc-bPj" eventType="primaryActionTriggered" id="8jb-eb-3Rp"/>
                                 </connections>
                             </textField>
                         </subviews>
