@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6319B70D23934BD400260B1A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6319B70C23934BD400260B1A /* SwiftyJSON.swift */; };
 		639637E1238343CA00646E46 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639637E0238343CA00646E46 /* Structs.swift */; };
-		639D21C923931F4A00F05FB2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D21C823931F4A00F05FB2 /* SwiftyJSON.swift */; };
 		8B1C95D46AD4A1205D447A16 /* Pods_RateMyCourseWashU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0C2423BA7D2FB8F246CEB8 /* Pods_RateMyCourseWashU.framework */; };
 		AC388F7F23933AEA00EFA5F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; };
 		AC388F8023933AEA00EFA5F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63129829238328B800A993F2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -121,8 +121,8 @@
 /* Begin PBXFileReference section */
 		4D0C2423BA7D2FB8F246CEB8 /* Pods_RateMyCourseWashU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RateMyCourseWashU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6312981E238328B800A993F2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		6319B70C23934BD400260B1A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		639637E0238343CA00646E46 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		639D21C823931F4A00F05FB2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		63F462702382E9E5007FFBC2 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		662D8E1BB80048259FA1DAA7 /* Pods-RateMyCourseWashU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMyCourseWashU.debug.xcconfig"; path = "Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU.debug.xcconfig"; sourceTree = "<group>"; };
 		AC388F8423933D6400EFA5F8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +218,7 @@
 		E694E2F123772DE00019E55A /* RateMyCourseWashU */ = {
 			isa = PBXGroup;
 			children = (
+				6319B70C23934BD400260B1A /* SwiftyJSON.swift */,
 				AC7B562E239209CA00F3284F /* InfoViewController.swift */,
 				AC54EA702392059E00475AF7 /* MeTag.swift */,
 				AC54EA712392059E00475AF7 /* MyCommentCell.swift */,
@@ -249,7 +250,6 @@
 				E694E2F923772DE30019E55A /* Assets.xcassets */,
 				E694E2FB23772DE30019E55A /* LaunchScreen.storyboard */,
 				639637E0238343CA00646E46 /* Structs.swift */,
-				639D21C823931F4A00F05FB2 /* SwiftyJSON.swift */,
 				E694E2FE23772DE30019E55A /* Info.plist */,
 				ACB2FEF623773A9F00EA60BE /* Interface.swift */,
 				AC388F8423933D6400EFA5F8 /* SettingViewController.swift */,
@@ -454,7 +454,6 @@
 				E61D5481238502EC00E24A6C /* ProfessorCollections.swift in Sources */,
 				E6207EAD2392E8CE003CE19C /* chatkitUtils.swift in Sources */,
 				639637E1238343CA00646E46 /* Structs.swift in Sources */,
-				639D21C923931F4A00F05FB2 /* SwiftyJSON.swift in Sources */,
 				E6207E92238CC7CB003CE19C /* StudentsList.swift in Sources */,
 				AC54EA792392059F00475AF7 /* MyMarkedCourseViewController.swift in Sources */,
 				AC54EA752392059F00475AF7 /* MyTakenCourseViewController.swift in Sources */,
@@ -469,6 +468,7 @@
 				E694E2F323772DE00019E55A /* AppDelegate.swift in Sources */,
 				ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */,
 				E6207EA923926305003CE19C /* banner.swift in Sources */,
+				6319B70D23934BD400260B1A /* SwiftyJSON.swift in Sources */,
 				AC7B5635239209CA00F3284F /* InfoViewController.swift in Sources */,
 				E619CD0B2392FF080063022D /* chatkitStructs.swift in Sources */,
 			);
