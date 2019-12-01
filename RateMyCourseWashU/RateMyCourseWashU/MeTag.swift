@@ -11,12 +11,20 @@ import Alamofire
 
 class MeTag: UIViewController {
     
-    var userimage:Int=cache.object(forKey: "userimage") as! Int
-    var username:String=cache.object(forKey: "username")as!String
-    var userid:String=cache.object(forKey: "userid")as!String
+    var userimage:Int=0
+    var username:String!
+    var userid:String!
+    var profNo:Int = 0
+    var markedCourseNo:Int = 0
+    var takenCourseNo:Int = 0
+    var ratingNo:Int = 0
     
     let images:[UIImage]=[UIImage(named:"star")!,UIImage(named:"teacher")!]
     
+    @IBAction func setting(_ sender: Any) {
+        let settingVC = storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as?SettingViewController
+        self.navigationController?.pushViewController(settingVC!, animated: true)
+    }
     
     @IBOutlet weak var userImage: UIImageView!{
         didSet{
@@ -34,7 +42,7 @@ class MeTag: UIViewController {
         didSet{
             var profNo:Int?
             //fetch how many professors the user likes and assigned to "profNo"
-            myProfLabel.text="Professors:\(profNo ?? 0)"
+            //myProfLabel.text="Professors:\(profNo ?? 0)"
         }
     }
     
@@ -42,7 +50,7 @@ class MeTag: UIViewController {
         didSet{
             var markedCourseNo:Int?
             //fetch how many courses the user likes and assigned to "markedCourseNo"
-            myMarkedCoursesLabel.text="Marked:\(markedCourseNo ?? 0)"
+            //myMarkedCoursesLabel.text="Marked:\(markedCourseNo ?? 0)"
         }
     }
     
@@ -50,7 +58,7 @@ class MeTag: UIViewController {
         didSet{
             var takenCourseNo:Int?
             //fetch how many courses the user has taken and assigned to "takenCourseNo"
-            myTakenCoursesLabel.text="Taken:\(takenCourseNo ?? 0)"
+            //myTakenCoursesLabel.text="Taken:\(takenCourseNo ?? 0)"
         }
     }
     
@@ -58,7 +66,7 @@ class MeTag: UIViewController {
         didSet{
             var ratingNo:Int?
             //fetch how many ratings the user has made and assigned to "ratingNo"
-            myRatingsLabel.text="Ratings:\(ratingNo ?? 0)"
+            //myRatingsLabel.text="Ratings:\(ratingNo ?? 0)"
         }
     }
     
@@ -97,7 +105,7 @@ class MeTag: UIViewController {
         AF.request("http://52.170.3.234:3456/count",
                    method: .post,
                    //done by zoe: update courseID here
-            parameters: ["userID":cache.object(forKey: "userid") as! String],
+            parameters: ["userID":"12"],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 let json = JSON(response.data!)
@@ -105,6 +113,21 @@ class MeTag: UIViewController {
                 let followProCount = json["followPro"]
                 let ratingCourseCount = json["ratingCourse"]
                 let takeCourseCount = json["takeCourseCount"]
+                self.profNo=json["followPro"].intValue
+                self.markedCourseNo=json["followCourse"].intValue
+                self.takenCourseNo=json["takeCourseCount"].intValue
+                self.ratingNo=json["ratingCourse"].intValue
+                self.myProfLabel.text="Professors:\(String(self.profNo))"
+                print("Professors:\(String(self.profNo))")
+                self.myMarkedCoursesLabel.text="Marked:\(String(self.markedCourseNo))"
+                self.myTakenCoursesLabel.text="Taken:\(String(self.takenCourseNo))"
+                self.myRatingsLabel.text="Ratings:\(String(self.ratingNo))"
+                
+                
+                //                let us = cache.object(forKey: "userid")
+                //userimage=cache.object(forKey: "userimage") as! Int
+                self.username=(cache.object(forKey: "username")as! NSString) as String
+                self.userid=(cache.object(forKey: "userid")as! NSString) as String
         }
         // Do any additional setup after loading the view.
     }
