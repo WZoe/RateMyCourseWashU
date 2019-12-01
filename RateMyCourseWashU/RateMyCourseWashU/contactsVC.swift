@@ -54,6 +54,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     debugPrint(response)
                     let json = JSON(response.data!)
                     token = json["access_token"].stringValue
+//                    print(token)
                     
                     //fetch rooms
                     AF.request(url!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in

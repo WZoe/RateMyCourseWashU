@@ -5,4 +5,6 @@ use_frameworks!
 # Replace `<Your Target Name>` with your app's target name.
 target 'RateMyCourseWashU' do
   pod 'PusherChatkit'
+  pod 'SwiftJWT'
+  pod 'Alamofire', '~> 5.0.0-rc.3'
 end
