@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import PusherChatkit
 import Foundation
+import SwiftJWT
 
 class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextFieldDelegate {
     
@@ -119,21 +120,31 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                             // create user in pusher
                             let url = URL(string: "\(ep)/users")
                             var token = ""
+                            // TODO： get token
                             
-//                            // TODO： get token
-//                            AF.request("https://us1.pusherplatform.io/services/chatkit_token_provider/v1/42106c7e-a9e7-4375-b4cc-77e586b4bd58/token",
-//                                       method: .post,
-//                                       parameters: ["grant_type":"client_credentials", "user_id":"admin"],
-//                                       encoder: JSONParameterEncoder.default).responseJSON { response in
-//                                        let json = JSON(response.data!)
-//                                        token = json["access_token"].stringValue
-//
-//                                        // create user
-//                                        // TODO: avatar_url
-//                                        AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["username"] ,"avatar_url" : "https://image.flaticon.com/icons/svg/597/597228.svg"], headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
-//                                            debugPrint(response)
-//                                        }
-//                            }
+                            let header = Header()
+                            let now = Date()
+                            let stamp = Int(now.timeIntervalSince1970)
+                            let date = Date(timeIntervalSince1970: TimeInterval(stamp))
+                            
+                            
+                            let claim = tokenClaim(instance: "42106c7e-a9e7-4375-b4cc-77e586b4bd58", iss: "api_keys/eac15d6b-742b-4b14-8d14-3d79777364eb", sub: "admin", exp: Date(timeInterval: 3600, since: date), iat: date, su: true)
+                            var jwt = JWT(header: header, claims: claim)
+                            let jwtSigner = JWTSigner.hs256(key: "VoojAzI4sSEyTxtkwLbeKXSnjarhit6WdZKitj28GFE=".data(using: .utf8)!)
+                            do {
+                                token = try jwt.sign(using: jwtSigner)
+//                                print(token)
+                            } catch {
+                                print("error:", error)
+                            }
+                            
+                            // create user
+                            // TODO: avatar_url
+                            AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["user"]! ,"avatar_url" : "https://image.flaticon.com/icons/svg/597/597228.svg"],encoding: JSONEncoding.default, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+                                debugPrint(response)
+                                print(token)
+                            }
+
 
                             
                             self.messageLabel.text = "Sign up successfully"
