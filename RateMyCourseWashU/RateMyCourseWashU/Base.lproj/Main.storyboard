@@ -31,7 +31,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BWg-qH-1FT">
                                 <rect key="frame" x="40" y="427" width="334" height="35"/>
@@ -72,7 +72,7 @@
                                     <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axK-Fe-BJX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-C4-T6f">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-C4-T6f">
                                 <rect key="frame" x="44" y="811" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="goto tab"/>
@@ -240,6 +240,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                        <connections>
+                                            <action selector="sendMsg:" destination="WM1-JF-7jr" eventType="primaryActionTriggered" id="3I0-r8-Gef"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hr4-V0-ENk">
                                         <rect key="frame" x="374" y="20" width="25" height="26"/>
@@ -289,7 +292,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your password (6-20 characters)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-EQ-Cig">
                                 <rect key="frame" x="40" y="427" width="334" height="35"/>
@@ -410,7 +413,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userface" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-ha-XqR">
-                                        <rect key="frame" x="87" y="40" width="240.00000000000011" height="128"/>
+                                        <rect key="frame" x="87" y="40" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="sGi-aM-mnR"/>
                                         </constraints>

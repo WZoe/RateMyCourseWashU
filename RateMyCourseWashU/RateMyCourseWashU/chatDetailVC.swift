@@ -110,16 +110,13 @@ class chatDetailVC: UIViewController {
         }
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == textEntry {
-//            textField.resignFirstResponder()
-//            if let msg = textEntry.text {
-//                sendMessage(msg)
-//            }
-//            return false
-//        }
-//        return true
-//    }
+    @IBAction func sendMsg(_ sender: UITextField) {
+        if let msg = sender.text {
+            sendMessage(msg)
+        }
+    }
+    
+
 }
 
 // render msgs

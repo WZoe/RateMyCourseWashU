@@ -42,7 +42,6 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     */
     func getUserRooms(){
-        contacts = []
         let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
         var results:[(String, String)] = []
         var token = ""

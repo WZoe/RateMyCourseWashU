@@ -113,13 +113,18 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                 roomName = "\(objId)_\(userId!)"
             }
             
+            let alert = UIAlertController(title: "Chat Created!", message: "Ready to know more about this course?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            
             // 是否存在？
             let rooms = currentUser?.rooms
             var objRoom:PCRoom?
             for room in rooms! {
                 if room.name == roomName {
                     objRoom = room
-                    showBanner(superview: self.view, type: 1)
+                    self.present(alert, animated: true, completion: nil)
 //                    self.performSegue(withIdentifier: "messages", sender: self)
                 }
             }
@@ -131,7 +136,7 @@ class StudentsList: UIViewController, UITableViewDelegate, UITableViewDataSource
                         return
                     }
                     print("Created public room called \(room!.name)")
-                    showBanner(superview: self.view, type: 1)
+                    self.present(alert, animated: true, completion: nil)
                     // 跳转
                     // TODO： 映射avatar_url和userPic数字的关系
 //                    self.tabBarController?.performSegue(withIdentifier: "messages", sender: self)

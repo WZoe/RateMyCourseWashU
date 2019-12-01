@@ -67,6 +67,34 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                             debugPrint(response)
                             var json = JSON(response.data!)
                             if json["Success"].boolValue == true {
+                                let userId = json["userID"].stringValue
+                                
+                                // create user in pusher
+                                let url = URL(string: "\(ep)/users")
+                                var token = ""
+                                // TODO： get token
+                                
+                                let header = Header()
+                                let now = Date()
+                                let stamp = Int(now.timeIntervalSince1970)
+                                let date = Date(timeIntervalSince1970: TimeInterval(stamp))
+                                
+                                
+                                let claim = tokenClaim(instance: "42106c7e-a9e7-4375-b4cc-77e586b4bd58", iss: "api_keys/eac15d6b-742b-4b14-8d14-3d79777364eb", sub: "admin", exp: Date(timeInterval: 3600, since: date), iat: date, su: true)
+                                var jwt = JWT(header: header, claims: claim)
+                                let jwtSigner = JWTSigner.hs256(key: "VoojAzI4sSEyTxtkwLbeKXSnjarhit6WdZKitj28GFE=".data(using: .utf8)!)
+                                do {
+                                    token = try jwt.sign(using: jwtSigner)
+                                    //                                print(token)
+                                } catch {
+                                    print("error:", error)
+                                }
+                                
+                                // create user
+                                // TODO: avatar_url
+                                AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["user"]! ,"avatar_url" : "https://img.icons8.com/emoji/96/000000/man-student.png"],encoding: JSONEncoding.default, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+                                }
+
                                 self.messageLabel.text = "Sign up successfully"
                                 self.messageLabel.textColor=UIColor.darkGray
                                 let seconds = 1.0
@@ -140,9 +168,7 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                             
                             // create user
                             // TODO: avatar_url
-                            AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["user"]! ,"avatar_url" : "https://image.flaticon.com/icons/svg/597/597228.svg"],encoding: JSONEncoding.default, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
-                                debugPrint(response)
-                                print(token)
+                            AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["user"]! ,"avatar_url" : "https://img.icons8.com/emoji/96/000000/man-student.png"],encoding: JSONEncoding.default, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
                             }
 
 
