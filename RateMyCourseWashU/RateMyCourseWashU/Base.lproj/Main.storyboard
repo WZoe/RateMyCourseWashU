@@ -410,7 +410,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="260"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userface" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-ha-XqR">
-                                        <rect key="frame" x="87" y="40" width="240.00000000000011" height="128"/>
+                                        <rect key="frame" x="87" y="40" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="sGi-aM-mnR"/>
                                         </constraints>

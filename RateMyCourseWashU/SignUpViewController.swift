@@ -8,9 +8,11 @@
 
 import UIKit
 import Alamofire
+import PusherChatkit
 import Foundation
 
 class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextFieldDelegate {
+    
     @IBOutlet weak var messageLabel: UILabel!
     
     @IBOutlet weak var userName: UITextField!{
@@ -112,6 +114,28 @@ class SignUpViewController: UIViewController,UINavigationBarDelegate,UITextField
                         debugPrint(response)
                         var json = JSON(response.data!)
                         if json["Success"].boolValue == true {
+                            let userId = json["userID"].stringValue
+                            
+                            // create user in pusher
+                            let url = URL(string: "\(ep)/users")
+                            var token = ""
+                            
+//                            // TODO： get token
+//                            AF.request("https://us1.pusherplatform.io/services/chatkit_token_provider/v1/42106c7e-a9e7-4375-b4cc-77e586b4bd58/token",
+//                                       method: .post,
+//                                       parameters: ["grant_type":"client_credentials", "user_id":"admin"],
+//                                       encoder: JSONParameterEncoder.default).responseJSON { response in
+//                                        let json = JSON(response.data!)
+//                                        token = json["access_token"].stringValue
+//
+//                                        // create user
+//                                        // TODO: avatar_url
+//                                        AF.request(url!, method: .post, parameters: ["id": userId, "name": parameters["username"] ,"avatar_url" : "https://image.flaticon.com/icons/svg/597/597228.svg"], headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
+//                                            debugPrint(response)
+//                                        }
+//                            }
+
+                            
                             self.messageLabel.text = "Sign up successfully"
                             self.messageLabel.textColor=UIColor.darkGray
                             let seconds = 1.0

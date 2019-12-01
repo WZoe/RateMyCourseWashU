@@ -14,8 +14,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var chatManager: ChatManager?
-    private var currentUser: PCCurrentUser?
+
     var contacts:[Contact] = []
     
     override func viewDidLoad() {
@@ -56,7 +55,6 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     //fetch rooms
                     AF.request(url!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
-                        debugPrint(response)
                         let json = JSON(response.data!)
                         for (_, j):(String, JSON) in json{
                             
