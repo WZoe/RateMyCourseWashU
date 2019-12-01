@@ -63,6 +63,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         debugPrint(response)
                         var json = JSON(response.data!)
                         if json["Success"].boolValue == true {
+                            let userId = json["userID"].stringValue
+                            cache.setObject(userId as NSString, forKey: "userid")
+                            cache.setObject(self.userName.text! as NSString, forKey: "username")
+                            //cache.setObject(0 as NSString, forKey: "userimage")
+                            let us=(cache.object(forKey: "username")as! NSString) as String
                             self.loginMessage.text = "Log in successfully."
                             self.loginMessage.textColor=UIColor.darkGray
                             let seconds = 1.0
@@ -101,6 +106,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         cache.setObject(userId as NSString, forKey: "userid")
                         cache.setObject(self.userName.text! as NSString, forKey: "username")
                         //cache.setObject(0 as NSString, forKey: "userimage")
+                        let us=(cache.object(forKey: "username")as! NSString) as String
+                        
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0

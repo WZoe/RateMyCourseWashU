@@ -69,10 +69,11 @@ class MyTakenCourseViewController: UIViewController,UICollectionViewDataSource, 
     
     // Todo: fetch the courseList the user has liked
     func initCourseList() {
+        let userid=(cache.object(forKey: "userid")as! NSString) as String
         AF.request("http://52.170.3.234:3456/getTakenCourse",
                    method: .post,
                    //TODO by shen, get and update userID here
-                   parameters: ["userID":"1"],
+                   parameters: ["userID":userid],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)
