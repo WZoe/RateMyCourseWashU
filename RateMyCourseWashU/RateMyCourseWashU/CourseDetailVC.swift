@@ -155,10 +155,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     
     // TODO: fetch ratings for this course
     func initCommentList() {
-//        let user = User(userID: "1111", username: "Adam A", password: "11111", userPic: 1)
-//        let comment = Rating(user: user, rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
-//        let comment2 = Rating(user: user, rating: 7, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! ")
-//        commentList = [comment,comment2]
+        self.commentList = []
         AF.request("http://52.170.3.234:3456/getCourseCommentList",
                    method: .post,
                    //done by zoe: update courseID here
