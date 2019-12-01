@@ -10,8 +10,32 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    var userimage:Int!
-    var username=(cache.object(forKey: "username")as! NSString) as String
+    @IBOutlet weak var myPic: UIImageView!
+    
+    @IBAction func changePic(_ sender: Any) {
+        let detailedVC = storyboard?.instantiateViewController(withIdentifier: "ChangeUserPicVC")as?ChangeUserPicVC
+        self.navigationController?.pushViewController(detailedVC!, animated: true)
+        
+    }
+    //reference:https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
+    func addBottomBorder(with color: UIColor?, andWidth borderWidth: CGFloat, view:UIView) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        border.frame = CGRect(x: 0, y: view.frame.size.height - borderWidth, width: view.frame.size.width, height: borderWidth)
+        view.addSubview(border)
+    }
+    
+    @IBOutlet weak var changeView: UIView!{
+        didSet{
+            addBottomBorder(with: .lightGray, andWidth: 1.0, view: changeView)
+        }
+    }
+    
+    
+    
+    var userimage:Int=0
+    var userid=(cache.object(forKey: "userid")as! NSString) as String
     
     //upload userimage to database
     @IBAction func resetPic(_ sender: Any) {
@@ -27,6 +51,11 @@ class SettingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        if ((cache.object(forKey: "userimage")) != nil){
+            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+        }
+        
+        myPic.image=UIImage(named: "face\(userimage)")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

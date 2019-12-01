@@ -20,6 +20,7 @@
 		AC54EA792392059F00475AF7 /* MyMarkedCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */; };
 		AC54EA7A2392059F00475AF7 /* MyRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54EA742392059F00475AF7 /* MyRatingViewController.swift */; };
 		AC7B5635239209CA00F3284F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B562E239209CA00F3284F /* InfoViewController.swift */; };
+		ACA9208F239416D0000EF386 /* ChangeUserPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9208E239416D0000EF386 /* ChangeUserPicVC.swift */; };
 		ACB2FEF723773A9F00EA60BE /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2FEF623773A9F00EA60BE /* Interface.swift */; };
 		ACD861122381AED1002089CD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD861112381AED1002089CD /* SignUpViewController.swift */; };
 		E619CD032392FC600063022D /* contactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619CD022392FC600063022D /* contactsVC.swift */; };
@@ -133,6 +134,7 @@
 		AC54EA732392059E00475AF7 /* MyMarkedCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMarkedCourseViewController.swift; sourceTree = "<group>"; };
 		AC54EA742392059F00475AF7 /* MyRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRatingViewController.swift; sourceTree = "<group>"; };
 		AC7B562E239209CA00F3284F /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		ACA9208E239416D0000EF386 /* ChangeUserPicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserPicVC.swift; sourceTree = "<group>"; };
 		ACB2FEF623773A9F00EA60BE /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		ACD861112381AED1002089CD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		D870D745E3EA3199AF2D30E8 /* Pods-RateMyCourseWashU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RateMyCourseWashU.release.xcconfig"; path = "Target Support Files/Pods-RateMyCourseWashU/Pods-RateMyCourseWashU.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				E694E2FE23772DE30019E55A /* Info.plist */,
 				ACB2FEF623773A9F00EA60BE /* Interface.swift */,
 				AC388F8423933D6400EFA5F8 /* SettingViewController.swift */,
+				ACA9208E239416D0000EF386 /* ChangeUserPicVC.swift */,
 			);
 			path = RateMyCourseWashU;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				AC54EA792392059F00475AF7 /* MyMarkedCourseViewController.swift in Sources */,
 				AC54EA752392059F00475AF7 /* MyTakenCourseViewController.swift in Sources */,
 				E619CD032392FC600063022D /* contactsVC.swift in Sources */,
+				ACA9208F239416D0000EF386 /* ChangeUserPicVC.swift in Sources */,
 				E694E2F523772DE00019E55A /* ViewController.swift in Sources */,
 				AC54EA762392059F00475AF7 /* MeTag.swift in Sources */,
 				E6207E9A238DB646003CE19C /* RatingCell.swift in Sources */,

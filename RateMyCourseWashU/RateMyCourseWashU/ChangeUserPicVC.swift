@@ -1,18 +1,16 @@
 //
-//  InfoViewController.swift
+//  ChangeUserPicVC.swift
 //  RateMyCourseWashU
 //
-//  Created by 沈晓知 on 11/28/19.
+//  Created by 沈晓知 on 12/1/19.
 //  Copyright © 2019 438group. All rights reserved.
 //
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class ChangeUserPicVC: UIViewController {
 
-    @IBOutlet weak var functionLabel: UILabel!
     override func viewDidLoad() {
-        functionLabel.text="This app was developed by a group of students from 2019FL CSE438 class at WashU. We built this anonymous community for WashU students to get useful information about course registration from their peers and seniors. Hope you enjoy!"
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
