@@ -94,6 +94,14 @@ class MyMarkedCourseViewController: UIViewController,UICollectionViewDataSource,
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "detailvc") as! CourseDetailVC
+        detailvc.currentCourse = courseList[indexPath.row]
+        navigationController?.pushViewController(detailvc, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

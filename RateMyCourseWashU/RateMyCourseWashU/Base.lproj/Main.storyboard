@@ -809,7 +809,7 @@
         <!--Setting View Controller-->
         <scene sceneID="G1Q-M0-v12">
             <objects>
-                <viewController storyboardIdentifier="SettingViewController" id="bTm-sX-W6Z" customClass="SettingViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" hidesBottomBarWhenPushed="YES" id="bTm-sX-W6Z" customClass="SettingViewController" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v2E-MD-yOj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -835,7 +835,7 @@
                         <viewLayoutGuide key="safeArea" id="saf-N6-3AM"/>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="BYc-DA-whI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="WYs-9I-vR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PX0-nc-zwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -882,6 +882,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="fvg-iq-XHb" id="S3J-hE-JTo"/>
+                        <segue destination="IJt-LC-gUl" kind="show" id="JHs-lu-gDs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciY-kA-ymL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -928,6 +929,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="JwY-ro-qMa" id="ySB-2q-87G"/>
+                        <segue destination="4of-x6-aVT" kind="show" id="RpL-An-1A7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lal-x9-DrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -974,6 +976,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="kxd-aj-YYi" id="0A0-HU-9st"/>
+                        <segue destination="4of-x6-aVT" kind="show" id="qIY-10-Crj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wyy-1Y-zie" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1874,7 +1877,7 @@
         <!--Chat-->
         <scene sceneID="rOV-iJ-pLr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1h-h0-XUH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="b1h-h0-XUH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chat" image="comment-black-oval-bubble-shape" id="OQq-LT-7kI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="S9j-15-0Ap">
@@ -1916,7 +1919,9 @@
         <image name="userface" width="748" height="754"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="qIY-10-Crj"/>
+        <segue reference="JHs-lu-gDs"/>
         <segue reference="3yR-4t-NPh"/>
-        <segue reference="BYc-DA-whI"/>
+        <segue reference="WYs-9I-vR4"/>
     </inferredMetricsTieBreakers>
 </document>
