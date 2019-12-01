@@ -1,24 +1,53 @@
 PODS:
+  - BlueCryptor (1.0.32)
+  - BlueECC (1.2.5)
+  - BlueRSA (1.0.34)
+  - KituraContracts (1.2.1):
+    - LoggerAPI (~> 1.7)
+  - LoggerAPI (1.9.0):
+    - Logging (~> 1.1)
+  - Logging (1.1.1)
   - PusherChatkit (1.8.1):
     - PusherPlatform (~> 0.7.2)
     - PushNotifications (~> 2.1.2)
   - PusherPlatform (0.7.2)
   - PushNotifications (2.1.2)
+  - SwiftJWT (3.5.3):
+    - BlueCryptor (~> 1.0)
+    - BlueECC (~> 1.1)
+    - BlueRSA (~> 1.0)
+    - KituraContracts (~> 1.1)
+    - LoggerAPI (~> 1.7)
 
 DEPENDENCIES:
   - PusherChatkit
+  - SwiftJWT
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - BlueCryptor
+    - BlueECC
+    - BlueRSA
+    - KituraContracts
+    - LoggerAPI
+    - Logging
     - PusherChatkit
     - PusherPlatform
     - PushNotifications
+    - SwiftJWT
 
 SPEC CHECKSUMS:
+  BlueCryptor: b0aee3d9b8f367b49b30de11cda90e1735571c24
+  BlueECC: 0d18e93347d3ec6d41416de21c1ffa4d4cd3c2cc
+  BlueRSA: 6f9776d62d9773502415a7db3bcbb2bbb3f71fc3
+  KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
+  LoggerAPI: fb78461eedac5316b290f2404d88b9d614d96c57
+  Logging: c1d514914944d786e0f17a41a6431e44a88a7ec1
   PusherChatkit: 6db76843017e946186d3c8b377d4834d82120823
   PusherPlatform: c1084d8abc6c1ddb5af2a07214f72be2991faa9b
   PushNotifications: 3d1ac73f4e1e9dc3de8fa8319e3e53bd00be47dc
+  SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 
-PODFILE CHECKSUM: 054b4d1b387d576dbb2057ecf631591670ebdaa4
+PODFILE CHECKSUM: 96e7637177dd8989f56c948ed6c465bca29a1f0b
 
 COCOAPODS: 1.8.4
