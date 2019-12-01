@@ -16,6 +16,7 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     var selectedRow: String=""
     @IBOutlet weak var currentPic: UIImageView!
     
+    // TODO by cst: update userpic on server
     @IBAction func setPic(_ sender: Any) {
         self.currentPic.image=UIImage(named: "face\(selectedRow)")
         cache.setObject(selectedRow as NSString, forKey: "userimage")

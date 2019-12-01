@@ -83,37 +83,14 @@ func generateToken() -> String {
     return result
 }
 
-//func getUserRooms(tableView: UITableView) -> [(Int, String)] {
-//    let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
-//    var results:[(Int, String)] = []
-//    var token = ""
-//
-//    AF.request(chatkitInfo!.tokenProviderEndpoint,
-//               method: .post,
-//               parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
-//               encoder: JSONParameterEncoder.default).responseJSON { response in
-//                let json = JSON(response.data!)
-//                token = json["access_token"].stringValue
-//
-//                //fetch rooms
-//                AF.request(url!, headers: ["authorization":"Bearer \(token)"]).responseJSON { response in
-//                    debugPrint(response)
-//                    let json = JSON(response.data!)
-//                    for (_, j):(String, JSON) in json{
-//
-//                        let members = j["member_user_ids"]
-//                        var friend = ""
-//                        if members[0].stringValue == chatkitInfo?.userId {
-//                            friend = members[1].stringValue
-//                        }
-//                        else {
-//                            friend = members[0].stringValue
-//                        }
-//                        results.append((j["id"].intValue, friend))
-//                    }
-//                    print("result:\(results)")
-//                    tableView.reloadData()
-//                }
-//    }
-//    return results
-//}
+// avatar urls:
+// 0: <img src="https://img.icons8.com/emoji/96/000000/man-student.png">
+// 1:<img src="https://img.icons8.com/emoji/96/000000/man-facepalming.png">
+// 2:<img src="https://img.icons8.com/emoji/96/000000/raccoon.png">
+// 3:<img src="https://img.icons8.com/emoji/96/000000/tropical-fish.png">
+// 4:<img src="https://img.icons8.com/emoji/96/000000/turtle-emoji.png">
+// 5:<img src="https://img.icons8.com/emoji/48/000000/cherry-blossom.png">
+// 6:<img src="https://img.icons8.com/emoji/96/000000/woman-student.png">
+// 7:<img src="https://img.icons8.com/emoji/96/000000/woman-facepalming.png">
+// 8:<img src="https://img.icons8.com/emoji/96/000000/sparkling-heart.png">
+
