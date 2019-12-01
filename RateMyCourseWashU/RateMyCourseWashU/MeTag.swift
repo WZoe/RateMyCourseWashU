@@ -28,13 +28,13 @@ class MeTag: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!{
         didSet{
-            userImage.image=images[userimage]
+            //userImage.image=images[userimage]
         }
     }
     
     @IBOutlet weak var userName: UILabel!{
         didSet{
-            userName.text=username
+            //userName.text=username
         }
     }
     
@@ -97,15 +97,15 @@ class MeTag: UIViewController {
         self.navigationController?.pushViewController(detailedVC!, animated: true)
     }
     
-    
-    override func viewDidLoad() {
-        //userImageIndex=
-        super.viewDidLoad()
-        //TODO by shen,
+    override func viewWillAppear(_ animated: Bool) {
+        self.username=(cache.object(forKey: "username")as! NSString) as String
+        self.userid=(cache.object(forKey: "userid")as! NSString) as String
+        self.userName.text=self.username
+        self.userImage.image=self.images[self.userimage]
         AF.request("http://52.170.3.234:3456/count",
                    method: .post,
                    //done by zoe: update courseID here
-            parameters: ["userID":"12"],
+            parameters: ["userID":self.userid],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 let json = JSON(response.data!)
@@ -126,8 +126,43 @@ class MeTag: UIViewController {
                 
                 //                let us = cache.object(forKey: "userid")
                 //userimage=cache.object(forKey: "userimage") as! Int
-                self.username=(cache.object(forKey: "username")as! NSString) as String
-                self.userid=(cache.object(forKey: "userid")as! NSString) as String
+                
+        }
+    }
+    
+    override func viewDidLoad() {
+        //userImageIndex=
+        super.viewDidLoad()
+        //TODO by shen,
+        self.username=(cache.object(forKey: "username")as! NSString) as String
+        self.userid=(cache.object(forKey: "userid")as! NSString) as String
+        self.userName.text=self.username
+        self.userImage.image=self.images[self.userimage]
+        AF.request("http://52.170.3.234:3456/count",
+                   method: .post,
+                   //done by zoe: update courseID here
+            parameters: ["userID":self.userid],
+            encoder: JSONParameterEncoder.default).responseJSON { response in
+                debugPrint(response)
+                let json = JSON(response.data!)
+                let followCourseCount = json["followCourse"]
+                let followProCount = json["followPro"]
+                let ratingCourseCount = json["ratingCourse"]
+                let takeCourseCount = json["takeCourseCount"]
+                self.profNo=json["followPro"].intValue
+                self.markedCourseNo=json["followCourse"].intValue
+                self.takenCourseNo=json["takeCourseCount"].intValue
+                self.ratingNo=json["ratingCourse"].intValue
+                self.myProfLabel.text="Professors:\(String(self.profNo))"
+                print("Professors:\(String(self.profNo))")
+                self.myMarkedCoursesLabel.text="Marked:\(String(self.markedCourseNo))"
+                self.myTakenCoursesLabel.text="Taken:\(String(self.takenCourseNo))"
+                self.myRatingsLabel.text="Ratings:\(String(self.ratingNo))"
+                
+                
+                //                let us = cache.object(forKey: "userid")
+                //userimage=cache.object(forKey: "userimage") as! Int
+                
         }
         // Do any additional setup after loading the view.
     }

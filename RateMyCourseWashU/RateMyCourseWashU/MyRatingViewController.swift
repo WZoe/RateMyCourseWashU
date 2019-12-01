@@ -21,10 +21,11 @@ class MyRatingViewController: UIViewController, UICollectionViewDataSource, UICo
 //        let comment = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
 //        let comment2 = MyComment(course:"CSE438: IOS Mobile Application",rating: 8.4, comment: "This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla! This is a great course balabalabalabalbalbabla!")
 //        commentList = [comment,comment2]
+        let username=(cache.object(forKey: "username")as! NSString) as String
         AF.request("http://52.170.3.234:3456/getCourseCommentListByUser",
                    method: .post,
                    //done by zoe: update courseID here
-            parameters: ["userID":cache.object(forKey: "userid") as! String],
+            parameters: ["userID":username],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 let json = JSON(response.data!)

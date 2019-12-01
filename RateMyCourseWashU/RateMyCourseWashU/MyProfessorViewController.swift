@@ -64,10 +64,11 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
     
     // Todo: fetch professorList the user has liked
     func initProfList() {
+        let username=(cache.object(forKey: "username")as! NSString) as String
         AF.request("http://52.170.3.234:3456/getFollowProfessor",
                    method: .post,
                    //Todo by shen, get userID here
-                   parameters: ["userID":"1"],
+                   parameters: ["userID":username],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)

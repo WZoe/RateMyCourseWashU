@@ -21,6 +21,8 @@ class SettingViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         cache.removeAllObjects()
         //push back to log in scene
+        let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainViewController")as?ViewController
+        self.navigationController?.pushViewController(mainVC!, animated: true)
     }
     
     override func viewDidLoad() {
