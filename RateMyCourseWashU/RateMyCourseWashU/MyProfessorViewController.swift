@@ -64,11 +64,11 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
     
     // Todo: fetch professorList the user has liked
     func initProfList() {
-        let username=(cache.object(forKey: "username")as! NSString) as String
+        let userid=(cache.object(forKey: "userid")as! NSString) as String
         AF.request("http://52.170.3.234:3456/getFollowProfessor",
                    method: .post,
                    //Todo by shen, get userID here
-                   parameters: ["userID":username],
+                   parameters: ["userID":userid],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     let json = JSON(response.data!)
@@ -84,6 +84,12 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailvc = self.storyboard?.instantiateViewController(withIdentifier: "profdetail") as! ProfDetailVC
+        detailvc.currentProf = professorList[indexPath.row]
+        navigationController?.pushViewController(detailvc, animated: true)
+    }
     
     
     override func viewDidLoad() {
