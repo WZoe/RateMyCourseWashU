@@ -79,19 +79,19 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //                                debugPrint(response)
                                 let json = JSON(response.data!)
                                 
+                                
                                 let user = Contact(id: json["id"].stringValue, name: json["name"].stringValue, avatar_url: json["avatar_url"].stringValue, roomId: item.0)
-                                for contact in self.contacts {
-                                    if contact.id == user.id {
+                                for i in 0..<self.contacts.count {
+                                    if self.contacts[i].id == user.id {
                                         flag = true
+                                        self.contacts[i] = user
                                         break
                                     }
                                 }
                                 if flag == false {
                                     self.contacts.append(user)
-                                    print("appending\(user.roomId)")
                                     self.tableView.reloadData()
                                 }
-                                
                             }
                         }
                     }

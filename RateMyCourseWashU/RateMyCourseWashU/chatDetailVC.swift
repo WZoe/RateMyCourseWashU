@@ -21,7 +21,7 @@ class chatDetailVC: UIViewController {
     private var messages = [PCMultipartMessage]()
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+//        tableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -36,6 +36,7 @@ class chatDetailVC: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         //init chatkit
         guard let chatkitInfo = getChatkit(bundle: Bundle.main) else { return }
@@ -140,13 +141,21 @@ extension chatDetailVC: UITableViewDataSource {
             print("Message doesn't have the right payload!")
         }
         
+        if sender.id == currentUser!.id {
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.5198733211, green: 0.6998378634, blue: 0.6403132677, alpha: 0.2985873288)
+            cell.textLabel?.backgroundColor = .clear
+            cell.detailTextLabel?.backgroundColor = .clear
+        }
         cell.textLabel?.text = sender.displayName
         cell.detailTextLabel?.text = messageText
         if(sender.avatarURL != nil){
             cell.setImageFromUrl(ImageURL: sender.avatarURL!, tableview: tableView)
         }
+        cell.transform = CGAffineTransform(scaleX: 1, y: -1);
+
         return cell
     }
+
 }
 
 // handle incoming msgs
@@ -155,10 +164,21 @@ extension chatDetailVC: PCRoomDelegate {
     func onMultipartMessage(_ message: PCMultipartMessage) {
         print("Message received!")
         DispatchQueue.main.async {
+            self.messages.reverse()
             self.messages.append(message)
+            self.messages.reverse()
             self.tableView.reloadData()
         }
     }
+//    func onUsersUpdated() {
+//        chatManager!.connect(delegate: MyChatManagerDelegate()) { (currentUser, error) in
+//            guard(error == nil) else {
+//                print("Error connecting: \(error!.localizedDescription)")
+//                return
+//            }
+//            self.currentUser = currentUser
+//        }
+//    }
 }
 
 
