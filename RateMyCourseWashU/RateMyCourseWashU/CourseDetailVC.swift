@@ -122,7 +122,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
     @IBAction func submitRating(_ sender: UIButton) {
         let rating  = Int((myrating.text! as NSString).doubleValue * 10)
         let parameters: [String: String] = [
-            //done by zoe, 下列信息需要获取
+            //done by zoe
             "userID":cache.object(forKey: "userid")! as String,
             "courseID":currentCourse!.id,
             "comment": comment.text!,
@@ -136,9 +136,41 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
                     debugPrint(response)
                 var json = JSON(response.data!)
                 if json["Success"].boolValue == true {
-                    //done by zoe: 弹出submit 成功信息提示
+                    //done by zoe:
                     showBanner(superview: self.view, type: 1)
-                    self.initCommentList()
+                    self.commentList = []
+                    AF.request("http://52.170.3.234:3456/getCourseCommentList",
+                               method: .post,
+                               //done by zoe: update courseID here
+                        parameters: ["courseID":self.currentCourse?.id],
+                        encoder: JSONParameterEncoder.default).responseJSON { response in
+//                            debugPrint(response)
+                            let json = JSON(response.data!)
+                            for (_, j):(String, JSON) in json{
+                                let r = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
+                                                    rating: j["rating"].doubleValue / 10,
+                                                    comment: j["comment"].stringValue)
+                                self.commentList.append(r)
+                                // update rating
+                                let ratingNum = Double(self.commentList.count - 1)
+                                var newR: Double
+                                print(ratingNum)
+                                if ratingNum == 0 {
+                                    newR = Double(rating/10)
+                                }
+                                else {
+                                    let newA = ((self.currentCourse!.overallRating * ratingNum) + Double(rating/10))
+                                    newR = newA  / (ratingNum + 1)
+                                    print(self.currentCourse!.overallRating, rating, newA)
+                                }
+                                
+                                self.rating.text =  String(format: "%.1f", newR)
+                                self.starCourse.rating = newR / 2
+                                self.collectionView.reloadData()
+                            }
+                            
+                    }
+                    
                 }
                 else{
                     //failre case

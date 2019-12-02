@@ -24,7 +24,9 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
         initProfList()
         setCollectionView()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        initProfList()
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     func setCollectionView() {
@@ -75,6 +77,7 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取professorList
     func initProfList() {
+        var flag = false
         AF.request("http://52.170.3.234:3456/professorList",
                    method: .post,
                    parameters: ["":""],
@@ -86,10 +89,19 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
                                           name: j["name"].stringValue,
                                           rating: j["rating"].doubleValue / 10,
                                           department:j["department"].stringValue)
-                        
-                        self.professorList.append(p)
+                        for i in 0..<self.professorList.count {
+                            if self.professorList[i].id == p.id {
+                                flag = true
+                                self.professorList[i] = p
+                                print("updating profs")
+                                break
+                            }
+                        }
+                        if flag == false {
+                            self.professorList.append(p)
+                        }
+                        self.collectionView.reloadData()
                     }
-                   print(self.professorList)
                     self.collectionView.reloadData()
         }
     }
@@ -198,6 +210,7 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     //TODO: search prof
     func searchProf(text: String) {
+        var flag = false
         AF.request("http://52.170.3.234:3456/searchProfessor",
                    method: .post,
                    parameters: ["keyword":text],
@@ -216,10 +229,13 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
                                                   rating: j["rating"].doubleValue / 10,
                                                   department:j["department"].stringValue)
                                 
-                                self.professorList.append(p)
+
+                                    self.professorList.append(p)
+                                
+                                self.collectionView.reloadData()
                             }
                         }
-                        self.collectionView.reloadData()
+
                     case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }

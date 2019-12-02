@@ -24,7 +24,9 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
         initCourseList()
         setCollectionView()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        initCourseList()
+    }
 
     /*
     // MARK: - Navigation
@@ -92,6 +94,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
     
     // todo: 获取courseList
     func initCourseList() {
+        var flag = false
         AF.request("http://52.170.3.234:3456/courseList",
                    method: .post,
                    parameters: ["":""],
@@ -111,9 +114,18 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                                                 professor:p,
                                                 department: j["department"].stringValue,
                                                 overallRating: j["rating"].doubleValue / 10)
-                            self.courseList.append(course)
+                            for i in 0..<self.courseList.count {
+                                if self.courseList[i].id == course.id {
+                                    flag = true
+                                    self.courseList[i] = course
+                                    break
+                                }
+                            }
+                            if flag == false {
+                                self.courseList.append(course)
+                            }
+                            self.collectionView.reloadData()
                         }
-                        self.collectionView.reloadData()
                     case let .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }

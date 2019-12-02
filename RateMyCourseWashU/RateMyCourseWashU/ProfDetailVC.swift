@@ -95,7 +95,38 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     if json["Success"].boolValue == true {
                         //done by zoe: 弹出submit 成功信息提示
                         showBanner(superview: self.view, type: 1)
-                        self.initCommentList()
+                        self.commentList = []
+                        AF.request("http://52.170.3.234:3456/getProfessorCommentList",
+                                   method: .post,
+                                   //done by zoe: update proID here
+                            parameters: ["proID":self.currentProf?.id],
+                            encoder: JSONParameterEncoder.default).responseJSON { response in
+                                debugPrint(response)
+                                let json = JSON(response.data!)
+                                for (_, j):(String, JSON) in json{
+                                    let r = Rating(user: User(userID: j["userID"].stringValue, username: j["userName"].stringValue, password: "why we need this", userPic: j["userPic"].intValue),
+                                                        rating: j["rating"].doubleValue / 10,
+                                                        comment: j["comment"].stringValue)
+                                    self.commentList.append(r)
+                                    
+                                    // update rating
+                                    let ratingNum = Double(self.commentList.count - 1)
+                                    var newR:Double
+                                    if ratingNum == 0 {
+                                        newR = Double(rating/10)
+                                    }
+                                    else{
+                                        let newA = ((self.currentProf!.rating * ratingNum) + Double(rating/10))
+                                        newR = newA  / (ratingNum + 1)
+                                    }
+                                    
+                                    self.rating.text =  String(format: "%.1f", newR)
+                                    self.star.rating = newR / 2
+                                    self.collectionView.reloadData()
+                                }
+                                
+                        }
+                       
                     }
                     else{
                         //failre case
