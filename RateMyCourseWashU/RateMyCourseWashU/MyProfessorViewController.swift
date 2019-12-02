@@ -80,6 +80,7 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
 
                         self.professorList.append(p)
                     }
+                    print(self.professorList)
                     self.collectionView.reloadData()
         }
     }

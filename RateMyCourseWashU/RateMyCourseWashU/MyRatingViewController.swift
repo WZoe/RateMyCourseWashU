@@ -30,7 +30,9 @@ class MyRatingViewController: UIViewController, UICollectionViewDataSource, UICo
                 debugPrint(response)
                 let json = JSON(response.data!)
                 for (_, j):(String, JSON) in json{
-                    let comment = MyComment(course: j["courseDept"].stringValue + " " + j["courseCode"].stringValue + " " + j["courseName"].stringValue, rating: j["rating"].doubleValue / 10, comment: j["comment"].stringValue)
+                    let comment = MyComment(course: j["courseCode"].stringValue + " " + j["courseName"].stringValue, rating: j["rating"].doubleValue / 10, comment: j["comment"].stringValue)
+
+//                    let comment = MyComment(course: j["courseDept"].stringValue + " " + j["courseCode"].stringValue + " " + j["courseName"].stringValue, rating: j["rating"].doubleValue / 10, comment: j["comment"].stringValue)
                     self.commentList.append(comment)
                 }
                 self.collectionView.reloadData()
@@ -56,15 +58,18 @@ class MyRatingViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCommentCell", for: indexPath) as! MyCommentCell
         
-        cell.coursename = UILabel(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.05, width: view.frame.width*0.7, height: hoc*0.4))
+        cell.coursename = UILabel(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.05, width: view.frame.width*0.9, height: hoc*0.35))
+        cell.coursename?.numberOfLines=0
         cell.coursename?.text = commentList[indexPath.row].course + ":"
+        cell.coursename?.font=cell.coursename!.font.withSize(hoc*0.25)
         
-        cell.comment = UITextView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.45, width: view.frame.width*0.9, height: hoc*0.6))
+        cell.comment = UITextView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.6, width: view.frame.width*0.9, height: hoc*0.4))
         cell.comment?.text = commentList[indexPath.row].comment
         cell.comment?.font = UIFont.systemFont(ofSize: 16)
         cell.comment?.isEditable = false
         
-        cell.rating = CosmosView(frame: CGRect(x: view.frame.width * 0.7, y: hoc*0.1, width: view.frame.width*0.35, height: hoc*0.4))
+        
+        cell.rating = CosmosView(frame: CGRect(x: view.frame.width * 0.05, y: hoc*0.4, width: view.frame.width*0.9, height: hoc*0.2))
         cell.rating?.settings.fillMode = .precise
         cell.rating?.settings.updateOnTouch = false
         cell.rating?.rating = commentList[indexPath.row].rating / 2

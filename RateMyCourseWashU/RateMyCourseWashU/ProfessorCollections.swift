@@ -89,6 +89,7 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
                         
                         self.professorList.append(p)
                     }
+                   print(self.professorList)
                     self.collectionView.reloadData()
         }
     }
