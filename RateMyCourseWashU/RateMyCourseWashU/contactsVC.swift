@@ -84,14 +84,16 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 for i in 0..<self.contacts.count {
                                     if self.contacts[i].id == user.id {
                                         flag = true
+//                                        print("updating contacts: \(self.contacts)")
                                         self.contacts[i] = user
+//                                        print("finished: \(self.contacts)")
                                         break
                                     }
                                 }
                                 if flag == false {
                                     self.contacts.append(user)
-                                    self.tableView.reloadData()
                                 }
+                                self.tableView.reloadData()
                             }
                         }
                     }

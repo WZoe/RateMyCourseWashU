@@ -146,6 +146,9 @@ extension chatDetailVC: UITableViewDataSource {
             cell.textLabel?.backgroundColor = .clear
             cell.detailTextLabel?.backgroundColor = .clear
         }
+        else {
+            cell.contentView.backgroundColor = .white
+        }
         cell.textLabel?.text = sender.displayName
         cell.detailTextLabel?.text = messageText
         if(sender.avatarURL != nil){
