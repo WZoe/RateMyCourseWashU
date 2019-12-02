@@ -1112,7 +1112,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFK-g2-5r0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFK-g2-5r0">
                                 <rect key="frame" x="30" y="488" width="354" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="R7J-vi-blR"/>
@@ -1942,6 +1942,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="SK2-2U-9Dr" firstAttribute="top" secondItem="vMe-9f-pya" secondAttribute="top" constant="5" id="2sM-tc-s0a"/>
                                             <constraint firstItem="SK2-2U-9Dr" firstAttribute="leading" secondItem="vMe-9f-pya" secondAttribute="leading" constant="5" id="FXC-Bd-0p0"/>
@@ -1969,7 +1970,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" verticalHuggingPriority="251" text="Choose New Profile Photo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovp-xb-53H">
-                                        <rect key="frame" x="55" y="10" width="232" height="30"/>
+                                        <rect key="frame" x="55" y="10" width="259" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Oz4-hq-Ixt"/>
                                         </constraints>
@@ -1977,9 +1978,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-NJ-ZNQ">
-                                        <rect key="frame" x="358" y="12" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-NJ-ZNQ">
+                                        <rect key="frame" x="364" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="G3X-ge-tOq"/>
+                                            <constraint firstAttribute="width" constant="30" id="i1i-3e-43T"/>
+                                        </constraints>
                                         <state key="normal" title="Set"/>
                                         <connections>
                                             <action selector="setPic:" destination="L1e-5L-9Y9" eventType="touchUpInside" id="phd-A2-Tms"/>
@@ -1992,7 +1996,10 @@
                                     <constraint firstAttribute="height" constant="50" id="6ZD-4p-kML"/>
                                     <constraint firstItem="OnJ-NT-bCt" firstAttribute="centerY" secondItem="7wa-J2-e6b" secondAttribute="centerY" id="ByX-c1-Lmg"/>
                                     <constraint firstItem="ovp-xb-53H" firstAttribute="leading" secondItem="OnJ-NT-bCt" secondAttribute="trailing" constant="10" id="CNO-o3-3XS"/>
+                                    <constraint firstItem="TMf-NJ-ZNQ" firstAttribute="centerY" secondItem="7wa-J2-e6b" secondAttribute="centerY" id="M9K-08-PgH"/>
                                     <constraint firstItem="OnJ-NT-bCt" firstAttribute="leading" secondItem="7wa-J2-e6b" secondAttribute="leading" constant="15" id="dxx-yf-Kzw"/>
+                                    <constraint firstAttribute="trailing" secondItem="TMf-NJ-ZNQ" secondAttribute="trailing" constant="20" id="hi9-dV-jdZ"/>
+                                    <constraint firstItem="TMf-NJ-ZNQ" firstAttribute="leading" secondItem="ovp-xb-53H" secondAttribute="trailing" constant="50" id="yki-XZ-fTO"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -82,7 +82,7 @@ class MyTakenCourseViewController: UIViewController,UICollectionViewDataSource, 
                                           name: j["proName"].stringValue,
                                           rating: j["rating"].doubleValue / 10,
                                           department:j["department"].stringValue)
-                        let course = Course(id: j["courseID"].stringValue,
+                        let course = Course(id: j["id"].stringValue,
                                             title: j["title"].stringValue,
                                             courseNumber: j["courseNumber"].stringValue,
                                             professor:p,
@@ -90,6 +90,7 @@ class MyTakenCourseViewController: UIViewController,UICollectionViewDataSource, 
                                             overallRating: j["rating"].doubleValue / 10)
                         self.courseList.append(course)
                     }
+                    print(self.courseList)
                     self.collectionView.reloadData()
         }
     }

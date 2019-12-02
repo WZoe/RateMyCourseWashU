@@ -92,8 +92,10 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPicCell", for: indexPath) as! MyPicCell
 //        cell.selectedLabel.text="selected"
 //        cell.selectedLabel.textColor = .red
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor.gray.cgColor
         selectedRow=String(indexPath.row)
-        cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+        //cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -101,7 +103,7 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
 //            cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
 //        }
 //    }
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 //        if let cell = collectionView.cellForItem(at: indexPath) {
 //            cell.contentView.backgroundColor = nil

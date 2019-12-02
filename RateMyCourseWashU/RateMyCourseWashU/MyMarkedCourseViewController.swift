@@ -82,7 +82,7 @@ class MyMarkedCourseViewController: UIViewController,UICollectionViewDataSource,
                                           name: j["proName"].stringValue,
                                           rating: j["rating"].doubleValue / 10,
                                           department:j["department"].stringValue)
-                        let course = Course(id: j["courseID"].stringValue,
+                        let course = Course(id: j["id"].stringValue,
                                             title: j["title"].stringValue,
                                             courseNumber: j["courseNumber"].stringValue,
                                             professor:p,
