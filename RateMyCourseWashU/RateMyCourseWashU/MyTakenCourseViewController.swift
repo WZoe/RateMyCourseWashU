@@ -90,7 +90,6 @@ class MyTakenCourseViewController: UIViewController,UICollectionViewDataSource, 
                                             overallRating: j["rating"].doubleValue / 10)
                         self.courseList.append(course)
                     }
-                    print(self.courseList)
                     self.collectionView.reloadData()
         }
     }

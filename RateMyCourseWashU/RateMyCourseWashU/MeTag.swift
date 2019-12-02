@@ -11,7 +11,7 @@ import Alamofire
 
 class MeTag: UIViewController {
     
-    var userimage:Int=0
+    var userimage:Int=1
     var username:String!
     var userid:String!
     var profNo:Int = 0

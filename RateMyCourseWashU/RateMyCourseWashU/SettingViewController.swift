@@ -34,7 +34,7 @@ class SettingViewController: UIViewController {
     
     
     
-    var userimage:Int=0
+    var userimage:Int=1
     var userid=(cache.object(forKey: "userid"))! as String
     
     //upload userimage to database

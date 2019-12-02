@@ -68,9 +68,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                             cache.setObject(userId as NSString, forKey: "userid")
                             cache.setObject(userImage as NSString, forKey: "userimage")
                             cache.setObject(self.userName.text! as NSString, forKey: "username")
-                            //cache.setObject(0 as NSString, forKey: "userimage")
-//                            let us=(cache.object(forKey: "userimage")as! NSString) as String
-//                            print(us)
+
                             self.loginMessage.text = "Log in successfully."
                             self.loginMessage.textColor=UIColor.darkGray
                             let seconds = 1.0
@@ -110,9 +108,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         cache.setObject(userId as NSString, forKey: "userid")
                         cache.setObject(userImage as NSString, forKey: "userimage")
                         cache.setObject(self.userName.text! as NSString, forKey: "username")
-                        //cache.setObject(0 as NSString, forKey: "userimage")
-//                        let us=(cache.object(forKey: "userimage")as! NSString) as String
-//                        print(us)
+
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0
@@ -146,12 +142,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         self.password.delegate=self
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.ddfdfddddhgfjhgf
-        // test info
-//        cache.setObject("testUser" as AnyObject, forKey: "username")
-//        cache.setObject("1" as AnyObject, forKey: "userid")
-//        cache.setObject("havefun" as AnyObject, forKey: "password")
-//        cache.setObject(0 as AnyObject, forKey: "userimage")
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

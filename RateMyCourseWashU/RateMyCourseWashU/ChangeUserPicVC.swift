@@ -17,7 +17,9 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var collectionview: UICollectionView!
 
     var selectedRow: String=""
+    var userimage:Int=1
     @IBOutlet weak var currentPic: UIImageView!
+
     
     
     @IBAction func setPic(_ sender: Any) {
@@ -91,28 +93,20 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPicCell", for: indexPath) as! MyPicCell
-//        cell.selectedLabel.text="selected"
-//        cell.selectedLabel.textColor = .red
+
         cell.layer.borderWidth = 2.0
         cell.layer.borderColor = UIColor.gray.cgColor
         selectedRow=String(indexPath.row)
-        //cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-//        if let cell = collectionView.cellForItem(at: indexPath) {
-//            cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-//        if let cell = collectionView.cellForItem(at: indexPath) {
-//            cell.contentView.backgroundColor = nil
-//        }
-//    }
 
     override func viewDidLoad() {
         setCollectionView()
+        if ((cache.object(forKey: "userimage")) != nil){
+            userimage=Int((cache.object(forKey: "userimage"))! as String)!
+        }
+        currentPic.image=UIImage(named: "face\(userimage)")
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

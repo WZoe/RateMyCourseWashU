@@ -18,7 +18,7 @@ class MyPicCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet{
             if self.isSelected {
-                print("selectedcell")
+                //print("selectedcell")
                 self.backgroundColor = UIColor.init(red: 148/255, green: 37/255, blue: 31/255, alpha: 1.0)
             }
             else {
