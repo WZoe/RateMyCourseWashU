@@ -18,7 +18,6 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
 
     
     func setCollectionView() {
-        //        collectionView.backgroundColor = #colorLiteral(red: 0, green: 0.4509990811, blue: 0.3774749637, alpha: 1)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true
@@ -80,7 +79,6 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
 
                         self.professorList.append(p)
                     }
-                    print(self.professorList)
                     self.collectionView.reloadData()
         }
     }

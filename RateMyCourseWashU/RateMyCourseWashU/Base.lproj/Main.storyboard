@@ -825,7 +825,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6r-WS-kIP">
                                 <rect key="frame" x="0.0" y="140" width="414" height="50"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face0" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-Hp-N5c">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face1" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-Hp-N5c">
                                         <rect key="frame" x="15" y="10" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="1Eo-U5-5bb"/>
@@ -1153,7 +1153,7 @@
             </objects>
             <point key="canvasLocation" x="3249" y="2932"/>
         </scene>
-        <!--Profeesors-->
+        <!--Professors-->
         <scene sceneID="dHJ-C7-oXI">
             <objects>
                 <viewController storyboardIdentifier="profcollection" id="qzt-4L-2Dw" customClass="ProfessorCollections" customModule="RateMyCourseWashU" customModuleProvider="target" sceneMemberID="viewController">
@@ -1251,7 +1251,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHC-EY-ZCa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profeesors" largeTitleDisplayMode="always" id="0ym-iF-zrx"/>
+                    <navigationItem key="navigationItem" title="Professors" largeTitleDisplayMode="always" id="0ym-iF-zrx"/>
                     <connections>
                         <outlet property="collectionView" destination="0bm-hF-gSj" id="7PI-hA-x3T"/>
                         <outlet property="depButton" destination="rn8-CL-y0m" id="K4K-f8-OFk"/>
@@ -2132,6 +2132,7 @@
         <image name="comment-black-oval-bubble-shape" width="21.333333969116211" height="21.333333969116211"/>
         <image name="correct-symbol" width="32" height="32"/>
         <image name="face0" width="48" height="48"/>
+        <image name="face1" width="48" height="48"/>
         <image name="info" width="100" height="100"/>
         <image name="magnifying-glass" width="21.333333969116211" height="21.333333969116211"/>
         <image name="pencil" width="66.666664123535156" height="66.666664123535156"/>
@@ -2143,7 +2144,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qIY-10-Crj"/>
-        <segue reference="JHs-lu-gDs"/>
+        <segue reference="YTW-Pn-J7u"/>
         <segue reference="3yR-4t-NPh"/>
         <segue reference="WYs-9I-vR4"/>
     </inferredMetricsTieBreakers>

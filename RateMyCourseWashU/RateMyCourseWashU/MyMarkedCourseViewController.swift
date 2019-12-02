@@ -18,7 +18,6 @@ class MyMarkedCourseViewController: UIViewController,UICollectionViewDataSource,
     @IBOutlet weak var collectionView: UICollectionView!
     
     func setCollectionView() {
-        //        collectionView.backgroundColor =
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsSelection = true
