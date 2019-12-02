@@ -12,6 +12,7 @@ class InfoViewController: UIViewController {
 
     @IBOutlet weak var functionLabel: UILabel!
     override func viewDidLoad() {
+        functionLabel.numberOfLines=0
         functionLabel.text="This app was developed by a group of students from 2019FL CSE438 class at WashU. We built this anonymous community for WashU students to get useful information about course registration from their peers and seniors. Hope you enjoy!"
         super.viewDidLoad()
 
