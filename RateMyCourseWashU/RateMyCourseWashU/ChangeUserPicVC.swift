@@ -12,7 +12,7 @@ import SwiftJWT
 
 class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    let picURL = ["https://img.icons8.com/emoji/96/000000/man-student.png", "https://img.icons8.com/emoji/96/000000/man-facepalming.png", "https://img.icons8.com/emoji/96/000000/raccoon.png", "https://img.icons8.com/emoji/96/000000/tropical-fish.png", "https://img.icons8.com/emoji/96/000000/turtle-emoji.png", "https://img.icons8.com/emoji/48/000000/cherry-blossom.png", "https://img.icons8.com/emoji/96/000000/woman-student.png", "https://img.icons8.com/emoji/96/000000/woman-facepalming.png", "https://img.icons8.com/emoji/96/000000/sparkling-heart.png" ]
+    let picURL = ["https://img.icons8.com/emoji/96/000000/man-facepalming.png", "https://img.icons8.com/emoji/96/000000/man-student.png", "https://img.icons8.com/emoji/96/000000/raccoon.png", "https://img.icons8.com/emoji/96/000000/tropical-fish.png", "https://img.icons8.com/emoji/96/000000/turtle-emoji.png", "https://img.icons8.com/emoji/48/000000/cherry-blossom.png", "https://img.icons8.com/emoji/96/000000/woman-student.png", "https://img.icons8.com/emoji/96/000000/woman-facepalming.png", "https://img.icons8.com/emoji/96/000000/sparkling-heart.png" ]
 
     @IBOutlet weak var collectionview: UICollectionView!
 
@@ -32,6 +32,7 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         }
         
         // update pusher avatar
+        let chatkitInfo = getChatkit(bundle: Bundle.main)
         let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)")
         var token = ""
         
