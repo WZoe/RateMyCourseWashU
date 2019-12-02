@@ -13,7 +13,6 @@ import Alamofire
 class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
 
     var contacts:[Contact] = []
     
@@ -29,6 +28,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.rowHeight = 70
         tableView.separatorStyle = .none
+        
     }
     
 
@@ -42,6 +42,7 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     */
     func getUserRooms(){
+        let chatkitInfo = getChatkit(bundle: Bundle.main)
         let url = URL(string: "\(ep)/users/\(chatkitInfo!.userId)/rooms")
         var results:[(String, String)] = []
         var token = ""
@@ -84,14 +85,16 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 for i in 0..<self.contacts.count {
                                     if self.contacts[i].id == user.id {
                                         flag = true
+//                                        print("updating contacts: \(self.contacts)")
                                         self.contacts[i] = user
+//                                        print("finished: \(self.contacts)")
                                         break
                                     }
                                 }
                                 if flag == false {
                                     self.contacts.append(user)
-                                    self.tableView.reloadData()
                                 }
+                                self.tableView.reloadData()
                             }
                         }
                     }

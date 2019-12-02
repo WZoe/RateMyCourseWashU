@@ -68,20 +68,20 @@ extension UITableViewCell {
 
 
 // APIs:
-let chatkitInfo = getChatkit(bundle: Bundle.main)
+
 let ep = "https://us1.pusherplatform.io/services/chatkit/v6/42106c7e-a9e7-4375-b4cc-77e586b4bd58"
 
-func generateToken() -> String {
-    var result = ""
-    AF.request(chatkitInfo!.tokenProviderEndpoint,
-                          method: .post,
-                          parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
-               encoder: JSONParameterEncoder.default).responseJSON { response in
-                            let json = JSON(response.data!)
-                result = json["access_token"].stringValue
-    }
-    return result
-}
+//func generateToken() -> String {
+//    var result = ""
+//    AF.request(chatkitInfo!.tokenProviderEndpoint,
+//                          method: .post,
+//                          parameters: ["grant_type":"client_credentials", "user_id":chatkitInfo!.userId],
+//               encoder: JSONParameterEncoder.default).responseJSON { response in
+//                            let json = JSON(response.data!)
+//                result = json["access_token"].stringValue
+//    }
+//    return result
+//}
 
 // avatar urls:
 // 0: <img src="https://img.icons8.com/emoji/96/000000/man-student.png">
