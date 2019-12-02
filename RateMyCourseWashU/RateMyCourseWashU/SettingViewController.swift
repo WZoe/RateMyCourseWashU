@@ -35,7 +35,7 @@ class SettingViewController: UIViewController {
     
     
     var userimage:Int=0
-    var userid=(cache.object(forKey: "userid")as! NSString) as String
+    var userid=(cache.object(forKey: "userid"))! as String
     
     //upload userimage to database
     @IBAction func resetPic(_ sender: Any) {
@@ -52,7 +52,8 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         if ((cache.object(forKey: "userimage")) != nil){
-            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+            userimage=Int((cache.object(forKey: "userimage"))! as String)!
+            
         }
         
         myPic.image=UIImage(named: "face\(userimage)")
@@ -63,7 +64,7 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if ((cache.object(forKey: "userimage")) != nil){
-            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+            userimage=Int((cache.object(forKey: "userimage"))! as String)!
         }
         
         myPic.image=UIImage(named: "face\(userimage)")

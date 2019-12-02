@@ -82,7 +82,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
         AF.request("http://52.170.3.234:3456/followCourse",
                    method: .post,
                    //done by zoe, 获取当前useID， 和courseID
-            parameters: ["userID":cache.object(forKey: "userid") as! String, "courseID":currentCourse?.id],
+            parameters: ["userID":cache.object(forKey: "userid") as String?, "courseID":currentCourse?.id],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 var json = JSON(response.data!)
@@ -103,7 +103,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
         AF.request("http://52.170.3.234:3456/takeCourse",
                    method: .post,
                    //done by zoe, 获取当前useID， 和courseID
-            parameters: ["userID":cache.object(forKey: "userid") as! String, "courseID":currentCourse?.id],
+            parameters: ["userID":cache.object(forKey: "userid") as String?, "courseID":currentCourse?.id],
             encoder: JSONParameterEncoder.default).responseJSON { response in
                 debugPrint(response)
                 var json = JSON(response.data!)
@@ -123,7 +123,7 @@ class CourseDetailVC: UIViewController, UICollectionViewDataSource, UICollection
         let rating  = Int((myrating.text! as NSString).doubleValue * 10)
         let parameters: [String: String] = [
             //done by zoe, 下列信息需要获取
-            "userID":cache.object(forKey: "userid") as! String,
+            "userID":cache.object(forKey: "userid")! as String,
             "courseID":currentCourse!.id,
             "comment": comment.text!,
             "rating": String(rating)// 这里获取的是十进制一位小数的string，例如5.6，10.0

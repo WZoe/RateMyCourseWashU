@@ -106,11 +106,11 @@ class MeTag: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.username=(cache.object(forKey: "username")as! NSString) as String
-        self.userid=(cache.object(forKey: "userid")as! NSString) as String
+        self.username=(cache.object(forKey: "username"))! as String
+        self.userid=(cache.object(forKey: "userid"))! as String
         self.userName.text=self.username
         if ((cache.object(forKey: "userimage")) != nil){
-            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+            userimage=Int((cache.object(forKey: "userimage"))! as String)!
         }
         self.userImage.image=images[userimage]
         AF.request("http://52.170.3.234:3456/count",
@@ -145,11 +145,11 @@ class MeTag: UIViewController {
         //userImageIndex=
         super.viewDidLoad()
         //TODO by shen,
-        self.username=(cache.object(forKey: "username")as! NSString) as String
-        self.userid=(cache.object(forKey: "userid")as! NSString) as String
+        self.username=(cache.object(forKey: "username"))! as String
+        self.userid=(cache.object(forKey: "userid"))! as String
         self.userName.text=self.username
         if ((cache.object(forKey: "userimage")) != nil){
-            userimage=Int((cache.object(forKey: "userimage")as! NSString) as String)!
+            userimage=Int((cache.object(forKey: "userimage"))! as String)!
             }
         self.userImage.image=images[userimage]
         AF.request("http://52.170.3.234:3456/count",

@@ -59,7 +59,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
         AF.request("http://52.170.3.234:3456/followProfessor",
                    method: .post,
                    //done by zoes, update  following parameter
-                   parameters: ["userID":cache.object(forKey: "userid") as! String, "proID":currentProf?.id],
+            parameters: ["userID":cache.object(forKey: "userid") as String?, "proID":currentProf?.id],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
                     var json = JSON(response.data!)
@@ -80,7 +80,7 @@ class ProfDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
         let rating  = Int((userR.text! as NSString).doubleValue * 10)
         let parameters: [String: String] = [
             //done by zoe, 下列信息需要获取
-            "userID":cache.object(forKey: "userid") as! String,
+            "userID":cache.object(forKey: "userid")! as String,
             "proID":currentProf!.id,
             "comment":comment.text!,
             "rating":String(rating) //一样的这里获取的是十进制

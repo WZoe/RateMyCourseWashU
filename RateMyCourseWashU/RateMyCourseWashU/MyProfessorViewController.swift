@@ -64,7 +64,7 @@ class MyProfessorViewController: UIViewController,UICollectionViewDataSource, UI
     
     // Todo: fetch professorList the user has liked
     func initProfList() {
-        let userid=(cache.object(forKey: "userid")as! NSString) as String
+        let userid=(cache.object(forKey: "userid"))! as String
         AF.request("http://52.170.3.234:3456/getFollowProfessor",
                    method: .post,
                    //Todo by shen, get userID here

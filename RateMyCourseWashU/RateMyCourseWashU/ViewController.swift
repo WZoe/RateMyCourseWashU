@@ -69,8 +69,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                             cache.setObject(userImage as NSString, forKey: "userimage")
                             cache.setObject(self.userName.text! as NSString, forKey: "username")
                             //cache.setObject(0 as NSString, forKey: "userimage")
-                            let us=(cache.object(forKey: "userimage")as! NSString) as String
-                            print(us)
+//                            let us=(cache.object(forKey: "userimage")as! NSString) as String
+//                            print(us)
                             self.loginMessage.text = "Log in successfully."
                             self.loginMessage.textColor=UIColor.darkGray
                             let seconds = 1.0
@@ -111,8 +111,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         cache.setObject(userImage as NSString, forKey: "userimage")
                         cache.setObject(self.userName.text! as NSString, forKey: "username")
                         //cache.setObject(0 as NSString, forKey: "userimage")
-                        let us=(cache.object(forKey: "userimage")as! NSString) as String
-                        print(us)
+//                        let us=(cache.object(forKey: "userimage")as! NSString) as String
+//                        print(us)
                         self.loginMessage.text = "Log in successfully."
                         self.loginMessage.textColor=UIColor.darkGray
                         let seconds = 1.0

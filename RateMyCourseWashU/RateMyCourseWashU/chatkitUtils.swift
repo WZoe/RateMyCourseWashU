@@ -25,7 +25,7 @@ func getChatkit(bundle: Bundle) -> (
         guard
             let instanceLocator = values["ChatkitInstanceLocator"] as? String,
             let tokenProviderEndpoint = values["ChatkitTokenProviderEndpoint"] as? String,
-            let userId = cache.object(forKey: "userid") as? String
+            let userId = cache.object(forKey: "userid") as String?
             else {
                 print("Chatkit.plist file at \(path) is missing 'ChatkitInstanceLocator', 'ChatkitTokenProviderEndpoint', 'ChatkitUserId', and/or 'ChatkitRoomId' entries!")
                 print("File currently has the following entries: \(values)")

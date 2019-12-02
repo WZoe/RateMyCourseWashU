@@ -25,7 +25,7 @@ class ChangeUserPicVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         cache.setObject(selectedRow as NSString, forKey: "userimage")
         AF.request("http://52.170.3.234:3456/setUserPic",
                    method: .post,
-                   parameters: ["userID":(cache.object(forKey: "userid")as! NSString) as String,
+                   parameters: ["userID":(cache.object(forKey: "userid"))! as String,
                                 "photoID":selectedRow],
                    encoder: JSONParameterEncoder.default).responseJSON { response in
                     debugPrint(response)
