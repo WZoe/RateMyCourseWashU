@@ -164,7 +164,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="AvatarPlaceholder" id="3V0-L0-VSB">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="face0" id="3V0-L0-VSB">
                                                     <rect key="frame" x="20" y="0.0" width="44" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -221,7 +221,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="AvatarPlaceholder" id="Yin-vO-yQ7">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="face0" id="Yin-vO-yQ7">
                                                     <rect key="frame" x="20" y="0.0" width="44" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -2123,7 +2123,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AvatarPlaceholder" width="350" height="350"/>
         <image name="RateMyCourse WashU Logo-trans" width="470" height="123"/>
         <image name="arrow-point-to-right" width="10.666666984558105" height="10.666666984558105"/>
         <image name="bubble" width="100" height="100"/>

@@ -72,7 +72,6 @@ class contactsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             
                         }
                         
-                        print(results)
                         var flag = false
                         for item in results {
                             let userurl = URL(string: "\(ep)/users/\(item.1)")
