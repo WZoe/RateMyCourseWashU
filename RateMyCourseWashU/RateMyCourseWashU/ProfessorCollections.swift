@@ -210,7 +210,6 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
     
     //TODO: search prof
     func searchProf(text: String) {
-        var flag = false
         AF.request("http://52.170.3.234:3456/searchProfessor",
                    method: .post,
                    parameters: ["keyword":text],
@@ -221,8 +220,6 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
                     case .success:
                         self.professorList.removeAll()
                         let json = JSON(response.data!)
-                        for (_, j):(String, JSON) in json{
-                            let json = JSON(response.data!)
                             for (_, j):(String, JSON) in json{
                                 let p = Professor(id: j["id"].stringValue,
                                                   name: j["name"].stringValue,
@@ -232,11 +229,10 @@ class ProfessorCollections: UIViewController, UICollectionViewDataSource, UIColl
 
                                     self.professorList.append(p)
                                 
-                                self.collectionView.reloadData()
                             }
-                        }
+                        self.collectionView.reloadData()
 
-                    case let .failure(_):
+                    case .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
         }

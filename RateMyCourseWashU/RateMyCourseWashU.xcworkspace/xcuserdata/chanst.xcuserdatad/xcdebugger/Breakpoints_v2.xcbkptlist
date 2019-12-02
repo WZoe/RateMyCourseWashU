@@ -10,45 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RateMyCourseWashU/ChangeUserPicVC.swift"
-            timestampString = "596925548.220361"
+            timestampString = "596928807.9308259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "setPic(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RateMyCourseWashU.ChangeUserPicVC.setPic(Any) -&gt; ()"
-                  moduleName = "RateMyCourseWashU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chanst/Desktop/RateMyCourseWashU/RateMyCourseWashU/RateMyCourseWashU/ChangeUserPicVC.swift"
-                  timestampString = "596925548.610409"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "1807">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in RateMyCourseWashU.ChangeUserPicVC.setPic(Any) -&gt; ()"
-                  moduleName = "RateMyCourseWashU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chanst/Desktop/RateMyCourseWashU/RateMyCourseWashU/RateMyCourseWashU/ChangeUserPicVC.swift"
-                  timestampString = "596925548.612842"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "27">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RateMyCourseWashU/ChangeUserPicVC.swift"
-            timestampString = "596925548.220422"
+            timestampString = "596928807.9309109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"

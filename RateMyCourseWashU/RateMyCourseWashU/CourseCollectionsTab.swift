@@ -126,7 +126,7 @@ class CourseCollectionsTab: UIViewController, UICollectionViewDataSource, UIColl
                             }
                             self.collectionView.reloadData()
                         }
-                    case let .failure(_):
+                    case .failure(_):
                         showBanner(superview: self.view, type: 2)
                     }
                     
